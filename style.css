@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap");
+* {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+}
+
+.destaque-sm {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+section {
+  padding: 40px 0;
+}
+
+h1, h2, h3{
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 1.25rem;
+}
+
+p{
+    color: #565973;
+    line-height: 1.8rem;
+}
+
+img{
+    width: 100%;
+}
+
+.btn{
+    padding: 10px 25px;
+    font-weight: bold;
+}
+
+/* navbar */
+.img-logo {
+  max-height: 70px;
+}
+
+/* intro */
+#intro {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  background: url("https://images.unsplash.com/photo-1525935944571-4e99237764c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80")
+    no-repeat center center/cover;
+  color: #fff;
+}
+
+/* nossos programas */
+
+#nossos-programas {
+  background: #d9d9d9;
+}
+
+#nossos-programas .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nossos-programas ul {
+  display: inline-flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* sobre */
+#sobre img{
+    border-radius: 10px;
+}
+
+/* porque ser um ibefiano */
+
+#porque-ser-ibefiano{
+    text-align: center;
+}
+
+#porque-ser-ibefiano ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+#porque-ser-ibefiano ul li{
+    max-width: 300px;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+/* DEMO */
+
+.demo-ball{
+    background: #e4e4e4;
+    width:70px;
+    height: 70px;
+    border-radius: 50%;
+    display: inherit;
+    margin: 0 auto 20px;
+}

@@ -3,157 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
     <title>IBEF ES</title>
   </head>
   <body>
     <header>
-      <nav>
-        <img src="" alt="Logo" />
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/D.E.M.O._Logo_2006.svg/800px-D.E.M.O._Logo_2006.svg.png"
+              alt="Logo"
+              class="img-logo"
+            />
+          </a>
 
-        <ul>
-          <li>Home</li>
-          <li>Sobre</li>
-          <li>Eventos</li>
-          <li>Mantenedores</li>
-          <li>Contato</li>
-          <li><button>Faça Parte</button></li>
-        </ul>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse flex-grow-0"
+            id="navbarSupportedContent"
+          >
+            <ul
+              class="navbar-nav me-auto mb-2 mb-lg-0 flex gap-3 align-items-center"
+            >
+              <li class="nav-item">Home</li>
+              <li class="nav-item">Sobre</li>
+              <li class="nav-item">Eventos</li>
+              <li class="nav-item">Mantenedores</li>
+              <li class="nav-item">Contato</li>
+              <li class="nav-item">
+                <a class="btn btn-outline-success">Faça Parte</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
-
-      <section id="intro">
-        <h1>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </h1>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
-        <a href="">Button</a>
-      </section>
     </header>
 
     <main>
+      <section id="intro">
+        <div class="container">
+          <div class="col-12 col-lg-7">
+            <h1>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </h1>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+            <a href="" class="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </section>
+
       <section id="nossos-programas">
-        <h2>Nossos programas</h2>
-        <ul>
-          <li>imagem 1</li>
-          <li>imagem 2</li>
-          <li>imagem 3</li>
-          <li>imagem 4</li>
-          <li>imagem 5</li>
-          <li>imagem 6</li>
-          <li>imagem 7</li>
-        </ul>
+        <div class="container">
+          <h2 class="destaque-sm">Nossos programas</h2>
+          <ul>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+            <li><img src="./assets/img/logoipsum.png" /></li>
+          </ul>
+        </div>
       </section>
 
       <section id="sobre">
-        <div>
-          <h2>Sobre o IBEF</h2>
-          <p>
-            Lorem Ipsum passages, and more recently with desktop publishing
-            software like Aldus PageMaker including versions of Lorem Ipsum.orem
-            Ipsum has been the industry's standard dummy text ever since the
-            1500s, when an unknown printer took a galley of type and scrambled
-            it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged. It was popularised in the 1960s with the
-            release of Letraset sheets containing Lorem Ipsum passages, and more
-            recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.
-          </p>
-          <a href="">More about us</a>
-        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-6 pe-4">
+              <h2>Sobre o IBEF</h2>
+              <p>
+                Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem
+                Ipsum.orem Ipsum has been the industry's standard dummy text
+                ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+              <a href="" class="btn btn-primary">More about us</a>
+            </div>
 
-        <img src="" alt="About us" />
+            <div class="col-12 col-lg-6">
+              <img
+                src="https://images.unsplash.com/photo-1694371390016-4e63941aec13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="About us"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="porque-ser-ibefiano">
-        <h2>Por que ser um Ibefiano</h2>
-        <ul>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="" alt="foto ibefiano" />
-              <h3>Lorem Ipsum</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="container">
+          <h2>Por que ser um Ibefiano</h2>
+          <ul>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="demo-ball"></span>
+                <h3>Lorem Ipsum</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </li>
+          </ul>
 
-        <a href="#">Faça parte</a>
+          <a href="#" class="btn btn-primary">Faça parte</a>
+        </div>
       </section>
 
       <section id="proximos-eventos">
@@ -162,7 +221,6 @@
         <ul>
           <li>
             <div>
-              <img src="" alt="Foto do Evento" />
               <div>
                 <span id="tag">Tag do evento</span>
                 <span id="data">21 de agosto de 2023</span>
@@ -393,8 +451,6 @@
       </section>
     </main>
 
-    <footer>
-        IBEF 2023
-    </footer>
+    <footer>IBEF 2023</footer>
   </body>
 </html>
