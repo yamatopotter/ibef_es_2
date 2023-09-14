@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap");
+* {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+}
+
+.destaque-sm {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+section {
+  padding: 40px 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: #565973;
+  line-height: 1.8rem;
+}
+
+img {
+  width: 100%;
+}
+
+.btn {
+  padding: 10px 25px;
+  font-weight: bold;
+}
+
+/* navbar */
+.img-logo {
+  max-height: 70px;
+}
+
+/* intro */
+#intro {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  background: url("https://images.unsplash.com/photo-1525935944571-4e99237764c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80")
+    no-repeat center center/cover;
+  color: #fff;
+}
+
+/* nossos programas */
+
+#nossos-programas {
+  background: #d9d9d9;
+}
+
+#nossos-programas .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nossos-programas ul {
+  display: inline-flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* sobre */
+#sobre img {
+  border-radius: 10px;
+}
+
+/* porque ser um ibefiano */
+
+#porque-ser-ibefiano {
+  text-align: center;
+  ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    flex-wrap: wrap;
+
+    li {
+      max-width: 300px;
+      align-items: center;
+    }
+  }
+}
+
+// Próximos eventos
+
+#proximos-eventos {
+  // .swiper-button-next {
+  //   right: 0;
+  // }
+
+  // .swiper-button-prev {
+  //   left: 0;
+  // }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after{
+    font-size: 16px;
+    padding: 0 10px;
+    height: 30px;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
+
+  .slider-container {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .slider-content {
+    max-width: 1120px;
+    width: 100%;
+    margin: 0 40px;
+    overflow: hidden;
+  }
+
+  .card-slider {
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      .category {
+        font-size: 0.85rem;
+        padding: 5px;
+        background-color: #eff2fc;
+        width: fit-content;
+        border-radius: 5px;
+      }
+
+      .date {
+        font-size: 0.85rem;
+        text-align: right;
+      }
+
+      h2 {
+        font-size: 1.125rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      hr {
+        margin: 20px 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .location {
+        font-weight: bold;
+        color: #000;
+      }
+
+      .address {
+        font-size: 0.85rem;
+      }
+    }
+    .image-content {
+      width: 100%;
+      height: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px 10px 0 0;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* DEMO */
+
+.demo-ball {
+  background: #e4e4e4;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inherit;
+  margin: 0 auto 20px;
+}
