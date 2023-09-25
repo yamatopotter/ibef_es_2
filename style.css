@@ -381,4 +381,13 @@ footer .contatos .endereco::before {
 }
 #programas .subtitle {
   margin-bottom: 40px;
+}
+
+.como-funciona .card {
+  padding: 20px;
+}
+.como-funciona .card-icon img {
+  width: 50px;
+  margin: 0 auto 20px;
+  display: block;
 }/*# sourceMappingURL=style.css.map */
