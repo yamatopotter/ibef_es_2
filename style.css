@@ -114,6 +114,13 @@ img {
      object-fit: cover;
 }
 
+#intro-sub {
+  height: 40vh;
+  background-color: #d4d7e5;
+  display: flex;
+  align-items: center;
+}
+
 /* navbar */
 .img-logo {
   max-height: 70px;
@@ -219,15 +226,15 @@ img {
   width: 100%;
   gap: 10px;
 }
+#ultimas-noticias .card-img {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 #ultimas-noticias .card-content {
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-#ultimas-noticias .card-img {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 #ultimas-noticias .card-data {
   display: flex;
@@ -327,4 +334,51 @@ footer .contatos .endereco::before {
   width: 20px;
   height: 20px;
   display: block;
+}
+
+.about-block img,
+.program-block img {
+  border-radius: 10px;
+}
+
+.quadro-diretoria ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.quadro-diretoria ul .card {
+  border: 0;
+}
+.quadro-diretoria ul img {
+  width: 300px;
+  border-radius: 10px;
+}
+.quadro-diretoria ul p {
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+}
+.quadro-diretoria ul span {
+  font-size: 0.85rem;
+  color: #232323;
+}
+
+#eventos .card-img {
+  height: 200px;
+  border-radius: 5px 5px 0 0;
+}
+#eventos .card-slider {
+  margin-bottom: 20px;
+}
+
+#programas .program-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+#programas .subtitle {
+  margin-bottom: 40px;
 }/*# sourceMappingURL=style.css.map */
