@@ -411,4 +411,11 @@ footer .contatos .endereco::before {
 }
 #galerias-wrapper div {
   margin-bottom: 10px;
+}
+
+#documentos ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
 }/*# sourceMappingURL=style.css.map */
