@@ -453,11 +453,41 @@ footer {
   .card{
     padding: 20px
   }
+  .card-img{
+    img{
+      width: 100%;
+      border-radius: 5px 5px 0 0;
+    }
+  }
   .card-icon{
     img{
       width:50px;
       margin: 0 auto 20px;
       display: block;
     }
+  }
+}
+
+#beneficios{
+  .card{
+    text-align: center;
+  }
+  .card-img{
+    img{
+      width: 100%;
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+#galerias-wrapper{
+  .card-img{
+    height: 200px;
+    border-radius: 5px 5px 0 0;
+  }
+
+  div{
+    margin-bottom: 10px;
   }
 }
