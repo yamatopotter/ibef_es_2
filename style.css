@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,600;1,9..40,700&display=swap");
 * {
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
@@ -16,8 +16,8 @@ section {
 h1,
 h2,
 h3 {
-  font-weight: 800;
   margin-bottom: 20px;
+  color: #2e9ae9;
 }
 
 h3 {
@@ -36,6 +36,56 @@ img {
 .btn {
   padding: 10px 25px;
   font-weight: bold;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  border-radius: 0;
+  background-color: #002060;
+  border-color: #002060;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #2e9ae9;
+  border-color: #2e9ae9;
+}
+
+.btn-primary-outline {
+  background-color: #fff;
+  color: #002060;
+  border-radius: 0;
+  border-color: #002060;
+}
+
+.btn-primary-outline:hover,
+.btn-primary-outline:active {
+  border-color: #2e9ae9;
+  color: #2e9ae9;
+}
+
+a {
+  color: #2e9ae9;
+}
+
+a:hover,
+a:active {
+  color: #002060;
 }
 
 .swiper-button-next::after,

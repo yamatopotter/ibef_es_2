@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,600;1,9..40,700&display=swap");
 
 * {
   font-family: "DM Sans", sans-serif;
@@ -17,8 +17,8 @@ section {
 h1,
 h2,
 h3 {
-  font-weight: 800;
   margin-bottom: 20px;
+  color: #2e9ae9;
 }
 
 h3 {
@@ -37,6 +37,58 @@ img {
 .btn {
   padding: 10px 25px;
   font-weight: bold;
+}
+
+// Design System
+
+h1 {
+  font-size: 6rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  border-radius: 0;
+  background-color: #002060;
+  border-color: #002060;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #2e9ae9;
+  border-color: #2e9ae9;
+}
+
+.btn-primary-outline {
+  background-color: #fff;
+  color: #002060;
+  border-radius: 0;
+  border-color: #002060;
+}
+
+.btn-primary-outline:hover,
+.btn-primary-outline:active {
+  border-color: #2e9ae9;
+  color: #2e9ae9;
+}
+
+a {
+  color: #2e9ae9;
+}
+
+a:hover,
+a:active {
+  color: #002060;
 }
 
 // Slider
@@ -450,54 +502,54 @@ footer {
   }
 }
 
-.como-funciona{
-  .card{
-    padding: 20px
+.como-funciona {
+  .card {
+    padding: 20px;
   }
-  .card-img{
-    img{
+  .card-img {
+    img {
       width: 100%;
       border-radius: 5px 5px 0 0;
     }
   }
-  .card-icon{
-    img{
-      width:50px;
+  .card-icon {
+    img {
+      width: 50px;
       margin: 0 auto 20px;
       display: block;
     }
   }
 }
 
-#beneficios{
-  .card{
+#beneficios {
+  .card {
     text-align: center;
   }
-  .card-img{
-    img{
+  .card-img {
+    img {
       width: 100%;
       border-radius: 5px 5px 0 0;
       margin-bottom: 10px;
     }
   }
-} 
+}
 
-#galerias-wrapper{
-  .card-img{
+#galerias-wrapper {
+  .card-img {
     height: 200px;
     border-radius: 5px 5px 0 0;
   }
 
-  div{
+  div {
     margin-bottom: 10px;
   }
 }
 
-#documentos{
-  ul{
+#documentos {
+  ul {
     display: flex;
     flex-wrap: wrap;
-    gap:10px;
+    gap: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
