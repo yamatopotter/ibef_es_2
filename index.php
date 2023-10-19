@@ -56,7 +56,7 @@
 
   <section id="porque-ser-ibefiano">
     <div class="container">
-      <h2>Por que ser um Ibefiano</h2>
+      <h2><?= get_theme_mod("title_porque_ser_ibefiano", "Porque ser um IBEFiano"); ?></h2>
       <ul>
         <li>
           <div>
@@ -140,15 +140,19 @@
         </li>
       </ul>
 
-      <a href="#" class="btn btn-primary">Faça parte</a>
+      <?php if (!empty(get_theme_mod("link_btn_porque_ser_ibefiano"))) : ?>
+        <a href="<?= get_theme_mod("link_btn_porque_ser_ibefiano") ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_porque_ser_ibefiano") ?></a>
+      <?php endif; ?>
     </div>
   </section>
 
   <section id="proximos-eventos">
     <div class="container">
       <div class="d-flex justify-content-center mt-4">
-        <h2>Próximos eventos</h2>
+        <h2><?= get_theme_mod("title_proximos_eventos", "Próximos eventos"); ?></h2>
       </div>
+
+      <!-- Montar query com os próximos eventos -->
 
       <div class="swiper slider-eventos slider-container">
         <div class="slider-content">
@@ -235,8 +239,9 @@
         <div class="swiper-pagination"></div>
       </div>
 
+      <?php if (!empty(get_theme_mod("link_btn_proximos_eventos"))) : ?>
       <div class="d-flex justify-content-center mt-4">
-        <a href="#" class="btn btn-primary">Participe</a>
+        <a href="<?= get_theme_mod("link_btn_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_proximos_eventos", "Participe"); ?></a>
       </div>
     </div>
   </section>
@@ -245,7 +250,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-2">
-          <h2>Nossos Ibefianos</h2>
+          <h2><?= get_theme_mod("title_proximos_eventos", "Nossos Ibefianos"); ?></h2>
         </div>
 
         <div class="col-12 col-lg-10">
