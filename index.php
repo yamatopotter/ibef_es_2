@@ -240,9 +240,10 @@
       </div>
 
       <?php if (!empty(get_theme_mod("link_btn_proximos_eventos"))) : ?>
-      <div class="d-flex justify-content-center mt-4">
-        <a href="<?= get_theme_mod("link_btn_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_proximos_eventos", "Participe"); ?></a>
-      </div>
+        <div class="d-flex justify-content-center mt-4">
+          <a href="<?= get_theme_mod("link_btn_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_proximos_eventos", "Participe"); ?></a>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -250,9 +251,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-2">
-          <h2><?= get_theme_mod("title_proximos_eventos", "Nossos Ibefianos"); ?></h2>
+          <h2><?= get_theme_mod("title_nossos_ibefianos", "Nossos Ibefianos"); ?></h2>
         </div>
 
+        <!-- Montar um repeater para adicionar esses campos de repetição -->
         <div class="col-12 col-lg-10">
           <div class="swiper slider-eventos slider-container">
             <div class="slider-content">
@@ -313,9 +315,11 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center mt-4">
-        <a href="#" class="btn btn-primary">Participe</a>
-      </div>
+      <?php if (!empty(get_theme_mod("link_btn_nossos_ibefianos"))) : ?>
+        <div class="d-flex justify-content-center mt-4">
+          <a href="<?= get_theme_mod("link_btn_nossos_ibefianos"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_nossos_ibefianos"); ?></a>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -323,9 +327,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2>Últimas noticias</h2>
+          <h2><?= get_theme_mod("title_ultimas_noticias", "Últimas notícias"); ?></h2>
         </div>
 
+        <!-- Adicionar uma query com repeater para pegar as ultimas 4 noticias -->
         <div class="col-12 col-lg-3 col-md-6">
           <div class="card">
             <div class="card-img">
@@ -413,13 +418,15 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-3">
-          <h2>Escute nosso podcast</h2>
+          <h2><?= get_theme_mod("title_podcast", "Escute nosso podcast"); ?></h2>
 
-          <a class="btn btn-primary">Todos os podcasts</a>
+          <?php if (!empty(get_theme_mod("link_btn_podcast"))) : ?>
+            <a href="<?= get_theme_mod("link_btn_podcast"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_podcast", "Todos os podcasts "); ?></a>
+          <?php endif; ?>
         </div>
 
         <div class="col-12 col-lg-9">
-          <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/show/7sFWNMstbNVg9gXsgKqtvw?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <?= get_theme_mod("embedded_podcast"); ?>
         </div>
       </div>
     </div>
@@ -429,15 +436,13 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2>Mantenedores</h2>
+          <h2><?= get_theme_mod("title_mantenedores", "Mantenedores"); ?></h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-            volutpat mollis egestas. Nam luctus facilisis ultrices.
-            Pellentesque volutpat ligula est. Mattis fermentum, at nec
-            lacus.
+            <?= get_theme_mod("text_mantenedores"); ?>
           </p>
         </div>
 
+        <!-- Adicionar uma query e um loop com os mantenedores registrados -->
         <div class="col-12">
           <ul class="list-mantenedores">
             <li>
@@ -481,9 +486,11 @@
           </ul>
         </div>
 
-        <div class="col-12 d-flex justify-content-center">
-          <a href="#" class="btn btn-primary">Seja um mantenedor</a>
-        </div>
+        <?php if (!empty(get_theme_mod("link_btn_mantenedor"))) : ?>
+          <div class="col-12 d-flex justify-content-center">
+            <a href="<?= get_theme_mod("link_btn_mantenedor") ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_mantenedor", "Seja um mantenedor") ?></a>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
@@ -514,43 +521,5 @@
         </div>
       </div>
     </div>
-
-    <form></form>
   </section>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-6 sobre">
-        <img src="./assets/img/logoipsum.png" alt="" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
-          eligendi hic placeat cumque aliquam a eaque voluptates dolor
-          assumenda id. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Itaque, quasi?
-        </p>
-      </div>
-
-      <div class="col-12 col-lg-6">
-        <h1>Entre em contato</h1>
-        <ul class="contatos">
-          <li class="telefone">21 99999-9999 | 99999-9999</li>
-          <li class="email">contato@ibefes.org.br</li>
-          <li class="endereco">
-            HUB Fucape - Av. Fernando Ferrari, 1358 - Boa Vista, Vitória -
-            ES, 29075-505
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-12">
-        <p>Todos os direitos reservados ao IBEF ES - 2023</p>
-      </div>
-    </div>
-  </div>
-</footer>
-<script src="./assets/js/main.js"></script>
-</body>
-
-</html>
