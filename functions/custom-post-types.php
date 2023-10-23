@@ -207,12 +207,14 @@ function register_post_types(){
         'menu_icon' => 'dashicons-calendar-alt',
         'public_queryable' => true,
         'hierarchical' => true,
+        'taxonomies' => array('eventos_category'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'eventos'),
         'show_in_nav_menus' => true,
         'show_in_rest' => true,
         'query_var' => true,
         'can_export' => true,
+        'capability_type' => 'post',
         'supports' => array(
             'title', 'editor', 'thumbnail', 'custom-fields'
         )
@@ -1091,4 +1093,38 @@ function diretor_category() {
 
 }
 add_action( 'init', 'diretor_category' );
+
+// -----------------------------Categoria para os tipos de convênios ----------------------
+function eventos_category()
+{
+    $labels = array(
+        'name'              => _x('Categoria', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Categoria', 'taxonomy singular name', 'textdomain'),
+        'search_items'      => __('Procurar', 'textdomain'),
+        'all_items'         => __('Todas as categorias', 'textdomain'),
+        'parent_item'       => __('Categoria superior', 'textdomain'),
+        'parent_item_colon' => __('Categoria superior:', 'textdomain'),
+        'edit_item'         => __('Editar categoria', 'textdomain'),
+        'update_item'       => __('Atualizar categoria', 'textdomain'),
+        'add_new_item'      => __('Adicionar categoria', 'textdomain'),
+        'new_item_name'     => __('Nova categoria', 'textdomain'),
+        'menu_name'         => __('Categoria', 'textdomain'),
+    );
+    $args = array(
+        'labels' => $labels,
+        'description' => __('Categoria', 'textdomain'),
+        'hierarchical' => true,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud' => true,
+        'show_in_quick_edit' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+    );
+    register_taxonomy('evento', array('eventos'), $args);
+}
+add_action('init', 'eventos_category');
 ?>
