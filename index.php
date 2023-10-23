@@ -1,16 +1,32 @@
-<?php get_header(); ?>
+<?php
+get_header();
+$today = date('Y-m-d');
+
+$events_query = new WP_Query(array(
+  'post_type' => 'eventos',
+  'orderby' => '_event_date',
+  'meta_key' => '_event_date',
+  'meta_query' => array(
+    'key' => '_event_date',
+    'value' => $today,
+    'compare' => '>='
+  ),
+  'order' => 'ASC',
+  'posts_per_page' => 3
+));
+?>
 <main>
   <section id="intro">
     <div class="container">
       <div class="col-12 col-lg-7">
         <h1>
-          <?= get_theme_mod("title_intro"); ?>
+          <?= get_theme_mod("titulo_intro"); ?>
         </h1>
         <p>
-          <?= get_theme_mod("text_intro"); ?>
+          <?= get_theme_mod("texto_intro"); ?>
         </p>
-        <?php if (!empty(get_theme_mod("link_btn_intro"))) : ?>
-          <a href="<?= get_theme_mod("link_btn_intro") ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_intro"); ?></a>
+        <?php if (get_theme_mod("exibir_botao_intro")) : ?>
+          <a href="<?= get_theme_mod("link_botao_intro") ?>" class="btn btn-primary"><?= get_theme_mod("texto_botao_intro"); ?></a>
         <?php endif; ?>
       </div>
     </div>
@@ -18,7 +34,7 @@
 
   <section id="nossos-programas">
     <div class="container">
-      <h2 class="destaque-sm"><?= get_theme_mod("title_nossos_programas", "Nossos Programas") ?></h2>
+      <h2 class="destaque-sm"><?= get_theme_mod("titulo_nossos_programas", "Nossos Programas") ?></h2>
       <!-- Uma query para pesquisar todos os programas e colocar as imagens em destaque dos titulos dos programas? -->
       <ul>
         <li><img src="./assets/img/logoipsum.png" /></li>
@@ -36,18 +52,18 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-6 pe-4">
-          <h2><?= get_theme_mod("title_sobre_ibef", "Sobre o IBEF"); ?></h2>
+          <h2><?= get_theme_mod("titulo_sobre_nos", "Sobre o IBEF"); ?></h2>
           <p>
-            <?= get_theme_mod("text_sobre_ibef"); ?>
+            <?= get_theme_mod("texto_sobre_nos"); ?>
           </p>
-          <?php if (!empty(get_theme_mod("link_btn_sobre"))) : ?>
-            <a href="<?= get_theme_mod("link_btn_sobre") ?>" class="btn btn-primary mt-4"><?= get_theme_mod("text_btn_intro"); ?></a>
+          <?php if (get_theme_mod("exibir_botao_sobre")) : ?>
+            <a href="<?= get_theme_mod("pagina_sobre_nos") ?>" class="btn btn-primary mt-4"><?= get_theme_mod("texto_botao_sobre"); ?></a>
           <?php endif; ?>
         </div>
 
         <div class="col-12 col-lg-6">
-          <?php if (!empty(get_theme_mod("img_sobre"))) : ?>
-            <img src="<?= get_theme_mod("img_sobre") ?>" alt="About us" />
+          <?php if (!empty(get_theme_mod("img_sobre_nos"))) : ?>
+            <img src="<?= get_theme_mod("img_sobre_nos") ?>" alt="About us" />
           <?php endif; ?>
         </div>
       </div>
@@ -56,92 +72,33 @@
 
   <section id="porque-ser-ibefiano">
     <div class="container">
-      <h2><?= get_theme_mod("title_porque_ser_ibefiano", "Porque ser um IBEFiano"); ?></h2>
+      <h2><?= get_theme_mod("titulo_porque_ser_ibefiano", "Porque ser um IBEFiano") ?></h2>
+
       <ul>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span class="demo-ball"></span>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
-            </p>
-          </div>
-        </li>
+        <?php
+        $repeater = get_theme_mod('customizer_repeater_porque_ser_ibefiano', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+        /*This returns a json so we have to decode it*/
+        $repeater_decoded = json_decode($repeater);
+        foreach ($repeater_decoded as $repeater_item) : ?>
+
+          <li>
+            <div>
+              <span class="img-ibefiano" style="background: url(<?= $repeater_item->image_url; ?>) no-repeat center center/cover"></span>
+              <h3><?= $repeater_item->title; ?></h3>
+              <p>
+                <?= $repeater_item->text; ?>
+              </p>
+            </div>
+          </li>
+
+        <?php
+        endforeach;
+        ?>
+
       </ul>
 
       <?php if (!empty(get_theme_mod("link_btn_porque_ser_ibefiano"))) : ?>
-        <a href="<?= get_theme_mod("link_btn_porque_ser_ibefiano") ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_porque_ser_ibefiano") ?></a>
+        <a href="<?= get_theme_mod("link_btn_porque_ser_ibefiano") ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_porque_ser_ibefiano") ?></a>
       <?php endif; ?>
     </div>
   </section>
@@ -149,70 +106,50 @@
   <section id="proximos-eventos">
     <div class="container">
       <div class="d-flex justify-content-center mt-4">
-        <h2><?= get_theme_mod("title_proximos_eventos", "Próximos eventos"); ?></h2>
+        <h2><?= get_theme_mod("titulo_proximos_eventos", "Próximos eventos") ?></h2>
       </div>
-
-      <!-- Montar query com os próximos eventos -->
 
       <div class="swiper slider-eventos slider-container">
         <div class="slider-content">
           <div class="card-slider-wrapper swiper-wrapper">
-            <div class="card-slider swiper-slide">
-              <div class="image-content">
-                <img src="./assets/img/slider.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card-content">
-                <div class="d-flex align-items-center mb-2">
-                  <div class="col-12 category">Categoria</div>
 
-                  <div class="col date">22 de junho de 2023</div>
-                </div>
-                <h2 class="title">Card title</h2>
-                <hr />
-                <div class="d-flex flex-column">
-                  <p class="location">Location</p>
-                  <p class="address">Location</p>
-                </div>
-              </div>
-            </div>
+            <?php
+            $events_reverse = array_reverse($events_query->posts);
+            $events_query->posts = $events_reverse;
+            while ($events_query->have_posts()) : $events_query->the_post();
+              $postId = $events_query->post->ID ?>
+              <div class="col-12 col-lg-4 d-flex align-items-strech">
 
-            <div class="card-slider swiper-slide">
-              <div class="image-content">
-                <img src="./assets/img/slider.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card-content">
-                <div class="d-flex align-items-center mb-2">
-                  <div class="col-12 category">Categoria</div>
+                <article class="card">
+                  <div class="calendar">
+                    <?php
+                    $date = date("d-m-Y");
+                    $dateEvent = returnFullDateEvent($postId);
+                    if (strtotime($date) > strtotime($dateEvent)) :
+                    ?>
+                      <span class="day past-event">
+                      <?php else : ?>
+                        <span class="day">
+                        <?php endif; ?>
+                        <?php echo returnDateEvent($postId) ?>
+                        </span>
+                        <span class="month"><?php echo returnMonthEvent($postId) ?></span>
+                  </div>
 
-                  <div class="col date">22 de junho de 2023</div>
-                </div>
-                <h2 class="title">Card title</h2>
-                <hr />
-                <div class="d-flex flex-column">
-                  <p class="location">Location</p>
-                  <p class="address">Location</p>
-                </div>
-              </div>
-            </div>
+                  <?php if (get_the_thumbnail()) : ?>
+                    <a href="<?php the_permalink(); ?>" target="_self">
+                      <img class="news-pic" src="<?php the_thumbnail('medium-rectangle') ?>">
+                    </a>
+                  <?php endif ?>
+                  <h1><?php the_title(); ?></h1>
+                  <a href="<?php the_permalink(); ?>" class="btn link">Ver Mais <i class="bi bi-arrow-right"></i></a>
+                </article>
 
-            <div class="card-slider swiper-slide">
-              <div class="image-content">
-                <img src="./assets/img/slider.jpg" class="card-img-top" alt="..." />
               </div>
-              <div class="card-content">
-                <div class="d-flex align-items-center mb-2">
-                  <div class="col-12 category">Categoria</div>
+            <?php endwhile; ?>
 
-                  <div class="col date">22 de junho de 2023</div>
-                </div>
-                <h2 class="title">Card title</h2>
-                <hr />
-                <div class="d-flex flex-column">
-                  <p class="location">Location</p>
-                  <p class="address">Location</p>
-                </div>
-              </div>
-            </div>
+            <!-- Montar query com os próximos eventos -->
+
 
             <div class="card-slider swiper-slide">
               <div class="image-content">
@@ -224,7 +161,7 @@
 
                   <div class="col date">22 de junho de 2023</div>
                 </div>
-                <h2 class="title">Card title</h2>
+                <h2 class="titulo">Card titulo</h2>
                 <hr />
                 <div class="d-flex flex-column">
                   <p class="location">Location</p>
@@ -241,7 +178,7 @@
 
       <?php if (!empty(get_theme_mod("link_btn_proximos_eventos"))) : ?>
         <div class="d-flex justify-content-center mt-4">
-          <a href="<?= get_theme_mod("link_btn_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_proximos_eventos", "Participe"); ?></a>
+          <a href="<?= get_theme_mod("link_btn_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_proximos_eventos", "Participe"); ?></a>
         </div>
       <?php endif; ?>
     </div>
@@ -251,7 +188,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-2">
-          <h2><?= get_theme_mod("title_nossos_ibefianos", "Nossos Ibefianos"); ?></h2>
+          <h2><?= get_theme_mod("titulo_nossos_ibefianos", "Nossos Ibefianos"); ?></h2>
         </div>
 
         <!-- Montar um repeater para adicionar esses campos de repetição -->
@@ -317,7 +254,7 @@
 
       <?php if (!empty(get_theme_mod("link_btn_nossos_ibefianos"))) : ?>
         <div class="d-flex justify-content-center mt-4">
-          <a href="<?= get_theme_mod("link_btn_nossos_ibefianos"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_nossos_ibefianos"); ?></a>
+          <a href="<?= get_theme_mod("link_btn_nossos_ibefianos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_nossos_ibefianos"); ?></a>
         </div>
       <?php endif; ?>
     </div>
@@ -326,8 +263,8 @@
   <section id="ultimas-noticias">
     <div class="container">
       <div class="row">
-        <div class="col-12 text-center">
-          <h2><?= get_theme_mod("title_ultimas_noticias", "Últimas notícias"); ?></h2>
+        <div class="col-12 texto-center">
+          <h2><?= get_theme_mod("titulo_ultimas_noticias", "Últimas notícias"); ?></h2>
         </div>
 
         <!-- Adicionar uma query com repeater para pegar as ultimas 4 noticias -->
@@ -341,7 +278,7 @@
                 <span class="card-category">topico</span>
                 <span class="card-date">25, maio de 2023</span>
               </div>
-              <h3 class="title">Titulo da publicação</h3>
+              <h3 class="titulo">Titulo da publicação</h3>
               <hr />
               <div class="card-author">
                 <img src="./assets/img/avatar.png" alt="foto do autor" />
@@ -418,10 +355,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-3">
-          <h2><?= get_theme_mod("title_podcast", "Escute nosso podcast"); ?></h2>
+          <h2><?= get_theme_mod("titulo_podcast", "Escute nosso podcast"); ?></h2>
 
           <?php if (!empty(get_theme_mod("link_btn_podcast"))) : ?>
-            <a href="<?= get_theme_mod("link_btn_podcast"); ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_podcast", "Todos os podcasts "); ?></a>
+            <a href="<?= get_theme_mod("link_btn_podcast"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_podcast", "Todos os podcasts "); ?></a>
           <?php endif; ?>
         </div>
 
@@ -435,10 +372,10 @@
   <section id="mantenedores">
     <div class="container">
       <div class="row">
-        <div class="col-12 text-center">
-          <h2><?= get_theme_mod("title_mantenedores", "Mantenedores"); ?></h2>
+        <div class="col-12 texto-center">
+          <h2><?= get_theme_mod("titulo_mantenedores", "Mantenedores"); ?></h2>
           <p>
-            <?= get_theme_mod("text_mantenedores"); ?>
+            <?= get_theme_mod("texto_mantenedores"); ?>
           </p>
         </div>
 
@@ -488,7 +425,7 @@
 
         <?php if (!empty(get_theme_mod("link_btn_mantenedor"))) : ?>
           <div class="col-12 d-flex justify-content-center">
-            <a href="<?= get_theme_mod("link_btn_mantenedor") ?>" class="btn btn-primary"><?= get_theme_mod("text_btn_mantenedor", "Seja um mantenedor") ?></a>
+            <a href="<?= get_theme_mod("link_btn_mantenedor") ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_mantenedor", "Seja um mantenedor") ?></a>
           </div>
         <?php endif; ?>
       </div>
@@ -498,7 +435,7 @@
   <section id="newsletter">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 text-center">
+        <div class="col-12 texto-center">
           <h2>Fique ligado no que acontece no IBEF</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
@@ -511,12 +448,12 @@
         <div class="col-12 col-lg-6 mt-4">
           <form action="">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" placeholder="Seu melhor email" />
+              <input type="texto" class="form-control" placeholder="" aria-label="Example texto with button addon" aria-describedby="button-addon1" placeholder="Seu melhor email" />
               <button class="btn btn-primary" type="button" id="button-addon1">
                 Button
               </button>
             </div>
-            <p class="text-center">Lorem ipsum dolor sit amet.</p>
+            <p class="texto-center">Lorem ipsum dolor sit amet.</p>
           </form>
         </div>
       </div>

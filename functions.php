@@ -1,5 +1,7 @@
 <?php
 
+require_once('customizer-repeater/functions.php');
+require_once('customizer-repeater/inc/customizer.php');
 require_once("functions/custom-controls.php");
 require_once("functions/custom-post-types.php");
 require_once('functions/custom-theme.php');

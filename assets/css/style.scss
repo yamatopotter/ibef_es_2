@@ -197,8 +197,7 @@ a:active {
   height: 80vh;
   display: flex;
   align-items: center;
-  background: url("https://images.unsplash.com/photo-1525935944571-4e99237764c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80")
-    no-repeat center center/cover;
+  background: var(--intro-bg);
   color: #fff;
 
   p {
@@ -259,8 +258,7 @@ a:active {
 
 /* DEMO */
 
-.demo-ball {
-  background: #e4e4e4;
+.img-ibefiano {
   width: 70px;
   height: 70px;
   border-radius: 50%;

@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <title><?= get_bloginfo(); ?></title>
+    <style>
+        :root {
+            --intro-bg: <?php if(!empty(get_theme_mod("bg_intro"))){
+                echo "url(".get_theme_mod("bg_intro"). ") no-repeat center center/cover";
+            }
+            else{
+                echo "#000";
+            } ?>
+        }
+    </style>
     <?php wp_head(); ?>
 </head>
 
@@ -23,8 +33,8 @@
 
                 <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
                     <?php
-                        $args = array('menu_id' => 'main-nav', 'menu_class' => 'menu', 'menu' => 'principal', 'container' => false);
-                        wp_nav_menu($args);
+                    $args = array('menu_id' => 'main-nav', 'menu_class' => 'menu', 'menu' => 'principal', 'container' => false);
+                    wp_nav_menu($args);
                     ?>
                     <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex gap-3 align-items-center">
                         <li class="nav-item">Home</li>
