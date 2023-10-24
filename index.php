@@ -116,61 +116,30 @@ $events_query = new WP_Query(array(
             <?php
             $events_reverse = array_reverse($events_query->posts);
             $events_query->posts = $events_reverse;
-            while ($events_query->have_posts()) : $events_query->the_post(); ?>
+            while ($events_query->have_posts()) : $events_query->the_post() ?>
               <div class="card-slider swiper-slide">
                 <div class="image-content">
                   <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
                 </div>
                 <div class="card-content">
                   <div class="d-flex align-items-center mb-2">
-                    <div class="col-12 category">Categoria</div>
+                    <div class="col-12 category">
+                      <?= get_custom_category($post->ID, "evento") ?>
+                    </div>
 
-                    <div class="col date">22 de junho de 2023</div>
+                    <div class="col date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
                   </div>
                   <a href="<?php the_permalink(); ?>">
-                    <h2 class="titulo">Card titulo</h2>
+                    <h2 class="titulo"><?php the_title() ?></h2>
                   </a>
                   <hr />
                   <div class="d-flex flex-column">
-                    <p class="location">Location</p>
-                    <p class="address">Location</p>
+                    <p class="location"><?= get_custom_meta($post->ID, "_local_event") ?></p>
+                    <p class="address"><?= get_custom_meta($post->ID, "_endereco_event") ?></p>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 d-flex align-items-strech">
-
-                <article class="card">
-                  <div class="calendar">
-                    <?php
-                    $date = date("d-m-Y");
-                    $dateEvent = returnFullDateEvent($postId);
-                    if (strtotime($date) > strtotime($dateEvent)) :
-                    ?>
-                      <span class="day past-event">
-                      <?php else : ?>
-                        <span class="day">
-                        <?php endif; ?>
-                        <?php echo returnDateEvent($postId) ?>
-                        </span>
-                        <span class="month"><?php echo returnMonthEvent($postId) ?></span>
-                  </div>
-
-                  <?php if (get_the_thumbnail()) : ?>
-                    <a href="<?php the_permalink(); ?>" target="_self">
-                      <img class="news-pic" src="<?php the_thumbnail('medium-rectangle') ?>">
-                    </a>
-                  <?php endif ?>
-                  <h1><?php the_title(); ?></h1>
-                  <a href="<?php the_permalink(); ?>" class="btn link">Ver Mais <i class="bi bi-arrow-right"></i></a>
-                </article>
-
-              </div>
             <?php endwhile; ?>
-
-            <!-- Montar query com os próximos eventos -->
-
-
-
           </div>
         </div>
         <div class="swiper-button-next swiper-navBtn"></div>

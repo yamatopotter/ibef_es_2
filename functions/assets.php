@@ -24,13 +24,14 @@ function register_assets() {
 // Inserção dos scripts na página
 function enqueue_site_assets() {
     wp_enqueue_script('bootstrap');
+    wp_enqueue_script('swiper');
     wp_enqueue_script('main');
     wp_enqueue_script('lightGallery');
     // wp_enqueue_script('lightGallery-zoom-function');
     wp_enqueue_script('lightGallery-thumbnail-function');
 
     wp_enqueue_style('bootstrap');
-    wp_enqueue_style('bootstrap-icon');
+    wp_enqueue_style('swiper');
     wp_enqueue_style('main-style');
     wp_enqueue_style('lightGallery');
 }

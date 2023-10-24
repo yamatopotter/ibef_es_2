@@ -272,8 +272,20 @@ function prefix_bs5_dropdown_data_attribute($atts, $item, $args)
     return $atts;
 }
 
-function get_convenio_category($post_type)
+function get_custom_category($post_id, $category_name)
 {
-    $term = get_object_taxonomies($post_type);
-    return $term[0];
+    $term = get_the_terms($post_id, $category_name);
+    return $term[0]->name;
+}
+
+function get_custom_meta($post_id, $meta_name)
+{
+    $meta = get_post_meta($post_id, $meta_name);
+    return $meta[0];
+}
+
+function conver_date_to_ptbr($date)
+{
+    $newDate = date('j \d\e F \d\e Y', strtotime($date));
+    return $newDate;
 }

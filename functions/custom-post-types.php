@@ -671,6 +671,42 @@ function post_meta_box_tema_events_post(){
     echo "<input type=\"text\" name=\"_tema_event\" value=\"".$fieldData."\" placeholder=\"Tema do Evento\"> ";
 }
 
+// --------------------- Metabox - Evento - Endereço ------------------------------
+function add_endereco_event_metaboxes()
+{
+    add_meta_box(
+        "post_metadata_endereco_events_post", //div id contendo os campos renderizados
+        "Endereço do Evento",  //Titulo da sessão que será mostrado como texto
+        "post_meta_box_endereco_events_post", //callback para renderizar os campos
+        "eventos", //nome do tipo do post onde queremos que a caixa renderize
+        "side", //local na tela onde ele vai ficar
+        "low" //prioridade de exibição
+    );
+}
+
+add_action("admin_init", 'add_endereco_event_metaboxes');
+
+// Função que realiza o salvamento das informações
+function save_post_endereco_event_meta_box()
+{
+    global $post;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    update_post_meta($post->ID, "_endereco_event", sanitize_text_field($_POST['_endereco_event']));
+}
+
+add_action('save_post', 'save_post_endereco_event_meta_box');
+
+// Função de callback
+function post_meta_box_endereco_events_post()
+{
+    global $post;
+    $custom = get_post_custom($post->ID);
+    $fieldData = $custom['_endereco_event'][0];
+    echo "<input type=\"text\" name=\"_endereco_event\" value=\"" . $fieldData . "\" placeholder=\"Endereço do Evento\"> ";
+}
+
 // ---------------- Metabox - Mantenedor - Link para a imagem -------------------------
 
 function add_link_mantenedor_metaboxes(){
@@ -1127,4 +1163,3 @@ function eventos_category()
     register_taxonomy('evento', array('eventos'), $args);
 }
 add_action('init', 'eventos_category');
-?>
