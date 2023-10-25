@@ -12,8 +12,16 @@ $events_query = new WP_Query(array(
     'compare' => '>='
   ),
   'order' => 'ASC',
-  'posts_per_page' => 3
+  'posts_per_page' => 9
 ));
+
+$news_query = new WP_Query(array(
+  'post_type' => 'noticias',
+  'orderby' => 'publish_date',
+  'order' => 'DESC',
+  'posts_per_page' => 4
+));
+
 ?>
 <main>
   <section id="intro">
@@ -110,9 +118,8 @@ $events_query = new WP_Query(array(
       </div>
 
       <div class="swiper slider-eventos slider-container">
-        <div class="slider-content">
+        <div class="slider-content slider-proximos-eventos">
           <div class="card-slider-wrapper swiper-wrapper">
-
             <?php
             $events_reverse = array_reverse($events_query->posts);
             $events_query->posts = $events_reverse;
@@ -142,9 +149,9 @@ $events_query = new WP_Query(array(
             <?php endwhile; ?>
           </div>
         </div>
-        <div class="swiper-button-next swiper-navBtn"></div>
-        <div class="swiper-button-prev swiper-navBtn"></div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next next-proximos-eventos swiper-navBtn"></div>
+        <div class="swiper-button-prev prev-proximos-eventos swiper-navBtn"></div>
+        <div class="swiper-pagination pagination-proximos-eventos"></div>
       </div>
 
       <?php if (!empty(get_theme_mod("link_btn_proximos_eventos"))) : ?>
@@ -165,60 +172,30 @@ $events_query = new WP_Query(array(
         <!-- Montar um repeater para adicionar esses campos de repetição -->
         <div class="col-12 col-lg-10">
           <div class="swiper slider-eventos slider-container">
-            <div class="slider-content">
+            <div class="slider-content slider-nossos-ibefianos">
               <div class="card-slider-wrapper swiper-wrapper">
-                <div class="card-slider swiper-slide">
-                  <div class="card-content">
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Sapiente consectetur cum nostrum doloribus, quas
-                      possimus corporis inventore eligendi? Perferendis
-                      molestiae placeat numquam aspernatur amet. Magni nam
-                      reprehenderit voluptates porro architecto!
-                    </p>
-                  </div>
-                </div>
+                <?php
+                $repeater = get_theme_mod('customizer_repeater_nossos_ibefianos', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+                /*This returns a json so we have to decode it*/
+                $repeater_decoded = json_decode($repeater);
+                foreach ($repeater_decoded as $repeater_item) : ?>
 
-                <div class="card-slider swiper-slide">
-                  <div class="card-content">
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Sapiente consectetur cum nostrum doloribus, quas
-                      possimus corporis inventore eligendi? Perferendis
-                      molestiae placeat numquam aspernatur amet. Magni nam
-                      reprehenderit voluptates porro architecto!
-                    </p>
+                  <div class="card-slider swiper-slide">
+                    <div class="card-content">
+                      <p>
+                        <?= $repeater_item->text; ?>
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div class="card-slider swiper-slide">
-                  <div class="card-content">
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Sapiente consectetur cum nostrum doloribus, quas
-                      possimus corporis inventore eligendi? Perferendis
-                      molestiae placeat numquam aspernatur amet. Magni nam
-                      reprehenderit voluptates porro architecto!
-                    </p>
-                  </div>
-                </div>
-
-                <div class="card-slider swiper-slide">
-                  <div class="card-content">
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Sapiente consectetur cum nostrum doloribus, quas
-                      possimus corporis inventore eligendi? Perferendis
-                      molestiae placeat numquam aspernatur amet. Magni nam
-                      reprehenderit voluptates porro architecto!
-                    </p>
-                  </div>
-                </div>
+                <?php
+                endforeach;
+                ?>
               </div>
             </div>
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next next-nossos-ibefianos swiper-navBtn"></div>
+            <div class="swiper-button-prev prev-nossos-ibefianos swiper-navBtn"></div>
+            <div class="swiper-pagination pagination-nossos-ibefianos"></div>
           </div>
         </div>
       </div>
@@ -239,85 +216,27 @@ $events_query = new WP_Query(array(
         </div>
 
         <!-- Adicionar uma query com repeater para pegar as ultimas 4 noticias -->
-        <div class="col-12 col-lg-3 col-md-6">
-          <div class="card">
-            <div class="card-img">
-              <img src="./assets/img/slider.jpg" alt="foto do post" class="card-img" />
-            </div>
-            <div class="card-content">
-              <div class="card-data">
-                <span class="card-category">topico</span>
-                <span class="card-date">25, maio de 2023</span>
+        <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="card">
+              <div class="card-img" style="background: url(<?php the_thumbnail('medium') ?>) no-repeat center center/cover">
+                <!-- <img src="" alt="foto do post" class="card-img" /> -->
               </div>
-              <h3 class="titulo">Titulo da publicação</h3>
-              <hr />
-              <div class="card-author">
-                <img src="./assets/img/avatar.png" alt="foto do autor" />
-                <p>nome do autor</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-md-6">
-          <div class="card">
-            <div class="card-img">
-              <img src="./assets/img/slider.jpg" alt="foto do post" class="card-img" />
-            </div>
-            <div class="card-content">
-              <div class="card-data">
-                <span class="card-category">topico</span>
-                <span class="card-date">25, maio de 2023</span>
-              </div>
-              <h3>Titulo da publicação</h3>
-              <hr />
-              <div class="card-author">
-                <img src="./assets/img/avatar.png" alt="foto do autor" />
-                <p>nome do autor</p>
+              <div class="card-content">
+                <div class="card-data">
+                  <span class="card-category"><?= get_custom_category($post->ID, "category") ?></span>
+                  <span class="card-date"><?= the_date("d/m/Y"); ?></span>
+                </div>
+                <h3 class="titulo"><?php the_title(); ?></h3>
+                <hr />
+                <div class="card-author">
+                  <!-- <img src="./assets/img/avatar.png" alt="foto do autor" /> -->
+                  <p>Escrito por <?php the_author(); ?></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-md-6">
-          <div class="card">
-            <div class="card-img">
-              <img src="./assets/img/slider.jpg" alt="foto do post" class="card-img" />
-            </div>
-            <div class="card-content">
-              <div class="card-data">
-                <span class="card-category">topico</span>
-                <span class="card-date">25, maio de 2023</span>
-              </div>
-              <h3>Titulo da publicação</h3>
-              <hr />
-              <div class="card-author">
-                <img src="./assets/img/avatar.png" alt="foto do autor" />
-                <p>nome do autor</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-md-6">
-          <div class="card">
-            <div class="card-img">
-              <img src="./assets/img/slider.jpg" alt="foto do post" class="card-img" />
-            </div>
-            <div class="card-content">
-              <div class="card-data">
-                <span class="card-category">topico</span>
-                <span class="card-date">25, maio de 2023</span>
-              </div>
-              <h3>Titulo da publicação</h3>
-              <hr />
-              <div class="card-author">
-                <img src="./assets/img/avatar.png" alt="foto do autor" />
-                <p>nome do autor</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php endwhile; ?>
       </div>
     </div>
   </section>
@@ -328,13 +247,13 @@ $events_query = new WP_Query(array(
         <div class="col-12 col-lg-3">
           <h2><?= get_theme_mod("titulo_podcast", "Escute nosso podcast"); ?></h2>
 
-          <?php if (!empty(get_theme_mod("link_btn_podcast"))) : ?>
-            <a href="<?= get_theme_mod("link_btn_podcast"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_podcast", "Todos os podcasts "); ?></a>
+          <?php if (get_theme_mod("exibir_botao_podcast")) : ?>
+            <a href="<?= get_theme_mod("link_botao_podcast"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_botao_podcast", "Todos os podcasts "); ?></a>
           <?php endif; ?>
         </div>
 
         <div class="col-12 col-lg-9">
-          <?= get_theme_mod("embedded_podcast"); ?>
+          <?= get_theme_mod("iframe_podcast"); ?>
         </div>
       </div>
     </div>
@@ -353,44 +272,19 @@ $events_query = new WP_Query(array(
         <!-- Adicionar uma query e um loop com os mantenedores registrados -->
         <div class="col-12">
           <ul class="list-mantenedores">
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
+            <?php
+            $repeater = get_theme_mod('customizer_repeater_mantenedores', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+            /*This returns a json so we have to decode it*/
+            $repeater_decoded = json_decode($repeater);
+            foreach ($repeater_decoded as $repeater_item) : ?>
 
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
+              <li>
+                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+              </li>
 
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
-
-            <li>
-              <img src="./assets/img/icon-balloon.png" alt="logo do mantenedor" />
-            </li>
+            <?php
+            endforeach;
+            ?>
           </ul>
         </div>
 
@@ -403,7 +297,7 @@ $events_query = new WP_Query(array(
     </div>
   </section>
 
-  <section id="newsletter">
+  <!-- <section id="newsletter">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 texto-center">
@@ -429,5 +323,6 @@ $events_query = new WP_Query(array(
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </main>
+<?php get_footer(); ?>

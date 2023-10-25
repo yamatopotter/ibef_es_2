@@ -401,6 +401,53 @@ function theme_customizer_settings($wp_customize)
         )
     ));
 
+    /**
+     *  SUBMENU Página Principal -> Nossos Ibefianos 
+     */
+
+    $wp_customize->add_section('nossos_ibefianos', array(
+        'title'      => __('Nossos IBEFianos'),
+        'priority'   => 0,
+        'panel'    => 'front-page'
+    ));
+
+    //Título do bloco
+    $wp_customize->add_setting(
+        'titulo_nossos_ibefianos',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'titulo_nossos_ibefianos',
+        array(
+            'label'      => __('Título do bloco', 'titulo_nossos_ibefianos_label'),
+            'settings'   => 'titulo_nossos_ibefianos',
+            'section'    => 'nossos_ibefianos',
+            'type'       => 'text'
+        )
+    ));
+
+    $wp_customize->add_setting('customizer_repeater_nossos_ibefianos', array(
+        'sanitize_callback' => 'customizer_repeater_sanitize'
+    ));
+    $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_nossos_ibefianos', array(
+        'label'   => esc_html__('Nossos Ibefianos', 'customizer-repeater'),
+        'section' => 'nossos_ibefianos',
+        'priority' => 1,
+        'customizer_repeater_image_control' => false,
+        'customizer_repeater_icon_control' => false,
+        'customizer_repeater_title_control' => false,
+        'customizer_repeater_subtitle_control' => false,
+        'customizer_repeater_text_control' => true,
+        'customizer_repeater_link_control' => false,
+        'customizer_repeater_shortcode_control' => false,
+        'customizer_repeater_repeater_control' => false
+    )));
+
 
     /**
      * SUBMENU Página Principal -> Últimas notícias
@@ -427,76 +474,6 @@ function theme_customizer_settings($wp_customize)
             'label'      => __('Título do bloco últimas notícias', 'titulo_ultimas_noticias_label'),
             'settings'   => 'titulo_ultimas_noticias',
             'section'    => 'ultimas_noticias',
-            'type'       => 'text'
-        )
-    ));
-
-    //Subtítulo do bloco ultimas notícias
-    $wp_customize->add_setting(
-        'subtitulo_ultimas_noticias',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'subtitulo_ultimas_noticias',
-        array(
-            'label'      => __('Subtítulo do bloco últimas notícias', 'subtitulo_ultimas_noticias_label'),
-            'settings'   => 'subtitulo_ultimas_noticias',
-            'section'    => 'ultimas_noticias',
-            'type'       => 'text'
-        )
-    ));
-
-    /**
-     * SUBMENU Página Principal -> Mídia
-     */
-
-    $wp_customize->add_section('midia', array(
-        'title'      => __('Mídia'),
-        'priority'   => 0,
-        'panel'    => 'front-page'
-    ));
-
-    //Título do bloco mídia
-    $wp_customize->add_setting(
-        'titulo_midia',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_midia',
-        array(
-            'label'      => __('Título do bloco de mídia', 'titulo_midia_label'),
-            'settings'   => 'titulo_midia',
-            'section'    => 'midia',
-            'type'       => 'text'
-        )
-    ));
-
-    //Subtítulo do bloco mídia
-    $wp_customize->add_setting(
-        'subtitulo_midia',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'subtitulo_midia',
-        array(
-            'label'      => __('Subtítulo do bloco de mídia', 'subtitulo_midia_label'),
-            'settings'   => 'subtitulo_midia',
-            'section'    => 'midia',
             'type'       => 'text'
         )
     ));
@@ -530,26 +507,6 @@ function theme_customizer_settings($wp_customize)
         )
     ));
 
-    //Subtítulo do bloco podcast 
-    $wp_customize->add_setting(
-        'subtitulo_podcast',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'subtitulo_podcast',
-        array(
-            'label'      => __('Subtítulo do bloco de podcast', 'subtitulo_podcast_label'),
-            'settings'   => 'subtitulo_podcast',
-            'section'    => 'podcast',
-            'type'       => 'text'
-        )
-    ));
-
     //Código do Spotify 
     $wp_customize->add_setting(
         'iframe_podcast',
@@ -569,6 +526,66 @@ function theme_customizer_settings($wp_customize)
             'type'       => 'textarea'
         )
     ));
+
+    // Exibir botão
+
+    $wp_customize->add_setting(
+        'exibir_botao_podcast',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'exibir_botao_podcast',
+        array(
+            'label'      => __('Exibir botão do podcast?', 'exibir_botao_podcast_label'),
+            'settings'   => 'exibir_botao_podcast',
+            'section'    => 'podcast',
+            'type'       => 'checkbox'
+        )
+    ));
+
+    $wp_customize->add_setting(
+        'texto_botao_podcast',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'texto_botao_podcast',
+        array(
+            'label'      => __('Texto do botão da introdução', 'texto_botao_podcast_label'),
+            'settings'   => 'texto_botao_podcast',
+            'section'    => 'podcast',
+            'type'       => 'text'
+        )
+    ));
+
+    $wp_customize->add_setting(
+        'link_botao_podcast',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'link_botao_podcast',
+        array(
+            'label'      => __('Texto do botão da introdução', 'link_botao_podcast_label'),
+            'settings'   => 'link_botao_podcast',
+            'section'    => 'podcast',
+            'type'       => 'text'
+        )
+    ));
+
 
     /**
      * SUBMENU Página Principal -> Mantenedores
@@ -592,7 +609,7 @@ function theme_customizer_settings($wp_customize)
         $wp_customize,
         'titulo_mantenedores',
         array(
-            'label'      => __('Título do bloco de mantenedores', 'titulo_mantenedores_label'),
+            'label'      => __('Título da sessão', 'titulo_mantenedores_label'),
             'settings'   => 'titulo_mantenedores',
             'section'    => 'mantenedores',
             'type'       => 'text'
@@ -601,7 +618,7 @@ function theme_customizer_settings($wp_customize)
 
     //Subtítulo do bloco Mantenedores
     $wp_customize->add_setting(
-        'subtitulo_mantenedores',
+        'texto_mantenedores',
         array(
             'default' => '',
             'transport' => 'refresh'
@@ -610,233 +627,31 @@ function theme_customizer_settings($wp_customize)
 
     $wp_customize->add_control(new WP_Customize_Control(
         $wp_customize,
-        'subtitulo_mantenedores',
+        'texto_mantenedores',
         array(
-            'label'      => __('Subtítulo do bloco de mantenedores', 'subtitulo_mantenedores_label'),
-            'settings'   => 'subtitulo_mantenedores',
+            'label'      => __('Texto da sessão', 'texto_mantenedores_label'),
+            'settings'   => 'texto_mantenedores',
             'section'    => 'mantenedores',
             'type'       => 'text'
         )
     ));
 
-    // Mantenedor Diamante
-
-    //Título da categoria diamante
-    $wp_customize->add_setting(
-        'titulo_categoria_diamante',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_categoria_diamante',
-        array(
-            'label'      => __('Título da categoria diamante', 'titulo_categoria_diamante_label'),
-            'settings'   => 'titulo_categoria_diamante',
-            'section'    => 'mantenedores',
-            'type'       => 'text'
-        )
+    $wp_customize->add_setting('customizer_repeater_mantenedores', array(
+        'sanitize_callback' => 'customizer_repeater_sanitize'
     ));
-
-    // Categoria a ser listada na área de diamantes
-    $wp_customize->add_setting(
-        'categoria_bloco_diamante',
-        array(
-            'default' => '',
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'categoria_bloco_diamante',
-        array(
-            'label'      => __('Categoria a ser listada no bloco de mantenedores diamante', 'categoria_bloco_diamante_label'),
-            'settings'   => 'categoria_bloco_diamante',
-            'section'    => 'mantenedores',
-            'type'       => 'select',
-            'choices' => returnCustomTerm('mantenedor')
-        )
-    ));
-
-    // Mantenedor Master
-
-    //Título da categoria master
-    $wp_customize->add_setting(
-        'titulo_categoria_master',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_categoria_master',
-        array(
-            'label'      => __('Título da categoria master', 'titulo_categoria_master_label'),
-            'settings'   => 'titulo_categoria_master',
-            'section'    => 'mantenedores',
-            'type'       => 'text'
-        )
-    ));
-
-    // Categoria a ser listada na área de master
-
-    $wp_customize->add_setting(
-        'categoria_bloco_master',
-        array(
-            'default' => '',
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'categoria_bloco_master',
-        array(
-            'label'      => __('Categoria a ser listada no bloco de mantenedores master', 'categoria_bloco_master_label'),
-            'settings'   => 'categoria_bloco_master',
-            'section'    => 'mantenedores',
-            'type'       => 'select',
-            'choices' => returnCustomTerm('mantenedor')
-        )
-    ));
-
-    // Mantenedor Sênior
-
-    //Título da categoria senior 
-    $wp_customize->add_setting(
-        'titulo_categoria_senior',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_categoria_senior',
-        array(
-            'label'      => __('Título da categoria senior', 'titulo_categoria_senior_label'),
-            'settings'   => 'titulo_categoria_senior',
-            'section'    => 'mantenedores',
-            'type'       => 'text'
-        )
-    ));
-
-    // Categoria a ser listada na área de senior
-
-    $wp_customize->add_setting(
-        'categoria_bloco_senior',
-        array(
-            'default' => '',
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'categoria_bloco_senior',
-        array(
-            'label'      => __('Categoria a ser listada no bloco de mantenedores sêniors', 'categoria_bloco_senior_label'),
-            'settings'   => 'categoria_bloco_senior',
-            'section'    => 'mantenedores',
-            'type'       => 'select',
-            'choices' => returnCustomTerm('mantenedor')
-        )
-    ));
-
-    // Mantenedor Pleno
-
-    //Título da categoria pleno 
-    $wp_customize->add_setting(
-        'titulo_categoria_pleno',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_categoria_pleno',
-        array(
-            'label'      => __('Título da categoria pleno', 'titulo_categoria_pleno_label'),
-            'settings'   => 'titulo_categoria_pleno',
-            'section'    => 'mantenedores',
-            'type'       => 'text'
-        )
-    ));
-
-    // Categoria a ser listada na área de pleno
-
-    $wp_customize->add_setting(
-        'categoria_bloco_pleno',
-        array(
-            'default' => '',
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'categoria_bloco_pleno',
-        array(
-            'label'      => __('Categoria a ser listada no bloco de mantenedores pleno', 'categoria_bloco_pleno_label'),
-            'settings'   => 'categoria_bloco_pleno',
-            'section'    => 'mantenedores',
-            'type'       => 'select',
-            'choices' => returnCustomTerm('mantenedor')
-        )
-    ));
-
-    // Mantenedor Apoiador
-
-    //Título da categoria apoiador
-    $wp_customize->add_setting(
-        'titulo_categoria_apoiador',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_categoria_apoiador',
-        array(
-            'label'      => __('Título da categoria apoiador ', 'titulo_categoria_apoiador_label'),
-            'settings'   => 'titulo_categoria_apoiador',
-            'section'    => 'mantenedores',
-            'type'       => 'text'
-        )
-    ));
-
-    // Categoria a ser listada na área de apoiador
-
-    $wp_customize->add_setting(
-        'categoria_bloco_apoiador',
-        array(
-            'default' => '',
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'categoria_bloco_apoiador',
-        array(
-            'label'      => __('Categoria a ser listada no bloco de mantenedores apoiadores', 'categoria_bloco_apoiador_label'),
-            'settings'   => 'categoria_bloco_apoiador',
-            'section'    => 'mantenedores',
-            'type'       => 'select',
-            'choices' => returnCustomTerm('mantenedor')
-        )
-    ));
+    $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores', array(
+        'label'   => esc_html__('Nossos Ibefianos', 'customizer-repeater'),
+        'section' => 'mantenedores',
+        'priority' => 1,
+        'customizer_repeater_image_control' => true,
+        'customizer_repeater_icon_control' => true,
+        'customizer_repeater_title_control' => false,
+        'customizer_repeater_subtitle_control' => false,
+        'customizer_repeater_text_control' => false,
+        'customizer_repeater_link_control' => false,
+        'customizer_repeater_shortcode_control' => false,
+        'customizer_repeater_repeater_control' => false
+    )));
 
     /**
      * SUBMENU Página Principal -> Footer
@@ -845,6 +660,26 @@ function theme_customizer_settings($wp_customize)
         'title'      => __('Rodapé'),
         'priority'   => 0,
         'panel'    => 'front-page'
+    ));
+
+    //Telefone de contato
+    $wp_customize->add_setting(
+        'sobre_empresa_footer',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'sobre_empresa_footer',
+        array(
+            'label'      => __('Sobre a empresa', 'sobre_empresa_footer_label'),
+            'settings'   => 'sobre_empresa_footer',
+            'section'    => 'footer',
+            'type'       => 'textarea'
+        )
     ));
 
     //Telefone de contato
@@ -904,26 +739,6 @@ function theme_customizer_settings($wp_customize)
             'settings'   => 'endereco_contato',
             'section'    => 'footer',
             'type'       => 'text'
-        )
-    ));
-
-    //Código do Google Maps
-    $wp_customize->add_setting(
-        'iframe_maps',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'iframe_maps',
-        array(
-            'label'      => __('Código do iframe do Google Maps', 'iframe_maps_label'),
-            'settings'   => 'iframe_maps',
-            'section'    => 'footer',
-            'type'       => 'textarea'
         )
     ));
 

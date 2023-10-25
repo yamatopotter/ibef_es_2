@@ -8,12 +8,11 @@
     <title><?= get_bloginfo(); ?></title>
     <style>
         :root {
-            --intro-bg: <?php if(!empty(get_theme_mod("bg_intro"))){
-                echo "url(".get_theme_mod("bg_intro"). ") no-repeat center center/cover";
-            }
-            else{
-                echo "#000";
-            } ?>
+            --intro-bg: <?php if (!empty(get_theme_mod("bg_intro"))) {
+                            echo "url(" . get_theme_mod("bg_intro") . ") no-repeat center center/cover";
+                        } else {
+                            echo "#000";
+                        } ?>
         }
     </style>
     <?php wp_head(); ?>
@@ -31,22 +30,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-                    <?php
-                    $args = array('menu_id' => 'main-nav', 'menu_class' => 'menu', 'menu' => 'principal', 'container' => false);
-                    wp_nav_menu($args);
-                    ?>
-                    <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex gap-3 align-items-center">
-                        <li class="nav-item">Home</li>
-                        <li class="nav-item"><a href="quem-somos.html"></a>Sobre</li>
-                        <li class="nav-item">Eventos</li>
-                        <li class="nav-item">Mantenedores</li>
-                        <li class="nav-item">Contato</li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success">Faça Parte</a>
-                        </li>
-                    </ul> -->
-                </div>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location'    => 'main-menu',
+                    'depth'             => 2,
+                    'container'         => 'div',
+                    'container_class'   => 'navbar-collapse flex-grow-0 collapse',
+                    'container_id'      => 'navbarSupportedContent',
+                    'menu_class'        => 'navbar-nav me-auto mb-2 mb-lg-0 flex gap-3 align-items-center',
+                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                    'walker'            => new WP_Bootstrap_Navwalker(),
+                ));
+                ?>
             </div>
         </nav>
     </header>
