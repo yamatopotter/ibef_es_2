@@ -783,6 +783,27 @@ function theme_customizer_settings($wp_customize)
         )
     ));
 
+    // Subtítulo da archive de notícias 
+
+    $wp_customize->add_setting(
+        'subtitulo_archive_noticias',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'subtitulo_archive_noticias',
+        array(
+            'label'      => __('Subtítulo da Página', 'subtitulo_archive_noticias_label'),
+            'settings'   => 'subtitulo_archive_noticias',
+            'section'    => 'archive_noticia',
+            'type'       => 'text'
+        )
+    ));
+
     // Quantidade de post de notícias
 
     $wp_customize->add_setting(
@@ -866,7 +887,7 @@ function theme_customizer_settings($wp_customize)
         $wp_customize,
         'subtitulo_archive_eventos',
         array(
-            'label'      => __('Título da Página', 'subtitulo_archive_eventos_label'),
+            'label'      => __('Subtítulo da Página', 'subtitulo_archive_eventos_label'),
             'settings'   => 'subtitulo_archive_eventos',
             'section'    => 'archive_eventos',
             'type'       => 'text'
