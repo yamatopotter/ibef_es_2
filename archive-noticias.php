@@ -14,7 +14,7 @@
         <?php if (empty(get_theme_mod("background_archive_noticias"))) : ?>
             <section id="intro-sub">
             <?php else : ?>
-                <section id="intro-sub" style="background: url(<?php echo get_theme_mod("noticias") ?>) no-repeat center center/cover">
+                <section id="intro-sub" style="background: url(<?php echo get_theme_mod("background_archive_noticias") ?>) no-repeat center center/cover">
                 <?php endif; ?>
                 <div class="container">
                     <div class="col-12 text-center">

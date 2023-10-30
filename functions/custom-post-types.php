@@ -1,6 +1,39 @@
 <?php
 
 function register_post_types(){
+
+    /* -------------------------------------------------------------------------- */
+    /*                    Registro do tipo Programas estruturados                 */
+    /* -------------------------------------------------------------------------- */
+
+    register_post_type('programas', array(
+        'labels' => array(
+            'name' => __('Programa'),
+            'singular_name' => __('Programa'),
+            'add_new' => __('Adicionar novo programa'),
+            'add_new_item' => __('Adicionar novo programa'),
+            'edit_item' => __('Editar programa'),
+            'new_item' => __('Novo programa'),
+            'all_items' => __('Todos as programas'),
+            'view_item' => __('Exibir programa'),
+            'search_items' => __('Buscar programa'),
+            'not_found' => __('Nenhuma programa encontrado'),
+            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Programas Estruturados'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'has_archive' => true,
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'programas'),
+        'show_in_nav_menus' => true,
+        'supports' => array(
+            'title', 'excerpt', 'editor', 'thumbnail'
+        )
+    ));
+
+
     /* -------------------------------------------------------------------------- */
     /*                          Registro do tipo notícias                         */
     /* -------------------------------------------------------------------------- */
