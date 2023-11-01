@@ -475,4 +475,9 @@ footer .contatos .endereco::before {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+#event-data {
+  background-color: #252353;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
