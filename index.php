@@ -121,32 +121,36 @@ $news_query = new WP_Query(array(
         <div class="slider-content slider-proximos-eventos">
           <div class="card-slider-wrapper swiper-wrapper">
             <?php
-            $events_reverse = array_reverse($events_query->posts);
-            $events_query->posts = $events_reverse;
-            while ($events_query->have_posts()) : $events_query->the_post() ?>
-              <div class="card-slider swiper-slide">
-                <div class="image-content">
-                  <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
-                </div>
-                <div class="card-content">
-                  <div class="d-flex align-items-center mb-2">
-                    <div class="col-12 category">
-                      <?= get_custom_category($post->ID, "evento") ?>
-                    </div>
+            $arrayLength = count($events_query->posts);
+            if($arrayLength > 0): 
+              $events_reverse = array_reverse($events_query->posts);
+              $events_query->posts = $events_reverse;
+              while ($events_query->have_posts()) : $events_query->the_post() ?>
+                <div class="card-slider swiper-slide">
+                  <div class="image-content">
+                    <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
+                  </div>
+                  <div class="card-content">
+                    <div class="d-flex align-items-center mb-2">
+                      <div class="col-12 category">
+                        <?= get_custom_category($post->ID, "evento") ?>
+                      </div>
 
-                    <div class="col date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
-                  </div>
-                  <a href="<?php the_permalink(); ?>">
-                    <h2 class="titulo"><?php the_title() ?></h2>
-                  </a>
-                  <hr />
-                  <div class="d-flex flex-column">
-                    <p class="location"><?= get_custom_meta($post->ID, "_local_event") ?></p>
-                    <p class="address"><?= get_custom_meta($post->ID, "_endereco_event") ?></p>
+                      <div class="col date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
+                    </div>
+                    <a href="<?php the_permalink(); ?>">
+                      <h2 class="titulo"><?php the_title() ?></h2>
+                    </a>
+                    <hr />
+                    <div class="d-flex flex-column">
+                      <p class="location"><?= get_custom_meta($post->ID, "_local_event") ?></p>
+                      <p class="address"><?= get_custom_meta($post->ID, "_endereco_event") ?></p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <?php endwhile; ?>
+            <?php endwhile; else:?>
+              <p class="text-center">Não há eventos próximos</p>
+            <?php endif; ?>
           </div>
         </div>
         <div class="swiper-button-next next-proximos-eventos swiper-navBtn"></div>
@@ -169,7 +173,6 @@ $news_query = new WP_Query(array(
           <h2><?= get_theme_mod("titulo_nossos_ibefianos", "Nossos Ibefianos"); ?></h2>
         </div>
 
-        <!-- Montar um repeater para adicionar esses campos de repetição -->
         <div class="col-12 col-lg-10">
           <div class="swiper slider-eventos slider-container">
             <div class="slider-content slider-nossos-ibefianos">
