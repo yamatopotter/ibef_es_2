@@ -22,6 +22,13 @@ $news_query = new WP_Query(array(
   'posts_per_page' => 4
 ));
 
+$programs_query = new WP_Query(array(
+  'post_type' => 'programas',
+  'orderby' => 'publish_date',
+  'order' => 'DESC',
+  'posts_per_page' => 20
+));
+
 ?>
 <main>
   <section id="intro">
@@ -45,13 +52,9 @@ $news_query = new WP_Query(array(
       <h2 class="destaque-sm"><?= get_theme_mod("titulo_nossos_programas", "Nossos Programas") ?></h2>
       <!-- Uma query para pesquisar todos os programas e colocar as imagens em destaque dos titulos dos programas? -->
       <ul>
-        <li><img src="./assets/img/logoipsum.png" /></li>
-        <li><img src="./assets/img/logoipsum.png" /></li>
-        <li><img src="./assets/img/logoipsum.png" /></li>
-        <li><img src="./assets/img/logoipsum.png" /></li>
-        <li><img src="./assets/img/logoipsum.png" /></li>
-        <li><img src="./assets/img/logoipsum.png" /></li>
-        <li><img src="./assets/img/logoipsum.png" /></li>
+        <?php while ($programs_query->have_posts()) : $programs_query->the_post(); ?>
+          <li><img src="<?php the_thumbnail("thumbnail"); ?>" /></li>
+        <?php endwhile; ?>
       </ul>
     </div>
   </section>
@@ -122,7 +125,7 @@ $news_query = new WP_Query(array(
           <div class="card-slider-wrapper swiper-wrapper">
             <?php
             $arrayLength = count($events_query->posts);
-            if($arrayLength > 0): 
+            if ($arrayLength > 0) :
               $events_reverse = array_reverse($events_query->posts);
               $events_query->posts = $events_reverse;
               while ($events_query->have_posts()) : $events_query->the_post() ?>
@@ -148,7 +151,8 @@ $news_query = new WP_Query(array(
                     </div>
                   </div>
                 </div>
-            <?php endwhile; else:?>
+              <?php endwhile;
+            else : ?>
               <p class="text-center">Não há eventos próximos</p>
             <?php endif; ?>
           </div>
