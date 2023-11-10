@@ -1,51 +1,44 @@
 <?php
-    // add header
-    get_header();
-    if(have_posts()):while(have_posts()):the_post();
+// add header
+get_header();
+if (have_posts()) : while (have_posts()) : the_post();
+        $background = get_custom_meta($post->ID, "background_galerias");
 ?>
-    <main>
 
-        <section class="post-title">
+        <main>
+            <?php if (empty($background)) : ?>
+                <section id="intro-sub">
+                <?php else : ?>
+                    <section id="intro-sub" style="background: url(<?= $background["url"] ?>) no-repeat center center/cover">
+                    <?php endif; ?>
+                    <div class="container">
+                        <div class="col-12 text-center">
+                            <h1><?php the_title(); ?></h1>
 
-            <div class="container">
+                        </div>
+                    </div>
+                    </section>
 
-                <span class="post-category">
-                    Galeria de Fotos
-                </span>
+                    <section class="gallery-content">
 
-                <h1><?php the_title(); ?></h1>
+                        <div class="container">
 
-            </div>
+                            <?php the_content(); ?>
 
-        </section>
+                        </div>
 
-        <div class="container">
-            <section class="post-data">
-                <p class="date">
-                    Publicado <?php the_date(); ?>
-                </p>
-            </section>
-        </div>
+                    </section>
 
-        <section class="gallery-content">
+            <?php endwhile;
+    endif; ?>
 
-            <div class="container">
+            <script type="text/javascript">
+                lightGallery(document.getElementById('lightgallery'), {
+                    plugins: [lgThumbnail],
+                });
+            </script>
 
-            <?php the_content(); ?>
-
-            </div>
-            
-        </section>
-
-        <?php  endwhile; endif; ?>
-
-    <script type="text/javascript">
-        lightGallery(document.getElementById('lightgallery'), {
-            plugins: [lgThumbnail],
-        });
-    </script>
-
-<?php
-    // add header
-    get_footer();
-?>
+            <?php
+            // add header
+            get_footer();
+            ?>

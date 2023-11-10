@@ -480,4 +480,24 @@ footer .contatos .endereco::before {
 #event-data {
   background-color: #252353;
   color: #fff;
+}
+
+.gallery-content .lightgallery {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gallery-content .lightgallery a {
+  opacity: 0.6;
+  transition: 0.3s ease-in-out all;
+  background-color: #fff;
+  text-decoration: none;
+}
+.gallery-content .lightgallery a img {
+  max-width: 250px;
+  margin: 10px;
+}
+.gallery-content .lightgallery a:hover {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

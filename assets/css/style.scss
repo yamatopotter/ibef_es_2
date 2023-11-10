@@ -567,3 +567,27 @@ footer {
   background-color: #252353;
   color: #fff;
 }
+
+// ---------------------- GALLERY -----------------------
+.gallery-content{
+    .lightgallery{
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        a{
+            opacity: .6;
+            transition: .3s ease-in-out all;
+            background-color: #fff;
+            text-decoration: none;
+            img{
+                max-width: 250px;
+                margin: 10px;
+            }
+            &:hover{
+                opacity: 1;
+            }
+        }
+        
+    }
+}

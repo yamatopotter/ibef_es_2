@@ -462,6 +462,134 @@ function register_post_types()
 
 add_action('init', 'register_post_types');
 
+// --------------- Metabox - diretoria - Background -----------------------------
+function add_background_diretoria_meta_boxes()
+{
+    $page_template = get_post_meta(get_the_ID(), '_wp_page_template', true);
+
+
+    if ($page_template == 'page-diretoria.php') {
+        add_meta_box(
+            'post_metadata_background_diretoria_post',
+            'Banner da galeria',
+            'post_meta_box_background_diretoria_post',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_background_diretoria_meta_boxes');
+
+function post_meta_box_background_diretoria_post()
+{
+    global $post;
+    $custom = get_post_meta($post->ID, 'background_diretoria', true);
+    if (!empty($custom)) {
+        $fieldData = $custom['url'];
+        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+    }
+    $html = '<p class="description">';
+    $html .= 'Upload do banner da diretoria';
+    $html .= '</p>';
+    $html .= '<input type="file" id="background_diretoria" name="background_diretoria" value="" size="40" accept="image/png, image/jpeg">';
+    if (!empty($fieldData)) {
+        $html .= '<p class="alert">';
+        $html .= "Já existe um banner para a diretoria. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
+        $html .= '</p>';
+    }
+    echo $html;
+}
+
+function save_post_meta_box_background_diretoria($id)
+{
+    if (!empty($_FILES['background_diretoria']['name'])) {
+        $supported_types = array('image/jpeg', 'image/png');
+        $arr_file_type = wp_check_filetype(basename($_FILES['background_diretoria']['name']));
+        $uploaded_type = $arr_file_type['type'];
+
+        if (in_array($uploaded_type, $supported_types)) {
+            $upload = wp_upload_bits($_FILES['background_diretoria']['name'], null, file_get_contents($_FILES['background_diretoria']['tmp_name']));
+            if (isset($upload['error']) && $upload['error'] != 0) {
+                wp_die('Houve um erro no upload do arquivo. Erro: ' . $upload['error']);
+            } else {
+                update_post_meta($id, 'background_diretoria', $upload);
+            }
+        } else {
+            wp_die("O arquivo que tentou subir não é uma imagem.");
+        }
+    }
+}
+add_action('save_post', 'save_post_meta_box_background_diretoria');
+
+function update_edit_form_background_diretoria()
+{
+    echo ' enctype="multipart/form-data"';
+}
+add_action('post_edit_form_tag', 'update_edit_form_background_diretoria');
+
+// --------------- Metabox - Galerias - Background -----------------------------
+function add_background_galerias_meta_boxes()
+{
+    add_meta_box(
+        'post_metadata_background_galerias_post',
+        'Banner da galeria',
+        'post_meta_box_background_galerias_post',
+        'galerias',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'add_background_galerias_meta_boxes');
+
+function post_meta_box_background_galerias_post()
+{
+    global $post;
+    $custom = get_post_meta($post->ID, 'background_galerias', true);
+    if (!empty($custom)) {
+        $fieldData = $custom['url'];
+        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+    }
+    $html = '<p class="description">';
+    $html .= 'Upload do banner da galeria';
+    $html .= '</p>';
+    $html .= '<input type="file" id="background_galerias" name="background_galerias" value="" size="40" accept="image/png, image/jpeg">';
+    if (!empty($fieldData)) {
+        $html .= '<p class="alert">';
+        $html .= "Já existe um banner para esse galeria. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
+        $html .= '</p>';
+    }
+    echo $html;
+}
+
+function save_post_meta_box_background_galerias($id)
+{
+    if (!empty($_FILES['background_galerias']['name'])) {
+        $supported_types = array('image/jpeg', 'image/png');
+        $arr_file_type = wp_check_filetype(basename($_FILES['background_galerias']['name']));
+        $uploaded_type = $arr_file_type['type'];
+
+        if (in_array($uploaded_type, $supported_types)) {
+            $upload = wp_upload_bits($_FILES['background_galerias']['name'], null, file_get_contents($_FILES['background_galerias']['tmp_name']));
+            if (isset($upload['error']) && $upload['error'] != 0) {
+                wp_die('Houve um erro no upload do arquivo. Erro: ' . $upload['error']);
+            } else {
+                update_post_meta($id, 'background_galerias', $upload);
+            }
+        } else {
+            wp_die("O arquivo que tentou subir não é uma imagem.");
+        }
+    }
+}
+add_action('save_post', 'save_post_meta_box_background_galerias');
+
+function update_edit_form_background_galerias()
+{
+    echo ' enctype="multipart/form-data"';
+}
+add_action('post_edit_form_tag', 'update_edit_form_background_galerias');
+
+
 // --------------- Metabox - Eventos - Background -----------------------------
 function add_background_eventos_meta_boxes()
 {
