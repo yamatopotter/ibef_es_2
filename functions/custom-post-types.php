@@ -462,6 +462,73 @@ function register_post_types()
 
 add_action('init', 'register_post_types');
 
+// --------------- Metabox - Programas - Background -----------------------------
+function add_background_programas_meta_boxes()
+{
+    $page_template = get_post_meta(get_the_ID(), '_wp_page_template', true);
+
+
+    if ($page_template == 'page-quem-somos.php') {
+        add_meta_box(
+            'post_metadata_background_programas_post',
+            'Banner da galeria',
+            'post_meta_box_background_programas_post',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_background_programas_meta_boxes');
+
+function post_meta_box_background_programas_post()
+{
+    global $post;
+    $custom = get_post_meta($post->ID, 'background_programas', true);
+    if (!empty($custom)) {
+        $fieldData = $custom['url'];
+        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+    }
+    $html = '<p class="description">';
+    $html .= 'Upload do banner da programas';
+    $html .= '</p>';
+    $html .= '<input type="file" id="background_programas" name="background_programas" value="" size="40" accept="image/png, image/jpeg">';
+    if (!empty($fieldData)) {
+        $html .= '<p class="alert">';
+        $html .= "Já existe um banner para a programas. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
+        $html .= '</p>';
+    }
+    echo $html;
+}
+
+function save_post_meta_box_background_programas($id)
+{
+    if (!empty($_FILES['background_programas']['name'])) {
+        $supported_types = array('image/jpeg', 'image/png');
+        $arr_file_type = wp_check_filetype(basename($_FILES['background_programas']['name']));
+        $uploaded_type = $arr_file_type['type'];
+
+        if (in_array($uploaded_type, $supported_types)) {
+            $upload = wp_upload_bits($_FILES['background_programas']['name'], null, file_get_contents($_FILES['background_programas']['tmp_name']));
+            if (isset($upload['error']) && $upload['error'] != 0) {
+                wp_die('Houve um erro no upload do arquivo. Erro: ' . $upload['error']);
+            } else {
+                update_post_meta($id, 'background_programas', $upload);
+            }
+        } else {
+            wp_die("O arquivo que tentou subir não é uma imagem.");
+        }
+    }
+}
+add_action('save_post', 'save_post_meta_box_background_programas');
+
+function update_edit_form_background_programas()
+{
+    echo ' enctype="multipart/form-data"';
+}
+add_action('post_edit_form_tag', 'update_edit_form_background_programas');
+
+
 // --------------- Metabox - Quem Somos - Background -----------------------------
 function add_background_quem_somos_meta_boxes()
 {
