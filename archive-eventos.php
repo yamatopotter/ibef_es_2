@@ -1,35 +1,3 @@
-    <!-- <section id="seja-ibefiano">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1>Seja um Ibefiano</h1>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Recusandae non temporibus tenetur in praesentium? Hic
-                        repellendus similique quaerat beatae id.
-                    </p>
-                </div>
-
-                <div class="col">
-                    <form action="">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <label for="name"> Nome </label>
-                                    <input type="text" name="nome" />
-                                </div>
-
-                                <div class="col-12 col-md-6">
-                                    <label for="name"> Sobrenome </label>
-                                    <input type="text" name="sobrenome" />
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section> -->
     <?php
     // add header
     get_header();

@@ -237,7 +237,7 @@ add_filter('post_gallery', 'my_post_gallery', 10, 2);
 
 function customNavButtons()
 {
-    return "class='btn-link'";
+    return "class='btn btn-primary'";
 }
 
 add_filter('next_posts_link_attributes', 'customNavButtons');

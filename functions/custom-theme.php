@@ -1085,9 +1085,8 @@ function theme_customizer_settings($wp_customize)
         )
     ));
 
-    // Quantidade de posts de cartas
     $wp_customize->add_setting(
-        'quantidade_posts_carta',
+        'subtitulo_archive_carta',
         array(
             'default' => '',
             'transport' => 'refresh'
@@ -1096,12 +1095,12 @@ function theme_customizer_settings($wp_customize)
 
     $wp_customize->add_control(new WP_Customize_Control(
         $wp_customize,
-        'quantidade_posts_carta',
+        'subtitulo_archive_carta',
         array(
-            'label'      => __('Quantidade de Post', 'quantidade_posts_carta_label'),
-            'settings'   => 'quantidade_posts_carta',
+            'label'      => __('Subtítulo da Página', 'subtitulo_archive_carta_label'),
+            'settings'   => 'subtitulo_archive_carta',
             'section'    => 'archive_carta',
-            'type'       => 'number'
+            'type'       => 'text'
         )
     ));
 
@@ -1156,66 +1155,6 @@ function theme_customizer_settings($wp_customize)
     ));
 
     /**
-     * SUBMENU Páginas Internas -> Diretoria
-     */
-    $wp_customize->add_section('archive_diretoria', array(
-        'title'      => __('Página da Diretoria'),
-        'panel'     => 'archives',
-        'priority'   => 0,
-    ));
-
-    // Título da archive de Diretoria
-
-    $wp_customize->add_setting(
-        'titulo_archive_diretoria',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_archive_diretoria',
-        array(
-            'label'      => __('Título da Página', 'titulo_archive_diretoria_label'),
-            'settings'   => 'titulo_archive_diretoria',
-            'section'    => 'archive_diretoria',
-            'type'       => 'text'
-        )
-    ));
-
-    /**
-     * SUBMENU Páginas Internas -> Ex-Diretoria
-     */
-    $wp_customize->add_section('archive_exdiretoria', array(
-        'title'      => __('Página da Ex-Diretoria'),
-        'panel'     => 'archives',
-        'priority'   => 0,
-    ));
-
-    // Título da archive de Ex-Diretoria
-
-    $wp_customize->add_setting(
-        'titulo_archive_exdiretoria',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_archive_exdiretoria',
-        array(
-            'label'      => __('Título da Página', 'titulo_archive_exdiretoria_label'),
-            'settings'   => 'titulo_archive_exdiretoria',
-            'section'    => 'archive_exdiretoria',
-            'type'       => 'text'
-        )
-    ));
-
-    /**
      * SUBMENU Páginas Internas -> Informes
      */
     $wp_customize->add_section('archive_informe', array(
@@ -1240,6 +1179,27 @@ function theme_customizer_settings($wp_customize)
         array(
             'label'      => __('Título da Página', 'titulo_archive_informe_label'),
             'settings'   => 'titulo_archive_informe',
+            'section'    => 'archive_informe',
+            'type'       => 'text'
+        )
+    ));
+
+    // subtítulo da archive de informes
+
+    $wp_customize->add_setting(
+        'subtitulo_archive_informe',
+        array(
+            'default' => '',
+            'transport' => 'refresh'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'subtitulo_archive_informe',
+        array(
+            'label'      => __('Subtítulo da Página', 'subtitulo_archive_informe_label'),
+            'settings'   => 'subtitulo_archive_informe',
             'section'    => 'archive_informe',
             'type'       => 'text'
         )
@@ -1275,19 +1235,8 @@ function theme_customizer_settings($wp_customize)
         )
     ));
 
-    /**
-     * SUBMENU Páginas Internas -> Convênios
-     */
-    $wp_customize->add_section('archive_convenio', array(
-        'title'      => __('Convênios'),
-        'panel'     => 'archives',
-        'priority'   => 0,
-    ));
-
-    // Título da archive de informes
-
     $wp_customize->add_setting(
-        'titulo_archive_convenio',
+        'subtitulo_archive_relatorio',
         array(
             'default' => '',
             'transport' => 'refresh'
@@ -1296,66 +1245,12 @@ function theme_customizer_settings($wp_customize)
 
     $wp_customize->add_control(new WP_Customize_Control(
         $wp_customize,
-        'titulo_archive_convenio',
+        'subtitulo_archive_relatorio',
         array(
-            'label'      => __('Título da Página', 'titulo_archive_convenio_label'),
-            'settings'   => 'titulo_archive_convenio',
-            'section'    => 'archive_convenio',
+            'label'      => __('Subtítulo da Página', 'subtitulo_archive_relatorio_label'),
+            'settings'   => 'subtitulo_archive_relatorio',
+            'section'    => 'archive_relatorio',
             'type'       => 'text'
-        )
-    ));
-
-    /**
-     * SUBMENU Páginas Internas -> Convênios Ibef University
-     */
-    $wp_customize->add_section('archive_convenio_iu', array(
-        'title'      => __('Convênios Ibef University'),
-        'panel'     => 'archives',
-        'priority'   => 0,
-    ));
-
-    // Título da archive de informes
-    $wp_customize->add_setting(
-        'titulo_archive_convenio_iu',
-        array(
-            'default' => '',
-            'transport' => 'refresh'
-        )
-    );
-
-    $wp_customize->add_control(new WP_Customize_Control(
-        $wp_customize,
-        'titulo_archive_convenio_iu',
-        array(
-            'label'      => __('Título da Página', 'titulo_archive_convenio_iu_label'),
-            'settings'   => 'titulo_archive_convenio_iu',
-            'section'    => 'archive_convenio_iu',
-            'type'       => 'text'
-        )
-    ));
-
-
-    $wp_customize->add_setting(
-        'descricao_archive_convenio_iu',
-        array(
-            'default' => '',
-            'transport' => 'postMessage',
-            'sanitize_callback' => 'wp_kses_post'
-        )
-    );
-
-    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control(
-        $wp_customize,
-        'descricao_archive_convenio_iu',
-        array(
-            'label' => __('Descrição do IBEF University'),
-            'description' => __('Adicione o conteúdo da página que virá antes dos convênios'),
-            'section' => 'archive_convenio_iu',
-            'input_attrs' => array(
-                'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
-                'toolbar2' => 'formatselect outdent indent | blockquote charmap',
-                'mediaButtons' => true,
-            )
         )
     ));
 }

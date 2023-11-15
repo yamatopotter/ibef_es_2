@@ -400,7 +400,7 @@ footer {
   padding: 40px 0;
   .sobre {
     img {
-      max-height: 70px; 
+      max-height: 70px;
       width: auto;
     }
   }
@@ -563,31 +563,54 @@ footer {
 
 // single-eventos
 
-#event-data{
+#event-data {
   background-color: #252353;
   color: #fff;
 }
 
 // ---------------------- GALLERY -----------------------
-.gallery-content{
-    .lightgallery{
-        display: flex !important;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        a{
-            opacity: .6;
-            transition: .3s ease-in-out all;
-            background-color: #fff;
-            text-decoration: none;
-            img{
-                max-width: 250px;
-                margin: 10px;
-            }
-            &:hover{
-                opacity: 1;
-            }
-        }
-        
+.gallery-content {
+  .lightgallery {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    a {
+      opacity: 0.6;
+      transition: 0.3s ease-in-out all;
+      background-color: #fff;
+      text-decoration: none;
+      img {
+        max-width: 250px;
+        margin: 10px;
+      }
+      &:hover {
+        opacity: 1;
+      }
     }
+  }
+}
+
+.document {
+  ul {
+    list-style: none;
+    padding: 0;
+    li{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap:20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    a {
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+
+.document:nth-of-type(odd) {
+  background-color: #EBEBEB;
 }

@@ -500,4 +500,26 @@ footer .contatos .endereco::before {
 }
 .gallery-content .lightgallery a:hover {
   opacity: 1;
+}
+
+.document ul {
+  list-style: none;
+  padding: 0;
+}
+.document ul li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.document ul a {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.document:nth-of-type(odd) {
+  background-color: #EBEBEB;
 }/*# sourceMappingURL=style.css.map */
