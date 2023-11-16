@@ -6,7 +6,6 @@
         'orderby' => '_event_date',
         'meta_key' => '_event_date',
         'order' => 'DESC',
-        'posts_per_page' => get_theme_mod('quantidade_posts_eventos', 12),
         'paged' => get_query_var('paged') ? get_query_var('paged') : 1
     ));
     ?>
@@ -22,9 +21,7 @@
                         <h1><?php echo get_theme_mod("titulo_archive_eventos", "Eventos") ?></h1>
 
                         <p>
-                            <?php echo get_theme_mod(
-                                "subtitulo_archive_eventos"
-                            ); ?>
+                            <?php echo get_theme_mod("subtitulo_archive_eventos"); ?>
                         </p>
                     </div>
                 </div>
@@ -36,11 +33,8 @@
                             <div class="col-12 pe-4">
                                 <h2>Próximos eventos</h2>
                             </div>
-
-                            <?php while ($events_query->have_posts()) : $events_query->the_post();
-                                $postId = $events_query->post->ID ?>
+                            <?php while ($events_query->have_posts()) : $events_query->the_post(); ?>
                                 <div class="col-12 col-md-6 col-lg-3 align-items-strech">
-
                                     <div class="card-slider">
                                         <div class="image-content">
                                             <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
@@ -48,7 +42,7 @@
                                         <div class="card-content">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="col-12 category">
-                                                    <?= get_custom_category($post->ID, "evento") ?>
+                                                    Evento
                                                 </div>
 
                                                 <div class="col date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
@@ -75,14 +69,14 @@
 
                     <div class="container">
                         <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center">
+                                <?php next_posts_link('← Eventos Anteriores'); ?>
 
-                            <?php next_posts_link('<i class="bi bi-arrow-left"></i> Eventos Anteriores'); ?>
-                            <?php previous_posts_link('Eventos Recentes <i class="bi bi-arrow-right"></i>'); ?>
-
+                                <?php previous_posts_link('Eventos Recentes →'); ?>
+                            </div>
                         </div>
                     </div>
 
                 </nav>
-
 
                 <?php get_footer(); ?>

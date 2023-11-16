@@ -5,7 +5,6 @@ $gallery_query = new WP_Query(array(
     'post_type' => 'galerias',
     'orderby' => 'publish_date',
     'order' => 'DESC',
-    'posts_per_page' => get_theme_mod('quantidade_posts_fotos', 12),
     'paged' => get_query_var('paged') ? get_query_var('paged') : 1
 ));
 ?>
@@ -18,12 +17,10 @@ $gallery_query = new WP_Query(array(
             <?php endif; ?>
             <div class="container">
                 <div class="col-12 text-center">
-                    <h1><?php echo get_theme_mod("titulo_archive_galerias", "Galeria de Fotos") ?></h1>
+                    <h1><?php echo get_theme_mod("titulo_archive_fotos", "Galeria de Fotos") ?></h1>
 
                     <p>
-                        <?php echo get_theme_mod(
-                            "subtitulo_archive_galerias"
-                        ); ?>
+                        <?php echo get_theme_mod("subtitulo_archive_fotos"); ?>
                     </p>
                 </div>
             </div>

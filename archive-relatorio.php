@@ -12,10 +12,10 @@ $relatorio_query = new WP_Query(array(
 
 <main>
 
-    <?php if (empty($background)) : ?>
+    <?php if (empty(get_theme_mod("background_archive_relatorios"))) : ?>
         <section id="intro-sub">
         <?php else : ?>
-            <section id="intro-sub" style="background: url(<?= $background["url"] ?>) no-repeat center center/cover">
+            <section id="intro-sub" style="background: url(<?= get_theme_mod("background_archive_relatorios") ?>) no-repeat center center/cover">
             <?php endif; ?>
             <div class="container">
                 <div class="col-12 text-center">

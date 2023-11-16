@@ -275,7 +275,10 @@ function prefix_bs5_dropdown_data_attribute($atts, $item, $args)
 function get_custom_category($post_id, $category_name)
 {
     $term = get_the_terms($post_id, $category_name);
-    return $term[0]->name;
+    if(!empty($term)){
+        return $term[0]->name;
+    }
+    return "Sem Categoria";
 }
 
 function get_custom_meta($post_id, $meta_name)

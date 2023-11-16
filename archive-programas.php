@@ -16,7 +16,7 @@ $programas_query = new WP_Query(array(
     <?php if (empty(get_theme_mod("background_archive_programas_estruturados"))) : ?>
         <section id="intro-sub">
         <?php else : ?>
-            <section id="intro-sub" style="background: url(<?php echo get_theme_mod("background_archive_programas") ?>) no-repeat center center/cover">
+            <section id="intro-sub" style="background: url(<?php echo get_theme_mod("background_archive_programas_estruturados") ?>) no-repeat center center/cover">
             <?php endif; ?>
             <div class="container">
                 <div class="col-12 text-center">
