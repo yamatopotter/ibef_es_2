@@ -6,6 +6,7 @@ require_once("functions/custom-controls.php");
 require_once("functions/custom-post-types.php");
 require_once('functions/custom-theme.php');
 require_once("functions/assets.php");
+require_once('functions/acf.php');
 
 //Limpar Header
 remove_action('wp_head', 'rsd_link');
