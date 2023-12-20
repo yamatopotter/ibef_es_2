@@ -135,6 +135,31 @@ $wp_customize->add_control(new WP_Customize_Control(
     )
 ));
 
+// Submenu Página Principal -> Programas estruturados
+
+$wp_customize->add_section('programas_estruturados', array(
+    'title'      => __('Programas estruturados'),
+    'priority'   => 0,
+    'panel'    => 'front-page'
+));
+
+$wp_customize->add_setting('customizer_repeater_programas', array(
+    'sanitize_callback' => 'customizer_repeater_sanitize'
+));
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_programas', array(
+    'label'   => esc_html__('Programas estruturados', 'customizer-repeater'),
+    'section' => 'programas_estruturados',
+    'priority' => 1,
+    'customizer_repeater_image_control' => true,
+    'customizer_repeater_icon_control' => true,
+    'customizer_repeater_title_control' => false,
+    'customizer_repeater_subtitle_control' => false,
+    'customizer_repeater_text_control' => false,
+    'customizer_repeater_link_control' => true,
+    'customizer_repeater_shortcode_control' => false,
+    'customizer_repeater_repeater_control' => false
+)));
+
 /**
  * SUBMENU Página Principal -> Sobre nós
  */

@@ -52,9 +52,22 @@ $programs_query = new WP_Query(array(
       <h2 class="destaque-sm"><?= get_theme_mod("titulo_nossos_programas", "Nossos Programas") ?></h2>
       <!-- Uma query para pesquisar todos os programas e colocar as imagens em destaque dos titulos dos programas? -->
       <ul>
-        <?php while ($programs_query->have_posts()) : $programs_query->the_post(); ?>
+        <!-- <?php while ($programs_query->have_posts()) : $programs_query->the_post(); ?>
           <li><img src="<?php the_thumbnail("thumbnail"); ?>" /></li>
-        <?php endwhile; ?>
+        <?php endwhile; ?> -->
+        <?php
+        $repeater = get_theme_mod('customizer_repeater_programas', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+        /*This returns a json so we have to decode it*/
+        $repeater_decoded = json_decode($repeater);
+        foreach ($repeater_decoded as $repeater_item) :?>
+        
+          <li>
+            <a href="<?= $repeater_item->link; ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do programa" /></a>
+          </li>
+
+        <?php
+        endforeach;
+        ?>
       </ul>
     </div>
   </section>
@@ -136,7 +149,7 @@ $programs_query = new WP_Query(array(
                   <div class="card-content">
                     <div class="d-flex align-items-center mb-2">
                       <div class="col-12 category">
-                        <?= get_custom_category($post->ID, "evento") ?>
+                        <?= get_custom_category($post->ID, "eventos_category") ?>
                       </div>
 
                       <div class="col date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>

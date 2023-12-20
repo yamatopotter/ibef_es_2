@@ -1096,3 +1096,38 @@ function update_edit_form_relatorio_pdf()
     echo ' enctype="multipart/form-data"';
 }
 add_action('post_edit_form_tag', 'update_edit_form_relatorio_pdf');
+
+// ----------------------------Categoria para os tipos de eventos -----------------------------
+function eventos_category()
+{
+
+    $labels = array(
+        'name'              => _x('Categoria', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Categoria', 'taxonomy singular name', 'textdomain'),
+        'search_items'      => __('Procurar categoria', 'textdomain'),
+        'all_items'         => __('Todos as categoria', 'textdomain'),
+        'parent_item'       => __('Parent category:', 'textdomain'),
+        'parent_item_colon' => __('Parent category:', 'textdomain'),
+        'edit_item'         => __('Editar categoria', 'textdomain'),
+        'update_item'       => __('Atualizar categoria', 'textdomain'),
+        'add_new_item'      => __('Adicionar nova categoria', 'textdomain'),
+        'new_item_name'     => __('New category name', 'textdomain'),
+        'menu_name'         => __('Categoria', 'textdomain'),
+    );
+    $args = array(
+        'labels' => $labels,
+        'description' => __('Categoria do evento', 'textdomain'),
+        'hierarchical' => true,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud' => true,
+        'show_in_quick_edit' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+    );
+    register_taxonomy('eventos_category', array('eventos'), $args);
+}
+add_action('init', 'eventos_category');
