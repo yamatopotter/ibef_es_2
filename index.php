@@ -248,7 +248,7 @@ $programs_query = new WP_Query(array(
                   <span class="card-category"><?= get_custom_category($post->ID, "category") ?></span>
                   <span class="card-date"><?= the_date("d/m/Y"); ?></span>
                 </div>
-                <h3 class="titulo"><?php the_title(); ?></h3>
+                <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <hr />
                 <div class="card-author">
                   <!-- <img src="./assets/img/avatar.png" alt="foto do autor" /> -->

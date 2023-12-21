@@ -343,6 +343,15 @@ a:active {
     list-style: none;
   }
 
+  .titulo{
+    width:100%;
+    overflow: hidden;
+    height: 65px;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  }
+
   .card-date {
     font-size: 0.75rem;
   }

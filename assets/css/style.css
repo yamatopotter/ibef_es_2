@@ -302,6 +302,14 @@ a:active {
   font-size: 0.75rem;
   list-style: none;
 }
+#ultimas-noticias .titulo {
+  width: 100%;
+  overflow: hidden;
+  height: 65px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 #ultimas-noticias .card-date {
   font-size: 0.75rem;
 }
