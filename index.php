@@ -59,8 +59,8 @@ $programs_query = new WP_Query(array(
         $repeater = get_theme_mod('customizer_repeater_programas', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
         /*This returns a json so we have to decode it*/
         $repeater_decoded = json_decode($repeater);
-        foreach ($repeater_decoded as $repeater_item) :?>
-        
+        foreach ($repeater_decoded as $repeater_item) : ?>
+
           <li>
             <a href="<?= $repeater_item->link; ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do programa" /></a>
           </li>
@@ -202,6 +202,7 @@ $programs_query = new WP_Query(array(
 
                   <div class="card-slider swiper-slide">
                     <div class="card-content">
+                      <p><strong><?= $repeater_item->title; ?></strong></p>
                       <p>
                         <?= $repeater_item->text; ?>
                       </p>
