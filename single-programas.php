@@ -40,17 +40,17 @@
                             </div>
                         </section>
 
-                        <!-- Criar campo de repetição - Verificar se há dados para ser exibido -->
-
                         <?php
                         $status = get_field("show_como_funciona");
                         if ($status) :
                         ?>
 
                             <section class="como-funciona">
-                                <h2 class="text-center"><?php the_field("title_como_funciona"); ?></h2>
                                 <div class="container">
                                     <div class="row">
+                                        <h2 class="text-center"><?php the_field("title_como_funciona"); ?></h2>
+                                    </div>
+                                    <div class="row justify-content-center">
                                         <?php if (have_rows("list_como_funciona")) : while (have_rows("list_como_funciona")) : the_row(); ?>
                                                 <div class="col-12 col-md-6 col-lg-3">
                                                     <div class="card">
@@ -71,16 +71,16 @@
 
                         <?php endif; ?>
 
-                        <!-- Criar campo de repetição - Verificar se há dados para ser exibido -->
-
                         <?php
                         $status = get_field("show_beneficios");
                         if ($status) :
                         ?>
                             <section id="beneficios">
-                                <h2 class="text-center"><?php the_field("title_beneficios") ?></h2>
                                 <div class="container">
                                     <div class="row">
+                                        <h2 class="text-center"><?php the_field("title_beneficios") ?></h2>
+                                    </div>
+                                    <div class="row justify-content-center">
                                         <?php if (have_rows("list_beneficios")) : while (have_rows("list_beneficios")) : the_row(); ?>
                                                 <div class="col-12 col-md-6 col-lg-3">
                                                     <div class="card">
@@ -96,13 +96,10 @@
                                         <?php endwhile;
                                         endif; ?>
                                     </div>
-                                </div>
                             </section>
 
                         <?php endif; ?>
 
-
-                        <!-- Criar campo de repetição - Verificar se há dados para ser exibido -->
                         <?php
                         $status = get_field("show_time");
                         if ($status) :
@@ -111,25 +108,25 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-12 pe-4">
-                                            <h2>><?php the_field("title_time") ?></h2>
+                                            <h2><?php the_field("title_time") ?></h2>
                                         </div>
+                                    </div>
 
-                                        <ul>
-                                            <?php if (have_rows("list_time")) : while (have_rows("list_time")) : the_row(); ?>
-                                                    <li>
-                                                        <div class="card">
-                                                            <div class="card-img">
-                                                                <img src="<?php the_sub_field("icon_item_time"); ?>" alt="" />
-                                                            </div>
-                                                            <div class="card-description">
-                                                                <p><?php the_sub_field("title_item_time"); ?></p>
-                                                                <span><?php the_sub_field("text_item_time"); ?></span>
-                                                            </div>
+                                    <div class="row justify-content-center">
+                                        <?php if (have_rows("list_time")) : while (have_rows("list_time")) : the_row(); ?>
+                                                <div class="col-12 col-md-6 col-lg-3">
+                                                    <div class="card border-0">
+                                                        <div class="card-img">
+                                                            <img src="<?php the_sub_field("icon_item_time"); ?>" alt="" />
                                                         </div>
-                                                    </li>
-                                            <?php endwhile;
-                                            endif; ?>
-                                        </ul>
+                                                        <div class="card-description">
+                                                            <p><?php the_sub_field("title_item_time"); ?></p>
+                                                            <span><?php the_sub_field("text_item_time"); ?></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <?php endwhile;
+                                        endif; ?>
                                     </div>
                                 </div>
                             </section>
