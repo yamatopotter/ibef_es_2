@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="row justify-content-center">
                                         <?php if (have_rows("list_como_funciona")) : while (have_rows("list_como_funciona")) : the_row(); ?>
-                                                <div class="col-12 col-md-6 col-lg-3">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-4">
                                                     <div class="card">
                                                         <div class="card-icon">
                                                             <img src="<?php the_sub_field("icon_item_como_funciona"); ?>" alt="">
@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="row justify-content-center">
                                         <?php if (have_rows("list_beneficios")) : while (have_rows("list_beneficios")) : the_row(); ?>
-                                                <div class="col-12 col-md-6 col-lg-3">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-4">
                                                     <div class="card">
                                                         <div class="card-img">
                                                             <img src="<?php the_sub_field("icon_item_beneficios"); ?>" alt="">
