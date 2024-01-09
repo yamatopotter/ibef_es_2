@@ -335,6 +335,65 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_repeater_control' => false
 )));
 
+// Exibir botão
+
+$wp_customize->add_setting(
+    'exibir_botao_porque_ser_ibefiano',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'exibir_botao_porque_ser_ibefiano',
+    array(
+        'label'      => __('Exibir botão?', 'exibir_botao_label'),
+        'settings'   => 'exibir_botao_porque_ser_ibefiano',
+        'section'    => 'porque_ser_ibefiano',
+        'type'       => 'checkbox'
+    )
+));
+
+$wp_customize->add_setting(
+    'texto_botao_porque_ser_ibefiano',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'texto_botao_porque_ser_ibefiano',
+    array(
+        'label'      => __('Texto do botão', 'texto_botao_porque_ser_ibefiano'),
+        'settings'   => 'texto_botao_porque_ser_ibefiano',
+        'section'    => 'porque_ser_ibefiano',
+        'type'       => 'text'
+    )
+));
+
+$wp_customize->add_setting(
+    'link_botao_porque_ser_ibefiano',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'link_botao_porque_ser_ibefiano',
+    array(
+        'label'      => __('Link do botão', 'link_botao_porque_ser_ibefiano_label'),
+        'settings'   => 'link_botao_porque_ser_ibefiano',
+        'section'    => 'porque_ser_ibefiano',
+        'type'       => 'text'
+    )
+));
+
 /**
  *  SUBMENU Página Principal -> Eventos 
  */
@@ -562,7 +621,7 @@ $wp_customize->add_control(new WP_Customize_Control(
     $wp_customize,
     'link_botao_podcast',
     array(
-        'label'      => __('Texto do botão da introdução', 'link_botao_podcast_label'),
+        'label'      => __('Link do botão da introdução', 'link_botao_podcast_label'),
         'settings'   => 'link_botao_podcast',
         'section'    => 'podcast',
         'type'       => 'text'

@@ -96,33 +96,34 @@ $programs_query = new WP_Query(array(
 
   <section id="porque-ser-ibefiano">
     <div class="container">
-      <h2><?= get_theme_mod("titulo_porque_ser_ibefiano", "Porque ser um IBEFiano") ?></h2>
+      <div class="row">
+        <h2><?= get_theme_mod("titulo_porque_ser_ibefiano", "Porque ser um IBEFiano") ?></h2>
 
-      <ul>
-        <?php
-        $repeater = get_theme_mod('customizer_repeater_porque_ser_ibefiano', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
-        /*This returns a json so we have to decode it*/
-        $repeater_decoded = json_decode($repeater);
-        foreach ($repeater_decoded as $repeater_item) : ?>
+          <?php
+          $repeater = get_theme_mod('customizer_repeater_porque_ser_ibefiano', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+          /*This returns a json so we have to decode it*/
+          $repeater_decoded = json_decode($repeater);
+          foreach ($repeater_decoded as $repeater_item) : ?>
 
-          <li>
-            <div>
-              <span class="img-ibefiano" style="background: url(<?= $repeater_item->image_url; ?>) no-repeat center center/cover"></span>
-              <h3><?= $repeater_item->title; ?></h3>
-              <p>
-                <?= $repeater_item->text; ?>
-              </p>
-            </div>
-          </li>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div>
+                <span class="img-ibefiano" style="background: url(<?= $repeater_item->image_url; ?>) no-repeat center center/cover"></span>
+                <h3><?= $repeater_item->title; ?></h3>
+                <p>
+                  <?= $repeater_item->text; ?>
+                </p>
+              </div>
+          </div>
 
-        <?php
-        endforeach;
-        ?>
+          <?php
+          endforeach;
+          ?>
+      </div>
 
-      </ul>
 
-      <?php if (!empty(get_theme_mod("link_btn_porque_ser_ibefiano"))) : ?>
-        <a href="<?= get_theme_mod("link_btn_porque_ser_ibefiano") ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_porque_ser_ibefiano") ?></a>
+
+      <?php if (!empty(get_theme_mod("exibir_botao_porque_ser_ibefiano"))) : ?>
+        <a href="<?= get_theme_mod("link_botao_porque_ser_ibefiano") ?>" class="btn btn-primary mt-4"><?= get_theme_mod("texto_botao_porque_ser_ibefiano") ?></a>
       <?php endif; ?>
     </div>
   </section>
@@ -142,17 +143,17 @@ $programs_query = new WP_Query(array(
               $events_reverse = array_reverse($events_query->posts);
               $events_query->posts = $events_reverse;
               while ($events_query->have_posts()) : $events_query->the_post() ?>
-                <div class="card-slider swiper-slide">
+                <div class="card card-slider swiper-slide shadow-sm">
                   <div class="image-content">
                     <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
                   </div>
                   <div class="card-content">
-                    <div class="d-flex align-items-center mb-2">
-                      <div class="col-12 category">
+                    <div class="d-flex flex-md-column flex-lg-row gap-md-2 justify-content-between align-items-center mb-2">
+                      <div class="category">
                         <?= get_custom_category($post->ID, "eventos_category") ?>
                       </div>
 
-                      <div class="col date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
+                      <div class="date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
                     </div>
                     <a href="<?php the_permalink(); ?>">
                       <h2 class="titulo"><?php the_title() ?></h2>

@@ -17,7 +17,7 @@ h1,
 h2,
 h3 {
   margin-bottom: 20px;
-  color: #2e9ae9;
+  color: #0b0f19;
 }
 
 p {
@@ -31,7 +31,6 @@ img {
 
 .btn {
   padding: 10px 25px;
-  font-weight: bold;
 }
 
 h1 {
@@ -40,8 +39,8 @@ h1 {
 }
 
 h2 {
-  font-size: 2.75rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 800;
 }
 
 h3 {
@@ -55,16 +54,16 @@ h4 {
 }
 
 .btn-primary {
-  border-radius: 0;
-  background-color: #002060;
-  border-color: #002060;
+  background-color: #2E9AE9;
+  border-color: #2E9AE9;
   color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .btn-primary:hover,
 .btn-primary:active {
-  background-color: #2e9ae9;
-  border-color: #2e9ae9;
+  background-color: #002060;
+  border-color: #002060;
 }
 
 .btn-primary-outline {
@@ -87,6 +86,10 @@ a {
 a:hover,
 a:active {
   color: #002060;
+}
+
+.card-content a {
+  text-decoration: none;
 }
 
 .swiper-button-next::after,
@@ -146,6 +149,11 @@ a:active {
 .card-content .date {
   font-size: 0.85rem;
   text-align: right;
+}
+@media (max-width: 991px) {
+  .card-content .event-date-category-data {
+    display: block;
+  }
 }
 .card-content h2,
 .card-content h3 {
@@ -218,17 +226,30 @@ a:active {
   text-align: center;
 }
 #porque-ser-ibefiano ul {
-  display: flex;
-  gap: 20px;
   list-style: none;
-  flex-wrap: wrap;
 }
 #porque-ser-ibefiano ul li {
-  max-width: 300px;
   align-items: center;
 }
+#porque-ser-ibefiano h3 {
+  color: #0b0f19;
+  font-size: 1.25rem;
+  width: 100%;
+  overflow: hidden;
+  height: 50px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#porque-ser-ibefiano h2 {
+  margin-bottom: 64px;
+}
+@media (max-width: 768px) {
+  #porque-ser-ibefiano h2 {
+    margin-bottom: 20px;
+  }
+}
 
-/* DEMO */
 .img-ibefiano {
   width: 70px;
   height: 70px;
@@ -247,6 +268,14 @@ a:active {
   padding: 20px;
   position: relative;
 }
+#nossos-ibefianos .card-content h2 {
+  width: 100%;
+  overflow: hidden;
+  height: 50px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 #nossos-ibefianos .slider-container {
   padding: 0 40px 40px 40px;
 }
@@ -264,6 +293,13 @@ a:active {
   top: -20px;
   z-index: 9999;
   border-radius: 5px;
+}
+
+#nossos-ibefianos {
+  background-color: #2E9AE9;
+}
+#nossos-ibefianos .card-slider {
+  background: #efefef;
 }
 
 #ultimas-noticias .card-wrapper {
@@ -309,6 +345,9 @@ a:active {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+#ultimas-noticias .titulo a {
+  color: #0b0f19;
 }
 #ultimas-noticias .card-date {
   font-size: 0.75rem;
@@ -529,5 +568,5 @@ footer .contatos .endereco::before {
 }
 
 .document:nth-of-type(odd) {
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
 }/*# sourceMappingURL=style.css.map */
