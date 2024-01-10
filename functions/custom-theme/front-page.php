@@ -443,6 +443,65 @@ $wp_customize->add_control(new WP_Customize_Control(
     )
 ));
 
+// Exibir botão
+
+$wp_customize->add_setting(
+    'exibir_botao_proximos_eventos',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'exibir_botao_proximos_eventos',
+    array(
+        'label'      => __('Exibir botão?', 'exibir_botao_label'),
+        'settings'   => 'exibir_botao_proximos_eventos',
+        'section'    => 'eventos',
+        'type'       => 'checkbox'
+    )
+));
+
+$wp_customize->add_setting(
+    'texto_botao_proximos_eventos',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'texto_botao_proximos_eventos',
+    array(
+        'label'      => __('Texto do botão', 'texto_botao_proximos_eventos'),
+        'settings'   => 'texto_botao_proximos_eventos',
+        'section'    => 'eventos',
+        'type'       => 'text'
+    )
+));
+
+$wp_customize->add_setting(
+    'link_botao_proximos_eventos',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'link_botao_proximos_eventos',
+    array(
+        'label'      => __('Link do botão', 'link_botao_proximos_eventos_label'),
+        'settings'   => 'link_botao_proximos_eventos',
+        'section'    => 'eventos',
+        'type'       => 'text'
+    )
+));
+
 /**
  *  SUBMENU Página Principal -> Nossos Ibefianos 
  */
@@ -489,6 +548,65 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_shortcode_control' => false,
     'customizer_repeater_repeater_control' => false
 )));
+
+// Exibir botão
+
+$wp_customize->add_setting(
+    'exibir_botao_nossos_ibefianos',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'exibir_botao_nossos_ibefianos',
+    array(
+        'label'      => __('Exibir botão?', 'exibir_botao_label'),
+        'settings'   => 'exibir_botao_nossos_ibefianos',
+        'section'    => 'nossos_ibefianos',
+        'type'       => 'checkbox'
+    )
+));
+
+$wp_customize->add_setting(
+    'texto_botao_nossos_ibefianos',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'texto_botao_nossos_ibefianos',
+    array(
+        'label'      => __('Texto do botão', 'texto_botao_nossos_ibefianos'),
+        'settings'   => 'texto_botao_nossos_ibefianos',
+        'section'    => 'nossos_ibefianos',
+        'type'       => 'text'
+    )
+));
+
+$wp_customize->add_setting(
+    'link_botao_nossos_ibefianos',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'link_botao_nossos_ibefianos',
+    array(
+        'label'      => __('Link do botão', 'link_botao_nossos_ibefianos_label'),
+        'settings'   => 'link_botao_nossos_ibefianos',
+        'section'    => 'nossos_ibefianos',
+        'type'       => 'text'
+    )
+));
 
 
 /**

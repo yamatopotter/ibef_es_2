@@ -99,25 +99,25 @@ $programs_query = new WP_Query(array(
       <div class="row">
         <h2><?= get_theme_mod("titulo_porque_ser_ibefiano", "Porque ser um IBEFiano") ?></h2>
 
-          <?php
-          $repeater = get_theme_mod('customizer_repeater_porque_ser_ibefiano', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
-          /*This returns a json so we have to decode it*/
-          $repeater_decoded = json_decode($repeater);
-          foreach ($repeater_decoded as $repeater_item) : ?>
+        <?php
+        $repeater = get_theme_mod('customizer_repeater_porque_ser_ibefiano', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+        /*This returns a json so we have to decode it*/
+        $repeater_decoded = json_decode($repeater);
+        foreach ($repeater_decoded as $repeater_item) : ?>
 
-            <div class="col-12 col-md-6 col-lg-3">
-              <div>
-                <span class="img-ibefiano" style="background: url(<?= $repeater_item->image_url; ?>) no-repeat center center/cover"></span>
-                <h3><?= $repeater_item->title; ?></h3>
-                <p>
-                  <?= $repeater_item->text; ?>
-                </p>
-              </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div>
+              <span class="img-ibefiano" style="background: url(<?= $repeater_item->image_url; ?>) no-repeat center center/cover"></span>
+              <h3><?= $repeater_item->title; ?></h3>
+              <p>
+                <?= $repeater_item->text; ?>
+              </p>
+            </div>
           </div>
 
-          <?php
-          endforeach;
-          ?>
+        <?php
+        endforeach;
+        ?>
       </div>
 
 
@@ -176,9 +176,9 @@ $programs_query = new WP_Query(array(
         <div class="swiper-pagination pagination-proximos-eventos"></div>
       </div>
 
-      <?php if (!empty(get_theme_mod("link_btn_proximos_eventos"))) : ?>
+      <?php if (!empty(get_theme_mod("exibir_botao_proximos_eventos"))) : ?>
         <div class="d-flex justify-content-center mt-4">
-          <a href="<?= get_theme_mod("link_btn_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_proximos_eventos", "Participe"); ?></a>
+          <a href="<?= get_theme_mod("link_botao_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_botao_proximos_eventos", "Participe"); ?></a>
         </div>
       <?php endif; ?>
     </div>
@@ -220,13 +220,13 @@ $programs_query = new WP_Query(array(
             <div class="swiper-pagination pagination-nossos-ibefianos"></div>
           </div>
         </div>
-      </div>
 
-      <?php if (!empty(get_theme_mod("link_btn_nossos_ibefianos"))) : ?>
-        <div class="d-flex justify-content-center mt-4">
-          <a href="<?= get_theme_mod("link_btn_nossos_ibefianos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_btn_nossos_ibefianos"); ?></a>
-        </div>
-      <?php endif; ?>
+        <?php if (!empty(get_theme_mod("exibir_botao_nossos_ibefianos"))) : ?>
+          <div class="d-flex justify-content-center mt-4">
+            <a href="<?= get_theme_mod("link_botao_nossos_ibefianos"); ?>" class="btn btn-primary-dark"><?= get_theme_mod("texto_botao_nossos_ibefianos", "Participe"); ?></a>
+          </div>
+        <?php endif; ?>
+      </div>
     </div>
   </section>
 

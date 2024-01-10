@@ -57,16 +57,32 @@ h4 {
 }
 
 .btn-primary {
-  background-color: #2E9AE9;
-  border-color: #2E9AE9;
+  background-color: #2e9ae9;
+  border-color: #2e9ae9;
   color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .btn-primary:hover,
 .btn-primary:active {
   background-color: #002060;
   border-color: #002060;
+}
+
+.btn-primary-dark {
+  background-color: #002060;
+  border-color: #002060;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.btn-primary-dark:hover,
+.btn-primary-dark:active {
+  color: #fff;
+  background-color: #071635;
+  border-color: #071635;
 }
 
 .btn-primary-outline {
@@ -99,9 +115,9 @@ a:active {
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 16px;
-  padding: 0 10px;
-  height: 30px;
+  font-size: 13px;
+  padding: 0 13px;
+  height: 31px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -109,6 +125,7 @@ a:active {
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background-color: #fff;
 }
 
 .slider-container {
@@ -321,8 +338,8 @@ a:active {
     display: block;
     width: 40px;
     height: 40px;
-    border: 10px solid #6366f1;
-    background-color: #6366f1;
+    border: 10px solid #252353;
+    background-color: #252353;
     color: #fff;
     position: absolute;
     left: 20px;
@@ -332,11 +349,11 @@ a:active {
   }
 }
 
-#nossos-ibefianos{
-  background-color: #2E9AE9;
+#nossos-ibefianos {
+  background-color: #2e9ae9;
 
-  .card-slider{
-    background: #efefef
+  .card-slider {
+    background: #efefef;
   }
 }
 
