@@ -796,11 +796,79 @@ $wp_customize->add_control(new WP_Customize_Control(
     )
 ));
 
-$wp_customize->add_setting('customizer_repeater_mantenedores', array(
+$wp_customize->add_setting('customizer_repeater_mantenedores_diamante', array(
     'sanitize_callback' => 'customizer_repeater_sanitize'
 ));
-$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores', array(
-    'label'   => esc_html__('Nossos Ibefianos', 'customizer-repeater'),
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores_diamante', array(
+    'label'   => esc_html__('Mantenedores Diamante', 'customizer-repeater'),
+    'section' => 'mantenedores',
+    'priority' => 1,
+    'customizer_repeater_image_control' => true,
+    'customizer_repeater_icon_control' => true,
+    'customizer_repeater_title_control' => false,
+    'customizer_repeater_subtitle_control' => false,
+    'customizer_repeater_text_control' => false,
+    'customizer_repeater_link_control' => false,
+    'customizer_repeater_shortcode_control' => false,
+    'customizer_repeater_repeater_control' => false
+)));
+
+$wp_customize->add_setting('customizer_repeater_mantenedores_master', array(
+    'sanitize_callback' => 'customizer_repeater_sanitize'
+));
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores_master', array(
+    'label'   => esc_html__('Mantenedores Master', 'customizer-repeater'),
+    'section' => 'mantenedores',
+    'priority' => 1,
+    'customizer_repeater_image_control' => true,
+    'customizer_repeater_icon_control' => true,
+    'customizer_repeater_title_control' => false,
+    'customizer_repeater_subtitle_control' => false,
+    'customizer_repeater_text_control' => false,
+    'customizer_repeater_link_control' => false,
+    'customizer_repeater_shortcode_control' => false,
+    'customizer_repeater_repeater_control' => false
+)));
+
+$wp_customize->add_setting('customizer_repeater_mantenedores_senior', array(
+    'sanitize_callback' => 'customizer_repeater_sanitize'
+));
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores_senior', array(
+    'label'   => esc_html__('Mantenedores Sênior', 'customizer-repeater'),
+    'section' => 'mantenedores',
+    'priority' => 1,
+    'customizer_repeater_image_control' => true,
+    'customizer_repeater_icon_control' => true,
+    'customizer_repeater_title_control' => false,
+    'customizer_repeater_subtitle_control' => false,
+    'customizer_repeater_text_control' => false,
+    'customizer_repeater_link_control' => false,
+    'customizer_repeater_shortcode_control' => false,
+    'customizer_repeater_repeater_control' => false
+)));
+
+$wp_customize->add_setting('customizer_repeater_mantenedores_pleno', array(
+    'sanitize_callback' => 'customizer_repeater_sanitize'
+));
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores_pleno', array(
+    'label'   => esc_html__('Mantenedores Pleno', 'customizer-repeater'),
+    'section' => 'mantenedores',
+    'priority' => 1,
+    'customizer_repeater_image_control' => true,
+    'customizer_repeater_icon_control' => true,
+    'customizer_repeater_title_control' => false,
+    'customizer_repeater_subtitle_control' => false,
+    'customizer_repeater_text_control' => false,
+    'customizer_repeater_link_control' => false,
+    'customizer_repeater_shortcode_control' => false,
+    'customizer_repeater_repeater_control' => false
+)));
+
+$wp_customize->add_setting('customizer_repeater_mantenedores_apoiadores', array(
+    'sanitize_callback' => 'customizer_repeater_sanitize'
+));
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_mantenedores_apoiadores', array(
+    'label'   => esc_html__('Apoiadores', 'customizer-repeater'),
     'section' => 'mantenedores',
     'priority' => 1,
     'customizer_repeater_image_control' => true,

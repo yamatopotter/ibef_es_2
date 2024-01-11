@@ -293,9 +293,92 @@ $programs_query = new WP_Query(array(
 
         <!-- Adicionar uma query e um loop com os mantenedores registrados -->
         <div class="col-12">
+          <p class="text-center">Mantenedores Diamanete</p>
           <ul class="list-mantenedores">
             <?php
-            $repeater = get_theme_mod('customizer_repeater_mantenedores', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+            $repeater = get_theme_mod('customizer_repeater_mantenedores_diamante', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+            /*This returns a json so we have to decode it*/
+            $repeater_decoded = json_decode($repeater);
+            foreach ($repeater_decoded as $repeater_item) : ?>
+
+              <li>
+                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+              </li>
+
+            <?php
+            endforeach;
+            ?>
+          </ul>
+        </div>
+
+        <div class="col-12">
+          <p class="text-center">Mantenedores Master</p>
+          <ul class="list-mantenedores">
+            <?php
+            $repeater = get_theme_mod('customizer_repeater_mantenedores_master', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+            /*This returns a json so we have to decode it*/
+            $repeater_decoded = json_decode($repeater);
+            foreach ($repeater_decoded as $repeater_item) : ?>
+
+              <li>
+                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+              </li>
+
+            <?php
+            endforeach;
+            ?>
+          </ul>
+        </div>
+
+        <div class="col-12">
+          <p class="text-center">
+            Mantenedores Sênior
+          </p>
+          <ul class="list-mantenedores">
+            <?php
+            $repeater = get_theme_mod('customizer_repeater_mantenedores_senior', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+            /*This returns a json so we have to decode it*/
+            $repeater_decoded = json_decode($repeater);
+            foreach ($repeater_decoded as $repeater_item) : ?>
+
+              <li>
+                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+              </li>
+
+            <?php
+            endforeach;
+            ?>
+          </ul>
+        </div>
+
+        <div class="col-12">
+          <p class="text-center">
+            Mantenedores Pleno
+          </p>
+          <ul class="list-mantenedores">
+            <?php
+            $repeater = get_theme_mod('customizer_repeater_mantenedores_pleno', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+            /*This returns a json so we have to decode it*/
+            $repeater_decoded = json_decode($repeater);
+            foreach ($repeater_decoded as $repeater_item) : ?>
+
+              <li>
+                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+              </li>
+
+            <?php
+            endforeach;
+            ?>
+          </ul>
+        </div>
+
+        <div class="col-12">
+          <p class="text-center">
+            Apoiadores
+          </p>
+          <ul class="list-mantenedores">
+            <?php
+            $repeater = get_theme_mod('customizer_repeater_mantenedores_apoiadores', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
             /*This returns a json so we have to decode it*/
             $repeater_decoded = json_decode($repeater);
             foreach ($repeater_decoded as $repeater_item) : ?>
