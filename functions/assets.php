@@ -7,7 +7,7 @@ function register_assets()
     wp_register_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js');
 
     // main style
-    wp_register_style('main-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.03', false);
+    wp_register_style('main-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.04', false);
 
     // main.js
     wp_register_script('main', get_template_directory_uri() . '/assets/js/main.js', array(), '1.1', true);
