@@ -310,18 +310,19 @@ function post_meta_box_background_documentos_post()
 {
     global $post;
     $custom = get_post_meta($post->ID, 'background_documentos', true);
-    if (!empty($custom)) {
-        $fieldData = $custom['url'];
-        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
-    }
+    $fieldData = !empty($custom) ? $custom['url'] : '';
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+
     $html = '<p class="description">';
     $html .= 'Upload do banner de documentos';
     $html .= '</p>';
     $html .= '<input type="file" id="background_documentos" name="background_documentos" value="" size="40" accept="image/png, image/jpeg">';
+
     if (!empty($fieldData)) {
         $html .= '<p class="alert">';
         $html .= "Já existe um banner para documentos. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
         $html .= '</p>';
+        $html .= '<input type="submit" class="button" name="delete_background_documentos" value="Excluir Imagem" />';
     }
     echo $html;
 }
@@ -343,6 +344,11 @@ function save_post_meta_box_background_documentos($id)
         } else {
             wp_die("O arquivo que tentou subir não é uma imagem.");
         }
+    }
+
+    // Verifica se o botão de excluir imagem foi pressionado
+    if (isset($_POST['delete_background_documentos'])) {
+        delete_post_meta($id, 'background_documentos');
     }
 }
 add_action('save_post', 'save_post_meta_box_background_documentos');
@@ -371,18 +377,19 @@ function post_meta_box_background_programas_post()
 {
     global $post;
     $custom = get_post_meta($post->ID, 'background_programas', true);
-    if (!empty($custom)) {
-        $fieldData = $custom['url'];
-        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
-    }
+    $fieldData = !empty($custom) ? $custom['url'] : '';
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+
     $html = '<p class="description">';
     $html .= 'Upload do banner do programa';
     $html .= '</p>';
     $html .= '<input type="file" id="background_programas" name="background_programas" value="" size="40" accept="image/png, image/jpeg">';
+
     if (!empty($fieldData)) {
         $html .= '<p class="alert">';
         $html .= "Já existe um banner para o programas. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
         $html .= '</p>';
+        $html .= '<input type="submit" class="button" name="delete_background_programas" value="Excluir Imagem" />';
     }
     echo $html;
 }
@@ -404,6 +411,11 @@ function save_post_meta_box_background_programas($id)
         } else {
             wp_die("O arquivo que tentou subir não é uma imagem.");
         }
+    }
+
+    // Verifica se o botão de excluir imagem foi pressionado
+    if (isset($_POST['delete_background_programas'])) {
+        delete_post_meta($id, 'background_programas');
     }
 }
 add_action('save_post', 'save_post_meta_box_background_programas');
@@ -438,18 +450,19 @@ function post_meta_box_background_quem_somos_post()
 {
     global $post;
     $custom = get_post_meta($post->ID, 'background_quem_somos', true);
-    if (!empty($custom)) {
-        $fieldData = $custom['url'];
-        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
-    }
+    $fieldData = !empty($custom) ? $custom['url'] : '';
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+
     $html = '<p class="description">';
     $html .= 'Upload do banner da página de quem somos';
     $html .= '</p>';
     $html .= '<input type="file" id="background_quem_somos" name="background_quem_somos" value="" size="40" accept="image/png, image/jpeg">';
+
     if (!empty($fieldData)) {
         $html .= '<p class="alert">';
         $html .= "Já existe um banner para quem somos. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
         $html .= '</p>';
+        $html .= '<input type="submit" class="button" name="delete_background_quem_somos" value="Excluir Imagem" />';
     }
     echo $html;
 }
@@ -471,6 +484,11 @@ function save_post_meta_box_background_quem_somos($id)
         } else {
             wp_die("O arquivo que tentou subir não é uma imagem.");
         }
+    }
+
+    // Verifica se o botão de excluir imagem foi pressionado
+    if (isset($_POST['delete_background_quem_somos'])) {
+        delete_post_meta($id, 'background_quem_somos');
     }
 }
 add_action('save_post', 'save_post_meta_box_background_quem_somos');
@@ -504,18 +522,19 @@ function post_meta_box_background_diretoria_post()
 {
     global $post;
     $custom = get_post_meta($post->ID, 'background_diretoria', true);
-    if (!empty($custom)) {
-        $fieldData = $custom['url'];
-        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
-    }
+    $fieldData = !empty($custom) ? $custom['url'] : '';
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+
     $html = '<p class="description">';
     $html .= 'Upload do banner da diretoria';
     $html .= '</p>';
     $html .= '<input type="file" id="background_diretoria" name="background_diretoria" value="" size="40" accept="image/png, image/jpeg">';
+
     if (!empty($fieldData)) {
         $html .= '<p class="alert">';
         $html .= "Já existe um banner para a diretoria. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
         $html .= '</p>';
+        $html .= '<input type="submit" class="button" name="delete_background_diretoria" value="Excluir Imagem" />';
     }
     echo $html;
 }
@@ -537,6 +556,11 @@ function save_post_meta_box_background_diretoria($id)
         } else {
             wp_die("O arquivo que tentou subir não é uma imagem.");
         }
+    }
+
+    // Verifica se o botão de excluir imagem foi pressionado
+    if (isset($_POST['delete_background_diretoria'])) {
+        delete_post_meta($id, 'background_diretoria');
     }
 }
 add_action('save_post', 'save_post_meta_box_background_diretoria');
@@ -565,10 +589,9 @@ function post_meta_box_background_galerias_post()
 {
     global $post;
     $custom = get_post_meta($post->ID, 'background_galerias', true);
-    if (!empty($custom)) {
-        $fieldData = $custom['url'];
-        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
-    }
+    $fieldData = !empty($custom) ? $custom['url'] : '';
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+
     $html = '<p class="description">';
     $html .= 'Upload do banner da galeria';
     $html .= '</p>';
@@ -577,6 +600,7 @@ function post_meta_box_background_galerias_post()
         $html .= '<p class="alert">';
         $html .= "Já existe um banner para esse galeria. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
         $html .= '</p>';
+        $html .= '<input type="submit" class="button" name="delete_background_galerias" value="Excluir Imagem" />';
     }
     echo $html;
 }
@@ -598,6 +622,11 @@ function save_post_meta_box_background_galerias($id)
         } else {
             wp_die("O arquivo que tentou subir não é uma imagem.");
         }
+    }
+
+    // Verifica se o botão de excluir imagem foi pressionado
+    if (isset($_POST['delete_background_galerias'])) {
+        delete_post_meta($id, 'background_galerias');
     }
 }
 add_action('save_post', 'save_post_meta_box_background_galerias');
@@ -627,18 +656,19 @@ function post_meta_box_background_eventos_post()
 {
     global $post;
     $custom = get_post_meta($post->ID, 'background_eventos', true);
-    if (!empty($custom)) {
-        $fieldData = $custom['url'];
+    $fieldData = !empty($custom) ? $custom['url'] : '';
         wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
-    }
+
     $html = '<p class="description">';
     $html .= 'Upload do banner do evento';
     $html .= '</p>';
     $html .= '<input type="file" id="background_eventos" name="background_eventos" value="" size="40" accept="image/png, image/jpeg">';
+
     if (!empty($fieldData)) {
         $html .= '<p class="alert">';
         $html .= "Já existe um banner para esse evento. Clique <a href='$fieldData' target='_blank'>aqui</a> para visualizar";
         $html .= '</p>';
+        $html .= '<input type="submit" class="button" name="delete_background_eventos" value="Excluir Imagem" />';
     }
     echo $html;
 }
@@ -660,6 +690,11 @@ function save_post_meta_box_background_eventos($id)
         } else {
             wp_die("O arquivo que tentou subir não é uma imagem.");
         }
+    }
+
+    // Verifica se o botão de excluir imagem foi pressionado
+    if (isset($_POST['delete_background_eventos'])) {
+        delete_post_meta($id, 'background_eventos');
     }
 }
 add_action('save_post', 'save_post_meta_box_background_eventos');
