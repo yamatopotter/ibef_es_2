@@ -9,7 +9,7 @@
                 <?php if (empty($background)) : ?>
                     <section id="intro-sub">
                     <?php else : ?>
-                        <section id="intro-sub" style="background: url(<?= $background ?>) no-repeat center center/cover">
+                        <section id="intro-sub" style="background: url(<?= $background['url'] ?>) no-repeat center center/cover">
                         <?php endif; ?>
                         <div class="container">
                             <div class="col-12 text-center">
