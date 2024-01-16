@@ -293,3 +293,13 @@ function conver_date_to_ptbr($date)
     $newDate = date('j \d\e F \d\e Y', strtotime($date));
     return $newDate;
 }
+
+add_action('init', 'wpdocs_custom_init');
+
+/**
+ * Add excerpt support to pages
+ */
+function wpdocs_custom_init()
+{
+    add_post_type_support('page', 'excerpt');
+}
