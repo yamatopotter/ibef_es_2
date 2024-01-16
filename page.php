@@ -15,9 +15,11 @@
                             <div class="col-12 text-center">
                                 <h1><?php the_title(); ?></h1>
 
+                                <?php if(has_excerpt()): ?>
                                 <p>
                                     <?php the_excerpt(); ?>
                                 </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                         </section>
