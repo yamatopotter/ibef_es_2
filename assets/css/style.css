@@ -388,13 +388,14 @@ a:active {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding-left: 0;
   margin-bottom: 40px;
+  gap: 20px;
 }
 #mantenedores .list-mantenedores img {
-  width: 100px;
+  width: 200px;
 }
 
 #newsletter {
