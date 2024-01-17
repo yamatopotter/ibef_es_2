@@ -23,58 +23,36 @@ $background = get_custom_meta($post->ID, "background_diretoria");
             </div>
             </section>
 
-            <section class="quadro-diretoria">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 pe-4">
-                            <h2><?php the_field("title_diretoria") ?></h2>
+            <?php if (have_rows("grupos_de_diretores")) : while (have_rows("grupos_de_diretores")) : the_row(); ?>
+
+                <section class="quadro-diretoria">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 pe-4">
+                                <h2><?php the_sub_field("title_diretoria_section") ?></h2>
+                            </div>
+
+                            <ul>
+                                <?php if (have_rows("list_diretoria_members")) : while (have_rows("list_diretoria_members")) : the_row(); ?>
+                                        <li>
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <img src="<?php the_sub_field("foto_membro_diretoria"); ?>" alt="<?php the_sub_field("nome_membro_diretoria") ?>" />
+                                                </div>
+                                                <div class="card-description">
+                                                    <p><?php the_sub_field("nome_membro_diretoria") ?></p>
+                                                    <span><?php the_sub_field("cargo_membro_diretoria") ?></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                <?php endwhile;
+                                endif; ?>
+                            </ul>
                         </div>
-
-                        <ul>
-                            <?php if (have_rows("diretoria_atual")) : while (have_rows("diretoria_atual")) : the_row(); ?>
-                                    <li>
-                                        <div class="card">
-                                            <div class="card-img">
-                                                <img src="<?php the_sub_field("foto_membro_diretoria"); ?>" alt="<?php the_sub_field("nome_membro_diretoria") ?>" />
-                                            </div>
-                                            <div class="card-description">
-                                                <p><?php the_sub_field("nome_membro_diretoria") ?></p>
-                                                <span><?php the_sub_field("cargo_membro_diretoria") ?></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            <?php endwhile;
-                            endif; ?>
-                        </ul>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="quadro-diretoria">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 pe-4">
-                            <h2><?php the_field("title_exdiretoria"); ?></h2>
-                        </div>
-
-                        <ul>
-                            <?php if (have_rows("ex_diretoria")) : while (have_rows("ex_diretoria")) : the_row(); ?>
-                                    <li>
-                                        <div class="card">
-                                            <div class="card-img">
-                                                <img src="<?php the_sub_field("foto_membro_exdiretoria"); ?>" alt="<?php the_sub_field("nome_membro_exdiretoria") ?>" />
-                                            </div>
-                                            <div class="card-description">
-                                                <p><?php the_sub_field("nome_membro_exdiretoria") ?></p>
-                                                <span><?php the_sub_field("cargo_membro_exdiretoria") ?></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            <?php endwhile;
-                            endif; ?>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <?php endwhile;
+            endif; ?>
 
             <?php get_footer(); ?>
