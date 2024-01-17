@@ -132,6 +132,35 @@
                             </section>
                         <?php endif; ?>
 
+                        <?php
+                        $status = get_field("show_program_documentos");
+                        if ($status) :
+                        ?>
+                            <section class="document">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 pe-4">
+                                            <h2><?php the_field("title_program_documentos") ?></h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <ul>
+                                                <?php if (have_rows("list_program_documentos")) : while (have_rows("list_program_documentos")) : the_row(); ?>
+                                                    <li>
+                                                        <a href="<?php the_sub_field("file_document_program") ?>" target="_blank"><?php the_sub_field('name_document_program') ?></a>
+                                                    </li>
+                                                    <hr />
+                                                <?php endwhile;
+                                                endif; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        <?php endif; ?>
+
                 <?php
             endwhile;
         endif;
