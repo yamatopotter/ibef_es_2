@@ -26,7 +26,7 @@ $midia_query = new WP_Query(array(
   'post_type' => 'midia',
   'orderby' => 'publish_date',
   'order' => 'DESC',
-  'posts_per_page' => 3
+  'posts_per_page' => 4
 ));
 
 $programs_query = new WP_Query(array(
