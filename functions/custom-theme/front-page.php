@@ -639,6 +639,56 @@ $wp_customize->add_control(new WP_Customize_Control(
 ));
 
 /**
+ * SUBMENU Página Principal -> Mídia
+ */
+
+$wp_customize->add_section('midia', array(
+    'title'      => __('Mídia'),
+    'priority'   => 0,
+    'panel'    => 'front-page'
+));
+
+//Título do bloco mídia
+$wp_customize->add_setting(
+    'titulo_midia',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'titulo_midia',
+    array(
+        'label'      => __('Título do bloco de mídia', 'titulo_midia_label'),
+        'settings'   => 'titulo_midia',
+        'section'    => 'midia',
+        'type'       => 'text'
+    )
+));
+
+//Subtítulo do bloco mídia
+$wp_customize->add_setting(
+    'subtitulo_midia',
+    array(
+        'default' => '',
+        'transport' => 'refresh'
+    )
+);
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'subtitulo_midia',
+    array(
+        'label'      => __('Subtítulo do bloco de mídia', 'subtitulo_midia_label'),
+        'settings'   => 'subtitulo_midia',
+        'section'    => 'midia',
+        'type'       => 'text'
+    )
+));
+
+/**
  * SUBMENU Página Principal -> Podcast
  */
 $wp_customize->add_section('podcast', array(

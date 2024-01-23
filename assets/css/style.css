@@ -10,7 +10,7 @@
 }
 
 section {
-  padding: 40px 0;
+  padding: 80px 0;
 }
 
 h1,
@@ -313,6 +313,20 @@ a:active {
   background: #efefef;
 }
 
+#midia h2 {
+  color: #2e9ae9;
+  text-align: center;
+}
+#midia .card-img {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 100%;
+  height: 200px;
+}
+#midia .card a {
+  color: #000;
+}
+
 #ultimas-noticias .card-wrapper {
   list-style: none;
   display: flex;
@@ -382,6 +396,17 @@ a:active {
 #ultimas-noticias .card-author p {
   font-size: 0.75rem;
   margin-bottom: 0;
+}
+
+#ultimas-noticias.home {
+  background-color: #252353;
+}
+#ultimas-noticias.home h2 {
+  color: #2E9AE9;
+  text-align: center;
+}
+#ultimas-noticias.home .card {
+  border: none;
 }
 
 #mantenedores .list-mantenedores {
@@ -581,4 +606,12 @@ footer .contatos .endereco::before {
 
 .document:nth-of-type(odd) {
   background-color: #ebebeb;
+}
+
+.post-navigation .row {
+  justify-content: space-around;
+}
+.post-navigation .row .btn {
+  width: -moz-fit-content;
+  width: fit-content;
 }/*# sourceMappingURL=style.css.map */

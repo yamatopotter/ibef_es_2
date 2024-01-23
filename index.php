@@ -22,6 +22,13 @@ $news_query = new WP_Query(array(
   'posts_per_page' => 4
 ));
 
+$midia_query = new WP_Query(array(
+  'post_type' => 'midia',
+  'orderby' => 'publish_date',
+  'order' => 'DESC',
+  'posts_per_page' => 3
+));
+
 $programs_query = new WP_Query(array(
   'post_type' => 'programas',
   'orderby' => 'publish_date',
@@ -230,7 +237,43 @@ $programs_query = new WP_Query(array(
     </div>
   </section>
 
-  <section id="ultimas-noticias">
+  <section id="midia">
+    <div class="container">
+
+      <h2 class="title"><?= get_theme_mod('titulo_midia', 'IBEF-ES na Mídia'); ?></h2>
+
+      <div class="row">
+        <?php while ($midia_query->have_posts()) : $midia_query->the_post();
+          $postId = $midia_query->post->ID; ?>
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="card">
+
+              <?php if (get_the_thumbnail()) : ?>
+                <div class="card-img" style="background: url(<?php the_thumbnail('medium') ?>) no-repeat center center/cover">
+
+                </div>
+              <?php endif ?>
+
+              <div class="card-content">
+                <div class="card-data">
+                  <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
+                </div>
+                <h3 class="titulo"><a href="<?= returnLinkFile($postId); ?>" target="_blank"><?php the_title(); ?></a></h3>
+              </div>
+
+            </div>
+          </div>
+        <?php endwhile; ?>
+
+        <div class="d-flex justify-content-center mt-4">
+          <a href="<?= get_post_type_archive_link('midia'); ?>" class="btn btn-primary">Ver outras presenças <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="ultimas-noticias" class="home">
     <div class="container">
       <div class="row">
         <div class="col-12 texto-center">
@@ -247,7 +290,7 @@ $programs_query = new WP_Query(array(
               <div class="card-content">
                 <div class="card-data">
                   <span class="card-category"><?= get_custom_category($post->ID, "category") ?></span>
-                  <span class="card-date"><?= the_date("d/m/Y"); ?></span>
+                  <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
                 </div>
                 <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <hr />
@@ -259,6 +302,9 @@ $programs_query = new WP_Query(array(
             </div>
           </div>
         <?php endwhile; ?>
+        <div class="d-flex justify-content-center mt-4">
+          <a href="<?= get_post_type_archive_link('noticias'); ?>" class="btn btn-primary">Ver mais notícias <i class="bi bi-arrow-right"></i></a>
+        </div>
       </div>
     </div>
   </section>
