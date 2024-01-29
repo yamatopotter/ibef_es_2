@@ -348,7 +348,7 @@ $programs_query = new WP_Query(array(
             foreach ($repeater_decoded as $repeater_item) : ?>
 
               <li>
-                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+                <a href="<?= $repeater_item->link ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" /></a>
               </li>
 
             <?php
@@ -367,7 +367,7 @@ $programs_query = new WP_Query(array(
             foreach ($repeater_decoded as $repeater_item) : ?>
 
               <li>
-                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+                <a href="<?= $repeater_item->link ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" /></a>
               </li>
 
             <?php
@@ -388,7 +388,7 @@ $programs_query = new WP_Query(array(
             foreach ($repeater_decoded as $repeater_item) : ?>
 
               <li>
-                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+                <a href="<?= $repeater_item->link ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" /></a>
               </li>
 
             <?php
@@ -409,7 +409,7 @@ $programs_query = new WP_Query(array(
             foreach ($repeater_decoded as $repeater_item) : ?>
 
               <li>
-                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+                <a href="<?= $repeater_item->link ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" /></a>
               </li>
 
             <?php
@@ -430,7 +430,7 @@ $programs_query = new WP_Query(array(
             foreach ($repeater_decoded as $repeater_item) : ?>
 
               <li>
-                <img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" />
+                <a href="<?= $repeater_item->link ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do mantenedor" /></a>
               </li>
 
             <?php

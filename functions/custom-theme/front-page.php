@@ -858,7 +858,7 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_title_control' => false,
     'customizer_repeater_subtitle_control' => false,
     'customizer_repeater_text_control' => false,
-    'customizer_repeater_link_control' => false,
+    'customizer_repeater_link_control' => true,
     'customizer_repeater_shortcode_control' => false,
     'customizer_repeater_repeater_control' => false
 )));
@@ -875,7 +875,7 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_title_control' => false,
     'customizer_repeater_subtitle_control' => false,
     'customizer_repeater_text_control' => false,
-    'customizer_repeater_link_control' => false,
+    'customizer_repeater_link_control' => true,
     'customizer_repeater_shortcode_control' => false,
     'customizer_repeater_repeater_control' => false
 )));
@@ -892,7 +892,7 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_title_control' => false,
     'customizer_repeater_subtitle_control' => false,
     'customizer_repeater_text_control' => false,
-    'customizer_repeater_link_control' => false,
+    'customizer_repeater_link_control' => true,
     'customizer_repeater_shortcode_control' => false,
     'customizer_repeater_repeater_control' => false
 )));
@@ -909,7 +909,7 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_title_control' => false,
     'customizer_repeater_subtitle_control' => false,
     'customizer_repeater_text_control' => false,
-    'customizer_repeater_link_control' => false,
+    'customizer_repeater_link_control' => true,
     'customizer_repeater_shortcode_control' => false,
     'customizer_repeater_repeater_control' => false
 )));
@@ -926,7 +926,7 @@ $wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_re
     'customizer_repeater_title_control' => false,
     'customizer_repeater_subtitle_control' => false,
     'customizer_repeater_text_control' => false,
-    'customizer_repeater_link_control' => false,
+    'customizer_repeater_link_control' => true,
     'customizer_repeater_shortcode_control' => false,
     'customizer_repeater_repeater_control' => false
 )));
