@@ -15,9 +15,11 @@
                             <div class="col-12 text-center">
                                 <h1><?php the_title(); ?></h1>
 
-                                <p>
-                                    <?php the_excerpt(); ?>
-                                </p>
+                                <?php if (has_excerpt()) : ?>
+                                    <p>
+                                        <?php the_excerpt(); ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                         </section>
@@ -80,9 +82,9 @@
                                     <div class="row">
                                         <h2 class="text-center"><?php the_field("title_beneficios") ?></h2>
                                     </div>
-                                    <div class="row justify-content-center">
+                                    <div class="row justify-content-center align-items-stretch">
                                         <?php if (have_rows("list_beneficios")) : while (have_rows("list_beneficios")) : the_row(); ?>
-                                                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                                <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex align-items-stretch">
                                                     <div class="card">
                                                         <div class="card-img">
                                                             <img src="<?php the_sub_field("icon_item_beneficios"); ?>" alt="">
@@ -148,10 +150,10 @@
                                         <div class="col-12">
                                             <ul>
                                                 <?php if (have_rows("list_program_documentos")) : while (have_rows("list_program_documentos")) : the_row(); ?>
-                                                    <li>
-                                                        <a href="<?php the_sub_field("file_document_program") ?>" target="_blank"><?php the_sub_field('name_document_program') ?></a>
-                                                    </li>
-                                                    <hr />
+                                                        <li>
+                                                            <a href="<?php the_sub_field("file_document_program") ?>" target="_blank"><?php the_sub_field('name_document_program') ?></a>
+                                                        </li>
+                                                        <hr />
                                                 <?php endwhile;
                                                 endif; ?>
                                             </ul>
