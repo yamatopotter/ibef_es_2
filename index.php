@@ -11,7 +11,7 @@ $events_query = new WP_Query(array(
     'value' => $today,
     'compare' => '>='
   ),
-  'order' => 'ASC',
+  'order' => 'DESC',
   'posts_per_page' => 9
 ));
 
