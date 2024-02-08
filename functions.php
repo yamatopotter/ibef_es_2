@@ -276,7 +276,7 @@ function prefix_bs5_dropdown_data_attribute($atts, $item, $args)
 function get_custom_category($post_id, $category_name)
 {
     $term = get_the_terms($post_id, $category_name);
-    if(!empty($term)){
+    if (!empty($term)) {
         return $term[0]->name;
     }
     return "Sem Categoria";
@@ -290,9 +290,11 @@ function get_custom_meta($post_id, $meta_name)
 
 function conver_date_to_ptbr($date)
 {
-    $newDate = date('j \d\e F \d\e Y', strtotime($date));
-    return $newDate;
+    $timestamp = strtotime($date);
+    $formatter = new IntlDateFormatter('pt_BR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+    return $formatter->format($timestamp);
 }
+
 
 add_action('init', 'wpdocs_custom_init');
 
