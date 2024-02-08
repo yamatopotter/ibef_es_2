@@ -352,8 +352,8 @@ a:active {
   }
 }
 
-#midia{
-  h2{
+#midia {
+  h2 {
     color: #2e9ae9;
     text-align: center;
   }
@@ -365,9 +365,9 @@ a:active {
     height: 200px;
   }
 
-  .card{
-    a{
-      color: #000
+  .card {
+    a {
+      color: #000;
     }
   }
 }
@@ -455,16 +455,16 @@ a:active {
   }
 }
 
-#ultimas-noticias.home{
+#ultimas-noticias.home {
   background-color: #252353;
 
-  h2{
-    color:#2E9AE9;
+  h2 {
+    color: #2e9ae9;
     text-align: center;
   }
 
-  .card{
-    border:none;
+  .card {
+    border: none;
   }
 }
 
@@ -477,7 +477,7 @@ a:active {
     align-items: center;
     padding-left: 0;
     margin-bottom: 40px;
-    gap:20px;
+    gap: 20px;
     img {
       width: 200px;
     }
@@ -712,11 +712,75 @@ footer {
   background-color: #ebebeb;
 }
 
-.post-navigation{
-  .row{
+.post-navigation {
+  .row {
     justify-content: space-around;
-    .btn{
+    .btn {
       width: fit-content;
     }
+  }
+}
+
+// Estilização de posts
+.post-text {
+  line-height: 1.6rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  p > img.aligncenter {
+    display: block;
+    margin: 0 auto;
+  }
+
+  div.wp-caption > p {
+    margin: 0;
+    text-align: center;
+  }
+
+  div.aligncenter{
+    display: block;
+    margin: 20px auto;
+  } 
+  
+  div.alignleft {
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+  }
+
+  div.alignright {
+    display: inline-block;
+    float: right;
+    margin-left: 20px;
+  }
+
+  p.wp-caption-text {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 719px) {
+  .post-text div.alignleft {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  .post-text div.alignleft p img {
+    display: block;
+    margin: 0 auto;
+  }
+  .post-text div.alignright {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  .post-text div.wp-caption > p {
+    margin-bottom: 10px;
+  }
+  .post-text p.wp-caption-text {
+    text-align: center;
   }
 }

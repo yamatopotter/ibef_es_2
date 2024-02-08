@@ -402,7 +402,7 @@ a:active {
   background-color: #252353;
 }
 #ultimas-noticias.home h2 {
-  color: #2E9AE9;
+  color: #2e9ae9;
   text-align: center;
 }
 #ultimas-noticias.home .card {
@@ -614,4 +614,60 @@ footer .contatos .endereco::before {
 .post-navigation .row .btn {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.post-text {
+  line-height: 1.6rem;
+}
+.post-text img {
+  max-width: 100%;
+  height: auto;
+}
+.post-text p > img.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+.post-text div.wp-caption > p {
+  margin: 0;
+  text-align: center;
+}
+.post-text div.aligncenter {
+  display: block;
+  margin: 20px auto;
+}
+.post-text div.alignleft {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+.post-text div.alignright {
+  display: inline-block;
+  float: right;
+  margin-left: 20px;
+}
+.post-text p.wp-caption-text {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 719px) {
+  .post-text div.alignleft {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  .post-text div.alignleft p img {
+    display: block;
+    margin: 0 auto;
+  }
+  .post-text div.alignright {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  .post-text div.wp-caption > p {
+    margin-bottom: 10px;
+  }
+  .post-text p.wp-caption-text {
+    text-align: center;
+  }
 }/*# sourceMappingURL=style.css.map */
