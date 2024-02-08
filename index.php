@@ -11,7 +11,7 @@ $events_query = new WP_Query(array(
     'value' => $today,
     'compare' => '>='
   ),
-  'order' => 'DESC',
+  'order' => 'ASC',
   'posts_per_page' => 9
 ));
 
@@ -127,8 +127,6 @@ $programs_query = new WP_Query(array(
         ?>
       </div>
 
-
-
       <?php if (!empty(get_theme_mod("exibir_botao_porque_ser_ibefiano"))) : ?>
         <a href="<?= get_theme_mod("link_botao_porque_ser_ibefiano") ?>" class="btn btn-primary mt-4"><?= get_theme_mod("texto_botao_porque_ser_ibefiano") ?></a>
       <?php endif; ?>
@@ -147,8 +145,6 @@ $programs_query = new WP_Query(array(
             <?php
             $arrayLength = count($events_query->posts);
             if ($arrayLength > 0) :
-              $events_reverse = array_reverse($events_query->posts);
-              $events_query->posts = $events_reverse;
               while ($events_query->have_posts()) : $events_query->the_post() ?>
                 <div class="card card-slider swiper-slide shadow-sm">
                   <div class="image-content">
