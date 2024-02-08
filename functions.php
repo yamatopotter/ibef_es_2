@@ -290,11 +290,19 @@ function get_custom_meta($post_id, $meta_name)
 
 function conver_date_to_ptbr($date)
 {
-    $timestamp = strtotime($date);
-    $formatter = new IntlDateFormatter('pt_BR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-    return $formatter->format($timestamp);
-}
+    if (PHP_MAJOR_VERSION > 7) {
+        $timestamp = strtotime($date);
+        $formatter = new IntlDateFormatter('pt_BR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+        return $formatter->format($timestamp);
+    }
 
+    $timestamp = strtotime($date);
+    $meses = array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    $mes = $meses[date('n', $timestamp) - 1];
+    $dia = date('j', $timestamp);
+    $ano = date('Y', $timestamp);
+    return "$dia de $mes de $ano";
+}
 
 add_action('init', 'wpdocs_custom_init');
 
