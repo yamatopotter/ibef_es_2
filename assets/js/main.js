@@ -1,5 +1,5 @@
 var slider1 = new Swiper(".slider-proximos-eventos", {
-  slidesPerView: 3,
+  slidesPerView: 4,
   spaceBetween: 20,
   centerSlide: 'true',
   fade: 'true',
@@ -20,7 +20,7 @@ var slider1 = new Swiper(".slider-proximos-eventos", {
       slidesPerView: 2,
     },
     950: {
-      slidesPerView: 3,
+      slidesPerView: 4,
     },
   },
 });

@@ -56,25 +56,23 @@ $programs_query = new WP_Query(array(
 
   <section id="nossos-programas">
     <div class="container">
-      <h2 class="destaque-sm"><?= get_theme_mod("titulo_nossos_programas", "Nossos Programas") ?></h2>
+      <h2><?= get_theme_mod("titulo_nossos_programas", "Nossos Programas") ?></h2>
       <!-- Uma query para pesquisar todos os programas e colocar as imagens em destaque dos titulos dos programas? -->
       <ul>
-        <!-- <?php while ($programs_query->have_posts()) : $programs_query->the_post(); ?>
-          <li><img src="<?php the_thumbnail("thumbnail"); ?>" /></li>
-        <?php endwhile; ?> -->
-        <?php
-        $repeater = get_theme_mod('customizer_repeater_programas', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
-        /*This returns a json so we have to decode it*/
-        $repeater_decoded = json_decode($repeater);
-        foreach ($repeater_decoded as $repeater_item) : ?>
+        <div class="row align-items-center justify-content-center">
+          <?php
+          $repeater = get_theme_mod('customizer_repeater_programas', json_encode(array(/*The content from your default parameter or delete this argument if you don't want a default*/)));
+          /*This returns a json so we have to decode it*/
+          $repeater_decoded = json_decode($repeater);
+          foreach ($repeater_decoded as $repeater_item) : ?>
 
-          <li>
-            <a href="<?= $repeater_item->link; ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do programa" /></a>
-          </li>
+            <li>
+              <a href="<?= $repeater_item->link; ?>" target="_blank"><img src="<?= $repeater_item->image_url; ?>" alt="logo do programa" /></a>
+            </li>
 
-        <?php
-        endforeach;
-        ?>
+          <?php
+          endforeach;
+          ?>
       </ul>
     </div>
   </section>
@@ -82,6 +80,12 @@ $programs_query = new WP_Query(array(
   <section id="sobre">
     <div class="container">
       <div class="row">
+        <div class="col-12 col-lg-6">
+          <?php if (!empty(get_theme_mod("img_sobre_nos"))) : ?>
+            <img src="<?= get_theme_mod("img_sobre_nos") ?>" alt="About us" />
+          <?php endif; ?>
+        </div>
+
         <div class="col-12 col-lg-6 pe-4">
           <h2><?= get_theme_mod("titulo_sobre_nos", "Sobre o IBEF"); ?></h2>
           <p>
@@ -89,12 +93,6 @@ $programs_query = new WP_Query(array(
           </p>
           <?php if (get_theme_mod("exibir_botao_sobre")) : ?>
             <a href="<?= get_theme_mod("pagina_sobre_nos") ?>" class="btn btn-primary mt-4"><?= get_theme_mod("texto_botao_sobre"); ?></a>
-          <?php endif; ?>
-        </div>
-
-        <div class="col-12 col-lg-6">
-          <?php if (!empty(get_theme_mod("img_sobre_nos"))) : ?>
-            <img src="<?= get_theme_mod("img_sobre_nos") ?>" alt="About us" />
           <?php endif; ?>
         </div>
       </div>
@@ -129,60 +127,6 @@ $programs_query = new WP_Query(array(
 
       <?php if (!empty(get_theme_mod("exibir_botao_porque_ser_ibefiano"))) : ?>
         <a href="<?= get_theme_mod("link_botao_porque_ser_ibefiano") ?>" class="btn btn-primary mt-4"><?= get_theme_mod("texto_botao_porque_ser_ibefiano") ?></a>
-      <?php endif; ?>
-    </div>
-  </section>
-
-  <section id="proximos-eventos">
-    <div class="container">
-      <div class="d-flex justify-content-center mt-4">
-        <h2><?= get_theme_mod("titulo_proximos_eventos", "Próximos eventos") ?></h2>
-      </div>
-
-      <div class="swiper slider-eventos slider-container">
-        <div class="slider-content slider-proximos-eventos">
-          <div class="card-slider-wrapper swiper-wrapper">
-            <?php
-            $arrayLength = count($events_query->posts);
-            if ($arrayLength > 0) :
-              while ($events_query->have_posts()) : $events_query->the_post() ?>
-                <div class="card card-slider swiper-slide shadow-sm">
-                  <div class="image-content">
-                    <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
-                  </div>
-                  <div class="card-content">
-                    <div class="d-flex flex-md-column flex-lg-row gap-md-2 justify-content-between align-items-center mb-2">
-                      <div class="category">
-                        <?= get_custom_category($post->ID, "eventos_category") ?>
-                      </div>
-
-                      <div class="date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
-                    </div>
-                    <a href="<?php the_permalink(); ?>">
-                      <h2 class="titulo"><?php the_title() ?></h2>
-                    </a>
-                    <hr />
-                    <div class="d-flex flex-column">
-                      <p class="location"><?= get_custom_meta($post->ID, "_local_event") ?></p>
-                      <p class="address"><?= get_custom_meta($post->ID, "_endereco_event") ?></p>
-                    </div>
-                  </div>
-                </div>
-              <?php endwhile;
-            else : ?>
-              <p class="text-center">Não há eventos próximos</p>
-            <?php endif; ?>
-          </div>
-        </div>
-        <div class="swiper-button-next next-proximos-eventos swiper-navBtn"></div>
-        <div class="swiper-button-prev prev-proximos-eventos swiper-navBtn"></div>
-        <div class="swiper-pagination pagination-proximos-eventos"></div>
-      </div>
-
-      <?php if (!empty(get_theme_mod("exibir_botao_proximos_eventos"))) : ?>
-        <div class="d-flex justify-content-center mt-4">
-          <a href="<?= get_theme_mod("link_botao_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_botao_proximos_eventos", "Participe"); ?></a>
-        </div>
       <?php endif; ?>
     </div>
   </section>
@@ -233,6 +177,56 @@ $programs_query = new WP_Query(array(
     </div>
   </section>
 
+  <section id="proximos-eventos">
+    <div class="container">
+      <div class="d-flex justify-content-center mt-4">
+        <h2><?= get_theme_mod("titulo_proximos_eventos", "Próximos eventos") ?></h2>
+      </div>
+
+      <div class="swiper slider-eventos slider-container">
+        <div class="slider-content slider-proximos-eventos">
+          <div class="card-slider-wrapper swiper-wrapper">
+            <?php
+            $arrayLength = count($events_query->posts);
+            if ($arrayLength > 0) :
+              while ($events_query->have_posts()) : $events_query->the_post() ?>
+                <div class="card card-slider swiper-slide shadow-sm">
+                  <div class="image-content">
+                    <img src="<?= the_thumbnail('medium') ?>" class="card-img-top" />
+                  </div>
+                  <div class="card-content">
+                    <div class="d-flex flex-md-column flex-lg-row gap-md-2 justify-content-between align-items-center mb-2">
+                      <div class="date"><?= conver_date_to_ptbr(get_custom_meta($post->ID, "_event_date")); ?></div>
+                    </div>
+                    <a href="<?php the_permalink(); ?>">
+                      <h2 class="titulo"><?php the_title() ?></h2>
+                    </a>
+                    <hr />
+                    <div class="d-flex flex-column">
+                      <p class="location"><?= get_custom_meta($post->ID, "_local_event") ?></p>
+                      <p class="address"><?= get_custom_meta($post->ID, "_endereco_event") ?></p>
+                    </div>
+                  </div>
+                </div>
+              <?php endwhile;
+            else : ?>
+              <p class="text-center">Não há eventos próximos</p>
+            <?php endif; ?>
+          </div>
+        </div>
+        <div class="swiper-button-next next-proximos-eventos swiper-navBtn"></div>
+        <div class="swiper-button-prev prev-proximos-eventos swiper-navBtn"></div>
+        <div class="swiper-pagination pagination-proximos-eventos"></div>
+      </div>
+
+      <?php if (!empty(get_theme_mod("exibir_botao_proximos_eventos"))) : ?>
+        <div class="d-flex justify-content-center mt-4">
+          <a href="<?= get_theme_mod("link_botao_proximos_eventos"); ?>" class="btn btn-primary"><?= get_theme_mod("texto_botao_proximos_eventos", "Participe"); ?></a>
+        </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
   <section id="midia">
     <div class="container">
 
@@ -262,7 +256,7 @@ $programs_query = new WP_Query(array(
         <?php endwhile; ?>
 
         <div class="d-flex justify-content-center mt-4">
-          <a href="<?= get_post_type_archive_link('midia'); ?>" class="btn btn-primary">Ver outras presenças <i class="bi bi-arrow-right"></i></a>
+          <a href="<?= get_post_type_archive_link('midia'); ?>" class="btn btn-primary">Ver mais presenças <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
 
@@ -326,11 +320,13 @@ $programs_query = new WP_Query(array(
   <section id="mantenedores">
     <div class="container">
       <div class="row">
-        <div class="col-12 texto-center">
+        <div class="col-12 text-center">
           <h2><?= get_theme_mod("titulo_mantenedores", "Mantenedores"); ?></h2>
-          <p>
-            <?= get_theme_mod("texto_mantenedores"); ?>
-          </p>
+          <?php if (!empty(get_theme_mod("texto_mantenedores"))) : ?>
+            <p>
+              <?= get_theme_mod("texto_mantenedores"); ?>
+            </p>
+          <?php endif; ?>
         </div>
 
         <!-- Adicionar uma query e um loop com os mantenedores registrados -->
