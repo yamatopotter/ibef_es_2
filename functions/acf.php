@@ -330,6 +330,73 @@ if (function_exists('acf_add_local_field_group')) :
     ));
 
     acf_add_local_field_group(array(
+        'key' => 'group_660039e37faca',
+        'title' => 'Galerias em páginas',
+        'fields' => array(
+            array(
+                'key' => 'field_660039fb1aae2',
+                'label' => 'Adicionar galerias',
+                'name' => 'gallery_repeater',
+                'type' => 'repeater',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'table',
+                'button_label' => '',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_66003a221aae3',
+                        'label' => 'Galeria',
+                        'name' => 'gallery',
+                        'type' => 'post_object',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'post_type' => array(
+                            0 => 'galerias',
+                        ),
+                        'taxonomy' => '',
+                        'allow_null' => 1,
+                        'multiple' => 0,
+                        'return_format' => 'object',
+                        'ui' => 1,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'default',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+
+    acf_add_local_field_group(array(
         'key' => 'group_6552e397841c0',
         'title' => 'Programas Estruturados',
         'fields' => array(
