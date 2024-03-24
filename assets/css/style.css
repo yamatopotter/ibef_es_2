@@ -25,10 +25,6 @@ p {
   line-height: 1.8rem;
 }
 
-img {
-  width: 100%;
-}
-
 .btn {
   padding: 10px 25px;
 }
@@ -185,7 +181,6 @@ a:active {
 }
 
 #intro-sub {
-  height: 40vh;
   background-color: #1c48ec;
   display: flex;
   align-items: center;
@@ -573,23 +568,23 @@ footer .contatos .endereco::before {
   color: #fff;
 }
 
-.gallery-content .lightgallery {
+.lightgallery {
   display: flex !important;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-.gallery-content .lightgallery a {
+.lightgallery a {
   opacity: 0.6;
   transition: 0.3s ease-in-out all;
   background-color: #fff;
   text-decoration: none;
 }
-.gallery-content .lightgallery a img {
+.lightgallery a img {
   max-width: 250px;
   margin: 10px;
 }
-.gallery-content .lightgallery a:hover {
+.lightgallery a:hover {
   opacity: 1;
 }
 
@@ -656,6 +651,35 @@ footer .contatos .endereco::before {
   margin-bottom: 5px;
 }
 
+#default-page {
+  line-height: 1.6rem;
+}
+#default-page p > img.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+#default-page div.wp-caption > p {
+  margin: 0;
+  text-align: center;
+}
+#default-page div.aligncenter {
+  display: block;
+  margin: 20px auto;
+}
+#default-page div.alignleft {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+#default-page div.alignright {
+  display: inline-block;
+  float: right;
+  margin-left: 20px;
+}
+#default-page p.wp-caption-text {
+  margin-bottom: 5px;
+}
+
 @media (max-width: 719px) {
   .post-text div.alignleft {
     display: block;
@@ -675,6 +699,28 @@ footer .contatos .endereco::before {
     margin-bottom: 10px;
   }
   .post-text p.wp-caption-text {
+    text-align: center;
+  }
+}
+@media (max-width: 719px) {
+  #default-page div.alignleft {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  #default-page div.alignleft p img {
+    display: block;
+    margin: 0 auto;
+  }
+  #default-page div.alignright {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  #default-page div.wp-caption > p {
+    margin-bottom: 10px;
+  }
+  #default-page p.wp-caption-text {
     text-align: center;
   }
 }/*# sourceMappingURL=style.css.map */

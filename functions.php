@@ -85,7 +85,7 @@ function get_thumbnail($size = null, $ID = null)
 }
 
 // Adiciona reticencias no final do excerpt
-function new_excerpt_more($more)
+function new_excerpt_more()
 {
     return '...';
 }
@@ -108,7 +108,7 @@ function limit_excerpt($limit)
 
 // Limite de caracteres do excerpt
 
-function the_excerpt_30($length)
+function the_excerpt_30()
 {
     return 30;
 }
@@ -220,7 +220,7 @@ function my_post_gallery($output, $attr)
     foreach ($attachments as $id => $attachment) {
         // Fetch the thumbnail (or full image, it's up to you)
         $img = wp_get_attachment_image_src($id, 'medium-square');
-        $imgBig = wp_get_attachment_image_src($id, 'original');
+        $imgBig = wp_get_attachment_image_src($id, 'large');
         $imgData = get_post($id);
 
         $imgDescription =  $imgData->post_excerpt;

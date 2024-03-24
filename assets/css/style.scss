@@ -33,10 +33,6 @@ p {
   line-height: 1.8rem;
 }
 
-img {
-  width: 100%;
-}
-
 .btn {
   padding: 10px 25px;
 }
@@ -209,7 +205,7 @@ a:active {
 
 
 #intro-sub {
-  height: 40vh;
+  // height: 40vh;
   background-color: $blue;
   display: flex;
   align-items: center;
@@ -677,8 +673,7 @@ footer {
 }
 
 // ---------------------- GALLERY -----------------------
-.gallery-content {
-  .lightgallery {
+.lightgallery {
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
@@ -697,6 +692,9 @@ footer {
       }
     }
   }
+
+.gallery-content {
+  
 }
 
 .document {
@@ -773,6 +771,42 @@ footer {
   }
 }
 
+// Estilização de imagens em páginas
+#default-page{
+  line-height: 1.6rem;
+
+  p > img.aligncenter {
+    display: block;
+    margin: 0 auto;
+  }
+
+  div.wp-caption > p {
+    margin: 0;
+    text-align: center;
+  }
+
+  div.aligncenter{
+    display: block;
+    margin: 20px auto;
+  } 
+  
+  div.alignleft {
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+  }
+
+  div.alignright {
+    display: inline-block;
+    float: right;
+    margin-left: 20px;
+  }
+
+  p.wp-caption-text {
+    margin-bottom: 5px;
+  }
+}
+
 @media (max-width: 719px) {
   .post-text div.alignleft {
     display: block;
@@ -792,6 +826,29 @@ footer {
     margin-bottom: 10px;
   }
   .post-text p.wp-caption-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 719px) {
+  #default-page div.alignleft {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  #default-page div.alignleft p img {
+    display: block;
+    margin: 0 auto;
+  }
+  #default-page div.alignright {
+    display: block;
+    float: inherit;
+    margin: 0 auto;
+  }
+  #default-page div.wp-caption > p {
+    margin-bottom: 10px;
+  }
+  #default-page p.wp-caption-text {
     text-align: center;
   }
 }
