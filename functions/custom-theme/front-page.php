@@ -1019,3 +1019,20 @@ $wp_customize->add_control(new WP_Customize_Control(
         'type'       => 'text'
     )
 ));
+
+$wp_customize->add_setting('customizer_repeater_social_network', array(
+    'sanitize_callback' => 'customizer_repeater_sanitize'
+));
+$wp_customize->add_control(new Customizer_Repeater($wp_customize, 'customizer_repeater_social_network', array(
+    'label'   => esc_html__('Redes Sociais', 'customizer-repeater'),
+    'section' => 'footer',
+    'priority' => 1,
+    'customizer_repeater_image_control' => true,
+    'customizer_repeater_icon_control' => true,
+    'customizer_repeater_title_control' => false,
+    'customizer_repeater_subtitle_control' => false,
+    'customizer_repeater_text_control' => false,
+    'customizer_repeater_link_control' => true,
+    'customizer_repeater_shortcode_control' => false,
+    'customizer_repeater_repeater_control' => false
+)));

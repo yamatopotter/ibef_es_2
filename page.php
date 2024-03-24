@@ -48,7 +48,7 @@
                                                             <div class="d-flex align-items-center">
                                                                 <span class="col date"><?= conver_date_to_ptbr($gallery_post->post_date); ?></span>
                                                             </div>
-                                                            <h3><a href="<?= the_permalink($gallery_post->ID); ?>"><?php the_title($gallery_post->post_title); ?></a></h3>
+                                                            <h3><a href="<?= the_permalink($gallery_post->ID); ?>"><?= get_the_title($gallery_post->ID); ?></a></h3>
                                                         </div>
                                                     </div>
                                                 </div>

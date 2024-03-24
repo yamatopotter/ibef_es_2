@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,600;1,9..40,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap');
 
 // Theme colors
 $blue: #1c48ec;
@@ -10,6 +10,9 @@ $white: #fff;
 * {
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .destaque-sm {
@@ -259,8 +262,11 @@ a:active {
 }
 
 /* sobre */
-#sobre img {
-  border-radius: 10px;
+#sobre {
+  img{
+    max-width: 100%;
+    border-radius: 10px;
+  }
 }
 
 /* porque ser um ibefiano */
@@ -501,10 +507,11 @@ a:active {
 }
 
 footer {
+  background-color: #f0f0f0;
   padding: 40px 0;
   .sobre {
     img {
-      max-height: 70px;
+      max-height: 150px;
       width: auto;
     }
   }
@@ -519,6 +526,7 @@ footer {
     flex-direction: column;
     gap: 10px;
     padding: 0;
+    margin: 0;
 
     li {
       display: flex;
@@ -553,12 +561,35 @@ footer {
       display: block;
     }
   }
+  
+  p{
+    margin: 0;
+  }
+
+  .social-network{
+    list-style: none;
+    display: flex;
+    gap:1rem;
+    margin-bottom: 0;
+
+    img{
+      max-width: 60px;
+      background-color: $dark-blue;
+      transition: .3s ease-in-out all;
+      border-radius: 50px;
+
+      &:hover{
+        background-color: $blue;
+      }
+    }
+  }
 }
 
 .about-block,
 .program-block {
   img {
     border-radius: 10px;
+    max-width: 100%;
   }
 }
 
@@ -804,6 +835,12 @@ footer {
 
   p.wp-caption-text {
     margin-bottom: 5px;
+  }
+
+  .card-slider{
+    a{
+      color: #000;
+    }
   }
 }
 
