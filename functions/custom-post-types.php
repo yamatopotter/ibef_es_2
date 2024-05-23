@@ -68,6 +68,38 @@ function register_post_types()
     ));
 
     /* -------------------------------------------------------------------------- */
+    /*                          Registro do tipo artigos                          */
+    /* -------------------------------------------------------------------------- */
+
+    register_post_type('artigos', array(
+        'labels' => array(
+            'name' => __('Artigo'),
+            'singular_name' => __('Artigo'),
+            'add_new' => __('Adicionar novo artigo'),
+            'add_new_item' => __('Adicionar novo artigo'),
+            'edit_item' => __('Editar artigo'),
+            'new_item' => __('Novo artigo'),
+            'all_items' => __('Todos os artigos'),
+            'view_item' => __('Exibir artigo'),
+            'search_items' => __('Buscar artigo'),
+            'not_found' => __('Nenhum artigo encontrado'),
+            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Artigos'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'has_archive' => true,
+        'taxonomies' => array('artigos_category', 'artigos_tag'),
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'artigos'),
+        'show_in_nav_menus' => true,
+        'supports' => array(
+            'title', 'excerpt', 'editor', 'thumbnail'
+        )
+    ));
+
+    /* -------------------------------------------------------------------------- */
     /*                           Registro do tipo Mídia                           */
     /* -------------------------------------------------------------------------- */
 
@@ -657,7 +689,7 @@ function post_meta_box_background_eventos_post()
     global $post;
     $custom = get_post_meta($post->ID, 'background_eventos', true);
     $fieldData = !empty($custom) ? $custom['url'] : '';
-        wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_custom_attachment_nonce');
 
     $html = '<p class="description">';
     $html .= 'Upload do banner do evento';
@@ -1166,3 +1198,68 @@ function eventos_category()
     register_taxonomy('eventos_category', array('eventos'), $args);
 }
 add_action('init', 'eventos_category');
+
+// ----------------------------Categoria para os tipos de eventos -----------------------------
+function artigos_category()
+{
+
+    $labels = array(
+        'name'              => _x('Categoria', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Categoria', 'taxonomy singular name', 'textdomain'),
+        'search_items'      => __('Procurar categoria', 'textdomain'),
+        'all_items'         => __('Todos as categoria', 'textdomain'),
+        'parent_item'       => __('Parent category:', 'textdomain'),
+        'parent_item_colon' => __('Parent category:', 'textdomain'),
+        'edit_item'         => __('Editar categoria', 'textdomain'),
+        'update_item'       => __('Atualizar categoria', 'textdomain'),
+        'add_new_item'      => __('Adicionar nova categoria', 'textdomain'),
+        'new_item_name'     => __('Nova categoria', 'textdomain'),
+        'menu_name'         => __('Categoria', 'textdomain'),
+    );
+    $args = array(
+        'labels' => $labels,
+        'description' => __('Categoria do artigo', 'textdomain'),
+        'hierarchical' => true,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud' => true,
+        'show_in_quick_edit' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+    );
+    register_taxonomy('artigos_category', array('artigos'), $args);
+}
+add_action('init', 'artigos_category');
+
+function artigos_tag()
+{
+    $labels = array(
+        'name' => _x('Tags', 'taxonomy general name'),
+        'singular_name' => _x('Tag', 'taxonomy singular name'),
+        'search_items' =>  __('Search Tags'),
+        'all_items' => __('All Tags'),
+        'parent_item' => __('Parent Tag'),
+        'parent_item_colon' => __('Parent Tag:'),
+        'edit_item' => __('Edit Tag'),
+        'update_item' => __('Update Tag'),
+        'add_new_item' => __('Add New Tag'),
+        'new_item_name' => __('New Tag Name'),
+        'menu_name' => __('Tags'),
+    );
+
+    $args = array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'custom-tag'),
+    );
+
+    register_taxonomy('artigos_tag', array('artigos'), $args);
+}
+
+add_action('init', 'artigos_tag', 0);

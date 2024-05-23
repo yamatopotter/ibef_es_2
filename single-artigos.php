@@ -6,7 +6,6 @@
 
             <main>
                 <section id="intro-sub">
-
                     <div class="container">
                         <div class="col-12 text-center">
                             <h1><?php the_title(); ?></h1>

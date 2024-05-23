@@ -44,6 +44,12 @@ function theme_customizer_settings($wp_customize)
     require_once("custom-theme/noticias.php");
 
     /**
+     * SUBMENU Páginas Internas -> Notícias
+     */
+
+    require_once("custom-theme/artigos.php");
+
+    /**
      * SUBMENU Páginas Internas -> Eventos
      */
     
