@@ -38,7 +38,7 @@
                                         <div class="card-content">
                                             <div class="card-data">
                                                 <span class="card-category"><?= get_custom_category($post->ID, "category") ?></span>
-                                                <span class="card-date"><?= the_date("d/m/Y"); ?></span>
+                                                <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
                                             </div>
                                             <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                             <hr />

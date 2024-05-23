@@ -100,6 +100,38 @@ function register_post_types()
     ));
 
     /* -------------------------------------------------------------------------- */
+    /*                          Registro do tipo resenhas                         */
+    /* -------------------------------------------------------------------------- */
+
+    register_post_type('resenhas', array(
+        'labels' => array(
+            'name' => __('Resenha'),
+            'singular_name' => __('Resenha'),
+            'add_new' => __('Adicionar nova resenha'),
+            'add_new_item' => __('Adicionar nova resenha'),
+            'edit_item' => __('Editar resenha'),
+            'new_item' => __('Nova resenha'),
+            'all_items' => __('Todas as resenhas'),
+            'view_item' => __('Exibir resenha'),
+            'search_items' => __('Buscar resenha'),
+            'not_found' => __('Nenhuma resenha encontrado'),
+            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Resenhas'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'has_archive' => true,
+        'taxonomies' => array('resenhas_category', 'resenhas_tag'),
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'resenhas'),
+        'show_in_nav_menus' => true,
+        'supports' => array(
+            'title', 'excerpt', 'editor', 'thumbnail'
+        )
+    ));
+
+    /* -------------------------------------------------------------------------- */
     /*                           Registro do tipo Mídia                           */
     /* -------------------------------------------------------------------------- */
 
@@ -1199,7 +1231,7 @@ function eventos_category()
 }
 add_action('init', 'eventos_category');
 
-// ----------------------------Categoria para os tipos de eventos -----------------------------
+// ----------------------------Categoria para os tipos de artigos -----------------------------
 function artigos_category()
 {
 
@@ -1263,3 +1295,67 @@ function artigos_tag()
 }
 
 add_action('init', 'artigos_tag', 0);
+
+// ----------------------------Categoria para os tipos de artigos -----------------------------
+function resenhas_category()
+{
+    $labels = array(
+        'name'              => _x('Categoria', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Categoria', 'taxonomy singular name', 'textdomain'),
+        'search_items'      => __('Procurar categoria', 'textdomain'),
+        'all_items'         => __('Todos as categoria', 'textdomain'),
+        'parent_item'       => __('Parent category:', 'textdomain'),
+        'parent_item_colon' => __('Parent category:', 'textdomain'),
+        'edit_item'         => __('Editar categoria', 'textdomain'),
+        'update_item'       => __('Atualizar categoria', 'textdomain'),
+        'add_new_item'      => __('Adicionar nova categoria', 'textdomain'),
+        'new_item_name'     => __('Nova categoria', 'textdomain'),
+        'menu_name'         => __('Categoria', 'textdomain'),
+    );
+    $args = array(
+        'labels' => $labels,
+        'description' => __('Categoria do artigo', 'textdomain'),
+        'hierarchical' => true,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud' => true,
+        'show_in_quick_edit' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+    );
+    register_taxonomy('resenhas_category', array('resenhas'), $args);
+}
+add_action('init', 'resenhas_category');
+
+function resenhas_tag()
+{
+    $labels = array(
+        'name' => _x('Tags', 'taxonomy general name'),
+        'singular_name' => _x('Tag', 'taxonomy singular name'),
+        'search_items' =>  __('Search Tags'),
+        'all_items' => __('All Tags'),
+        'parent_item' => __('Parent Tag'),
+        'parent_item_colon' => __('Parent Tag:'),
+        'edit_item' => __('Edit Tag'),
+        'update_item' => __('Update Tag'),
+        'add_new_item' => __('Add New Tag'),
+        'new_item_name' => __('New Tag Name'),
+        'menu_name' => __('Tags'),
+    );
+
+    $args = array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'custom-tag'),
+    );
+
+    register_taxonomy('resenhas_tag', array('resenhas'), $args);
+}
+
+add_action('init', 'resenhas_tag', 0);
