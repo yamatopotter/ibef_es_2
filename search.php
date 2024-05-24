@@ -8,6 +8,7 @@ $post_type = $_GET["post_type"];
     <section id="intro-sub">
         <div class="container">
             <div class="col-12 text-center">
+                <h3 class="text-white"><?= strtoupper($post_type); ?></h3>
                 <h1>Resultados da sua busca</h1>
 
                 <p class="text-white">
