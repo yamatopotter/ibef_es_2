@@ -1053,11 +1053,11 @@ if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group(array(
         'key' => 'group_667b7580085d3',
-        'title' => 'Opções do Ibef Academy',
+        'title' => 'Opções do Artigos e Resenhas',
         'fields' => array(
             array(
                 'key' => 'field_667b7c2f909b2',
-                'label' => 'Bloco de Resenhas',
+                'label' => 'Resenhas Ibef Academy',
                 'name' => '',
                 'type' => 'tab',
                 'instructions' => '',
@@ -1111,7 +1111,7 @@ if (function_exists('acf_add_local_field_group')) :
             ),
             array(
                 'key' => 'field_667b7c03909b1',
-                'label' => 'Bloco de Artigos',
+                'label' => 'Artigos Ibef Academy',
                 'name' => '',
                 'type' => 'tab',
                 'instructions' => '',
@@ -1163,7 +1163,62 @@ if (function_exists('acf_add_local_field_group')) :
                 'append' => '',
                 'maxlength' => '',
             ),
+            array(
+                'key' => 'field_667b7c1',
+                'label' => 'Artigos CQC',
+                'name' => '',
+                'type' => 'tab',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'placement' => 'top',
+                'endpoint' => 0,
+            ),
+            array(
+                'key' => 'field_667b298',
+                'label' => 'Mostrar bloco de artigos',
+                'name' => 'show_artigos_block_cqc',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 0,
+                'ui' => 1,
+                'ui_on_text' => 'Sim',
+                'ui_off_text' => 'Não',
+            ),
+            array(
+                'key' => 'field_667b297',
+                'label' => 'Título do bloco',
+                'name' => 'title_artigos_cqc',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => 'Artigos',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
         ),
+
         'location' => array(
             array(
                 array(

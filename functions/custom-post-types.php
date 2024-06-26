@@ -34,6 +34,101 @@ function register_post_types()
         )
     ));
 
+    /* -------------------------------------------------------------------------- */
+    /*                          Registro do tipo artigos                          */
+    /* -------------------------------------------------------------------------- */
+
+    register_post_type('artigos-academy', array(
+        'labels' => array(
+            'name' => __('Artigos Academy'),
+            'singular_name' => __('Artigo Academy'),
+            'add_new' => __('Adicionar novo artigo'),
+            'add_new_item' => __('Adicionar novo artigo'),
+            'edit_item' => __('Editar artigo'),
+            'new_item' => __('Novo artigo'),
+            'all_items' => __('Todos os artigos'),
+            'view_item' => __('Exibir artigo'),
+            'search_items' => __('Buscar artigo'),
+            'not_found' => __('Nenhum artigo encontrado'),
+            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Artigos Academy'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'has_archive' => true,
+        'taxonomies' => array('artigos_academy_category', 'artigos_academy_tag'),
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'artigos-academy'),
+        'show_in_nav_menus' => true,
+        'supports' => array(
+            'title', 'excerpt', 'editor', 'thumbnail'
+        )
+    ));
+
+    /* -------------------------------------------------------------------------- */
+    /*                          Registro do tipo resenhas                         */
+    /* -------------------------------------------------------------------------- */
+
+    register_post_type('resenhas-academy', array(
+        'labels' => array(
+            'name' => __('Resenha Academy'),
+            'singular_name' => __('Resenha Academy'),
+            'add_new' => __('Adicionar nova resenha'),
+            'add_new_item' => __('Adicionar nova resenha'),
+            'edit_item' => __('Editar resenha'),
+            'new_item' => __('Nova resenha'),
+            'all_items' => __('Todas as resenhas do academy'),
+            'view_item' => __('Exibir resenha'),
+            'search_items' => __('Buscar resenha'),
+            'not_found' => __('Nenhuma resenha encontrado'),
+            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Resenhas Academy'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'has_archive' => true,
+        'taxonomies' => array('resenhas-academy-category', 'resenhas-academy-tag'),
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'resenhas-academy'),
+        'show_in_nav_menus' => true,
+        'supports' => array(
+            'title', 'excerpt', 'editor', 'thumbnail'
+        )
+    ));
+
+    /* -------------------------------------------------------------------------- */
+    /*                          Registro do tipo artigos                          */
+    /* -------------------------------------------------------------------------- */
+
+    register_post_type('artigos-cqc', array(
+        'labels' => array(
+            'name' => __('Artigos CQC'),
+            'singular_name' => __('Artigo CQC'),
+            'add_new' => __('Adicionar novo artigo'),
+            'add_new_item' => __('Adicionar novo artigo'),
+            'edit_item' => __('Editar artigo'),
+            'new_item' => __('Novo artigo'),
+            'all_items' => __('Todos os artigos'),
+            'view_item' => __('Exibir artigo'),
+            'search_items' => __('Buscar artigo'),
+            'not_found' => __('Nenhum artigo encontrado'),
+            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Artigos CQC'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'has_archive' => true,
+        'taxonomies' => array('artigos-cqc-category', 'artigos-cqc-tag'),
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'artigos-cqc'),
+        'show_in_nav_menus' => true,
+        'supports' => array(
+            'title', 'excerpt', 'editor', 'thumbnail'
+        )
+    ));
 
     /* -------------------------------------------------------------------------- */
     /*                          Registro do tipo notícias                         */
@@ -61,70 +156,6 @@ function register_post_types()
         'taxonomies' => array('category', 'post_tag'),
         'hierarchical' => true,
         'rewrite' => array('slug' => 'noticias'),
-        'show_in_nav_menus' => true,
-        'supports' => array(
-            'title', 'excerpt', 'editor', 'thumbnail'
-        )
-    ));
-
-    /* -------------------------------------------------------------------------- */
-    /*                          Registro do tipo artigos                          */
-    /* -------------------------------------------------------------------------- */
-
-    register_post_type('artigos', array(
-        'labels' => array(
-            'name' => __('Artigo'),
-            'singular_name' => __('Artigo'),
-            'add_new' => __('Adicionar novo artigo'),
-            'add_new_item' => __('Adicionar novo artigo'),
-            'edit_item' => __('Editar artigo'),
-            'new_item' => __('Novo artigo'),
-            'all_items' => __('Todos os artigos'),
-            'view_item' => __('Exibir artigo'),
-            'search_items' => __('Buscar artigo'),
-            'not_found' => __('Nenhum artigo encontrado'),
-            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
-            'parent_item_colon' => '',
-            'menu_name' => 'Artigos'
-        ),
-        'public' => true,
-        'menu_icon' => 'dashicons-media-document',
-        'has_archive' => true,
-        'taxonomies' => array('artigos_category', 'artigos_tag'),
-        'hierarchical' => true,
-        'rewrite' => array('slug' => 'artigos'),
-        'show_in_nav_menus' => true,
-        'supports' => array(
-            'title', 'excerpt', 'editor', 'thumbnail'
-        )
-    ));
-
-    /* -------------------------------------------------------------------------- */
-    /*                          Registro do tipo resenhas                         */
-    /* -------------------------------------------------------------------------- */
-
-    register_post_type('resenhas', array(
-        'labels' => array(
-            'name' => __('Resenha'),
-            'singular_name' => __('Resenha'),
-            'add_new' => __('Adicionar nova resenha'),
-            'add_new_item' => __('Adicionar nova resenha'),
-            'edit_item' => __('Editar resenha'),
-            'new_item' => __('Nova resenha'),
-            'all_items' => __('Todas as resenhas'),
-            'view_item' => __('Exibir resenha'),
-            'search_items' => __('Buscar resenha'),
-            'not_found' => __('Nenhuma resenha encontrado'),
-            'not_found_in_trash' => __('Nenhum item encontrado na Lixeira'),
-            'parent_item_colon' => '',
-            'menu_name' => 'Resenhas'
-        ),
-        'public' => true,
-        'menu_icon' => 'dashicons-media-document',
-        'has_archive' => true,
-        'taxonomies' => array('resenhas_category', 'resenhas_tag'),
-        'hierarchical' => true,
-        'rewrite' => array('slug' => 'resenhas'),
         'show_in_nav_menus' => true,
         'supports' => array(
             'title', 'excerpt', 'editor', 'thumbnail'
@@ -1231,8 +1262,8 @@ function eventos_category()
 }
 add_action('init', 'eventos_category');
 
-// ----------------------------Categoria para os tipos de artigos -----------------------------
-function artigos_category()
+// ----------------------------Categoria para os tipos de artigos academy-----------------------------
+function artigos_academy_category()
 {
 
     $labels = array(
@@ -1250,7 +1281,7 @@ function artigos_category()
     );
     $args = array(
         'labels' => $labels,
-        'description' => __('Categoria do artigo', 'textdomain'),
+        'description' => __('Categoria do artigo academy', 'textdomain'),
         'hierarchical' => true,
         'public' => true,
         'publicly_queryable' => true,
@@ -1262,11 +1293,11 @@ function artigos_category()
         'show_admin_column' => true,
         'show_in_rest' => true,
     );
-    register_taxonomy('artigos_category', array('artigos'), $args);
+    register_taxonomy('artigos-academy-category', array('artigos-academy'), $args);
 }
-add_action('init', 'artigos_category');
+add_action('init', 'artigos_academy_category');
 
-function artigos_tag()
+function artigos_academy_tag()
 {
     $labels = array(
         'name' => _x('Tags', 'taxonomy general name'),
@@ -1288,17 +1319,18 @@ function artigos_tag()
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'custom-tag'),
+        'rewrite' => array('slug' => 'artigos-academy-tag'),
     );
 
-    register_taxonomy('artigos_tag', array('artigos'), $args);
+    register_taxonomy('artigos-academy-tag', array('artigos-academy'), $args);
 }
 
-add_action('init', 'artigos_tag', 0);
+add_action('init', 'artigos_academy_tag', 0);
 
-// ----------------------------Categoria para os tipos de artigos -----------------------------
-function resenhas_category()
+// ----------------------------Categoria para os tipos de artigos CQC-----------------------------
+function artigos_cqc_category()
 {
+
     $labels = array(
         'name'              => _x('Categoria', 'taxonomy general name', 'textdomain'),
         'singular_name'     => _x('Categoria', 'taxonomy singular name', 'textdomain'),
@@ -1314,7 +1346,7 @@ function resenhas_category()
     );
     $args = array(
         'labels' => $labels,
-        'description' => __('Categoria do artigo', 'textdomain'),
+        'description' => __('Categoria do artigo cqc', 'textdomain'),
         'hierarchical' => true,
         'public' => true,
         'publicly_queryable' => true,
@@ -1326,11 +1358,11 @@ function resenhas_category()
         'show_admin_column' => true,
         'show_in_rest' => true,
     );
-    register_taxonomy('resenhas_category', array('resenhas'), $args);
+    register_taxonomy('artigos-cqc-category', array('artigos-cqc'), $args);
 }
-add_action('init', 'resenhas_category');
+add_action('init', 'artigos_cqc_category');
 
-function resenhas_tag()
+function artigos_cqc_tag()
 {
     $labels = array(
         'name' => _x('Tags', 'taxonomy general name'),
@@ -1352,10 +1384,75 @@ function resenhas_tag()
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'custom-tag'),
+        'rewrite' => array('slug' => 'artigos-cqc-tag'),
     );
 
-    register_taxonomy('resenhas_tag', array('resenhas'), $args);
+    register_taxonomy('artigos-cqc-tag', array('artigos-cqc'), $args);
 }
 
-add_action('init', 'resenhas_tag', 0);
+add_action('init', 'artigos_cqc_tag', 0);
+
+
+// ----------------------------Categoria para os tipos de artigos -----------------------------
+function resenhas_academy_category()
+{
+    $labels = array(
+        'name'              => _x('Categoria', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Categoria', 'taxonomy singular name', 'textdomain'),
+        'search_items'      => __('Procurar categoria', 'textdomain'),
+        'all_items'         => __('Todos as categoria', 'textdomain'),
+        'parent_item'       => __('Parent category:', 'textdomain'),
+        'parent_item_colon' => __('Parent category:', 'textdomain'),
+        'edit_item'         => __('Editar categoria', 'textdomain'),
+        'update_item'       => __('Atualizar categoria', 'textdomain'),
+        'add_new_item'      => __('Adicionar nova categoria', 'textdomain'),
+        'new_item_name'     => __('Nova categoria', 'textdomain'),
+        'menu_name'         => __('Categoria', 'textdomain'),
+    );
+    $args = array(
+        'labels' => $labels,
+        'description' => __('Categoria da resenha', 'textdomain'),
+        'hierarchical' => true,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud' => true,
+        'show_in_quick_edit' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+    );
+    register_taxonomy('resenhas-academy-category', array('resenhas-academy'), $args);
+}
+add_action('init', 'resenhas_academy_category');
+
+function resenhas_academy_tag()
+{
+    $labels = array(
+        'name' => _x('Tags', 'taxonomy general name'),
+        'singular_name' => _x('Tag', 'taxonomy singular name'),
+        'search_items' =>  __('Search Tags'),
+        'all_items' => __('All Tags'),
+        'parent_item' => __('Parent Tag'),
+        'parent_item_colon' => __('Parent Tag:'),
+        'edit_item' => __('Edit Tag'),
+        'update_item' => __('Update Tag'),
+        'add_new_item' => __('Add New Tag'),
+        'new_item_name' => __('New Tag Name'),
+        'menu_name' => __('Tags'),
+    );
+
+    $args = array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'resenhas-academy-tag'),
+    );
+
+    register_taxonomy('resenhas-academy-tag', array('resenhas-academy'), $args);
+}
+
+add_action('init', 'resenhas_academy_tag', 0);

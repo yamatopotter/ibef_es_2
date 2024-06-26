@@ -16,7 +16,7 @@ function theme_customizer_settings($wp_customize)
 
 
     require_once("custom-theme/front-page.php");
-   
+
 
     /**
      * Páginas Internas
@@ -36,7 +36,7 @@ function theme_customizer_settings($wp_customize)
 
     require_once("custom-theme/programas-estruturados.php");
 
-    
+
     /**
      * SUBMENU Páginas Internas -> Notícias
      */
@@ -44,45 +44,57 @@ function theme_customizer_settings($wp_customize)
     require_once("custom-theme/noticias.php");
 
     /**
-     * SUBMENU Páginas Internas -> Notícias
+     * SUBMENU Páginas Internas -> Artigos
      */
 
     require_once("custom-theme/artigos.php");
 
     /**
+     * SUBMENU Páginas Internas -> Resenhas
+     */
+
+    require_once("custom-theme/resenhas.php");
+
+    /**
+     * SUBMENU Páginas Internas -> Artigos CQC
+     */
+
+    require_once("custom-theme/artigos-cqc.php");
+
+    /**
      * SUBMENU Páginas Internas -> Eventos
      */
-    
+
     require_once("custom-theme/eventos.php");
 
     /**
      * SUBMENU Páginas Internas -> Mídia
      */
-   
+
     require_once("custom-theme/midia.php");
 
     /**
      * SUBMENU Páginas Internas -> Cartas
      */
-    
+
     require_once("custom-theme/cartas.php");
 
     /**
      * SUBMENU Páginas Internas -> Galerias de fotos
      */
-    
+
     require_once("custom-theme/galerias.php");
 
     /**
      * SUBMENU Páginas Internas -> Informes
      */
-    
+
     require_once("custom-theme/informes.php");
 
     /**
      * SUBMENU Páginas Internas -> Relatório
      */
-    
+
     require_once("custom-theme/relatorios.php");
 }
 

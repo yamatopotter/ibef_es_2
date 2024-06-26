@@ -2,7 +2,7 @@
     // add header
     get_header();
     $artigos_query = new WP_Query(array(
-        'post_type' => 'artigos',
+        'post_type' => 'artigos-academy',
         'orderby' => 'publish_date',
         'order' => 'DESC',
         'paged' => get_query_var('paged') ? get_query_var('paged') : 1
@@ -32,7 +32,7 @@
                             <form role="search" method="get" id="searchform" action="<?php echo esc_url(home_url('/')); ?>">
                                 <div class="d-flex gap-4">
                                     <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Pesquisar em artigos" class="p-2 form-control" />
-                                    <input type="hidden" name="post_type" value="artigos" /> <!-- Substitua 'custom_post_type' pelo nome do seu post personalizado -->
+                                    <input type="hidden" name="post_type" value="artigos-academy" /> <!-- Substitua 'custom_post_type' pelo nome do seu post personalizado -->
                                     <input type="submit" class="btn btn-primary" id="searchsubmit" value="Pesquisar" />
                                 </div>
                             </form>
@@ -51,7 +51,7 @@
 
                                         <div class="card-content">
                                             <div class="card-data">
-                                                <span class="card-category"><?= get_custom_category($post->ID, "artigos_category") ?></span>
+                                                <span class="card-category"><?= get_custom_category($post->ID, "artigos-academy-category") ?></span>
                                                 <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
                                             </div>
                                             <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>

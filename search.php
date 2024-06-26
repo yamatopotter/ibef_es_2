@@ -8,7 +8,7 @@ $post_type = $_GET["post_type"];
     <section id="intro-sub">
         <div class="container">
             <div class="col-12 text-center">
-                <h3 class="text-white"><?= strtoupper($post_type); ?></h3>
+                <h3 class="text-white"><a href="<?= get_post_type_archive_link($post_type) ?>" style="color: #fff; text-decoration: none; padding:5px; border-bottom: 1px solid #fff"><?= str_replace("-", " ", strtoupper($post_type)); ?></a></h3>
                 <h1>Resultados da sua busca</h1>
 
                 <p class="text-white">
@@ -43,7 +43,7 @@ $post_type = $_GET["post_type"];
 
                                 <div class="card-content">
                                     <div class="card-data">
-                                        <span class="card-category"><?= get_custom_category($post->ID,  $post_type . "_category") ?></span>
+                                        <span class="card-category"><?= get_custom_category($post->ID,  $post_type == 'noticias' ?  "category" : $post_type . "-category") ?></span>
                                         <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
                                     </div>
                                     <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
