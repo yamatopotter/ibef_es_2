@@ -43,8 +43,7 @@
                         </section>
 
                         <?php
-                        $status = get_field("show_como_funciona");
-                        if ($status) :
+                        if (get_field("show_como_funciona")) :
                         ?>
 
                             <section class="como-funciona">
@@ -74,8 +73,7 @@
                         <?php endif; ?>
 
                         <?php
-                        $status = get_field("show_beneficios");
-                        if ($status) :
+                        if (get_field("show_beneficios")) :
                         ?>
                             <section id="beneficios">
                                 <div class="container">
@@ -103,8 +101,7 @@
                         <?php endif; ?>
 
                         <?php
-                        $status = get_field("show_time");
-                        if ($status) :
+                        if (get_field("show_time")) :
                         ?>
                             <section class="quadro-diretoria">
                                 <div class="container">
@@ -135,8 +132,7 @@
                         <?php endif; ?>
 
                         <?php
-                        $status = get_field("show_program_documentos");
-                        if ($status) :
+                        if (get_field("show_program_documentos")) :
                         ?>
                             <section class="document">
                                 <div class="container">
@@ -157,6 +153,104 @@
                                                 <?php endwhile;
                                                 endif; ?>
                                             </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        <?php endif; ?>
+
+                        <?php
+                        $artigos_block = get_field("show_artigos_block_ibef_academy");
+                        $artigos_titulo = get_field("title_artigos_ibef_academy");
+                        if (get_field("show_resenhas_block")) :
+                            $resenhas_query = new WP_Query(array(
+                                'post_type' => 'resenhas',
+                                'orderby' => 'publish_date',
+                                'order' => 'DESC',
+                                'posts_per_page' => 4
+                            ));
+                        ?>
+                            <section id="ultimas-noticias">
+                                <div class="container">
+                                    <h2 class="title"><?= the_field("title_resenhas") ?></h2>
+
+                                    <div class="row">
+                                        <?php while ($resenhas_query->have_posts()) : $resenhas_query->the_post(); ?>
+                                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                                <div class="card">
+
+                                                    <div class="card-img" style="background: url(<?= get_the_thumbnail('medium') ?>) no-repeat center center/cover">
+
+                                                    </div>
+
+
+                                                    <div class="card-content">
+                                                        <div class="card-data">
+                                                            <span class="card-category"><?= get_custom_category($post->ID, "resenhas_category") ?></span>
+                                                            <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
+                                                        </div>
+                                                        <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                                        <hr />
+                                                        <div class="card-author">
+                                                            <!-- <img src="./assets/img/avatar.png" alt="foto do autor" /> -->
+                                                            <p>Escrito por <?php the_author(); ?></p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        <?php endwhile; ?>
+
+                                        <div class="d-flex justify-content-center mt-4">
+                                            <a href="<?= get_post_type_archive_link('resenhas'); ?>" class="btn btn-primary">Ver mais resenhas <i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        <?php
+
+                        endif;
+
+                        if ($artigos_block) :
+                            $artigos_query = new WP_Query(array(
+                                'post_type' => 'artigos',
+                                'orderby' => 'publish_date',
+                                'order' => 'DESC',
+                                'posts_per_page' => 4
+                            ));
+                        ?>
+                            <section id="ultimas-noticias" class="home">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 texto-center">
+                                            <h2><?= $artigos_titulo ?></h2>
+                                        </div>
+
+                                        <!-- Adicionar uma query com repeater para pegar as ultimas 4 noticias -->
+                                        <?php while ($artigos_query->have_posts()) : $artigos_query->the_post(); ?>
+                                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                                <div class="card">
+                                                    <div class="card-img" style="background: url(<?php the_thumbnail('medium') ?>) no-repeat center center/cover">
+                                                        <!-- <img src="" alt="foto do post" class="card-img" /> -->
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="card-data">
+                                                            <span class="card-category"><?= get_custom_category($post->ID, "artigos_category") ?></span>
+                                                            <span class="card-date"><?= get_the_date("d/m/Y"); ?></span>
+                                                        </div>
+                                                        <h3 class="titulo"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                                        <hr />
+                                                        <div class="card-author">
+                                                            <!-- <img src="./assets/img/avatar.png" alt="foto do autor" /> -->
+                                                            <p>Escrito por <?php the_author(); ?></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endwhile; ?>
+                                        <div class="d-flex justify-content-center mt-4">
+                                            <a href="<?= get_post_type_archive_link('artigos'); ?>" class="btn btn-primary">Ver mais artigos <i class="bi bi-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
