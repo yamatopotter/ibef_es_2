@@ -8,6 +8,7 @@
                 <section id="intro-sub">
                     <div class="container">
                         <div class="col-12 text-center">
+                            <h3 class="text-white"><a href="<?= get_post_type_archive_link($post_type) ?>" style="color: #fff; text-decoration: none; padding:5px; border-bottom: 1px solid #fff"><?= str_replace("-", " ", strtoupper($post_type)); ?></a></h3>
                             <h1><?php the_title(); ?></h1>
 
                             <?php if (has_excerpt()) : ?>

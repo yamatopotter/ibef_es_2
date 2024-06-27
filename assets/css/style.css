@@ -105,6 +105,11 @@ a:active {
   text-decoration: none;
 }
 
+.post-navigation {
+  display: block;
+  margin-bottom: 40px;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 13px;
